@@ -6,28 +6,22 @@ import {
     Card
   } from "@aws-amplify/ui-react";
 
-function Homepage() {
+function Homepage({ items, signOut }) {
     return (
         <Grid
-        columnGap="0.5rem"
-        rowGap="0.5rem"
-        templateColumns="1fr 1fr 1fr"
-        templateRows="1fr 3fr 1fr"
+        templateColumns="0.5fr 1fr 1fr"
+        templateRows="0.5fr 4fr"
+        height="100vh"
+        width="100wh"
       >
-        <Header />
-        <Navbar />
+        <Header signOut={signOut}/>
+        <Navbar items={items} />
         
         <Card
           columnStart="2"
           columnEnd="-1"
         >
           Main
-        </Card>
-        <Card
-          columnStart="2"
-          columnEnd="-1"
-        >
-          Footer
         </Card>
       </Grid>
     )

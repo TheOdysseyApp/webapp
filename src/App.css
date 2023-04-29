@@ -1,3 +1,7 @@
 .amplify-card {
-    background-color: red;
+    border: solid black 1px;
+}
+
+.amplify-scrollview {
+    border: solid black 1px;
 }

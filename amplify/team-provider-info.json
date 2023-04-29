@@ -16,5 +16,23 @@
         "odysseywebappafd4e4ea": {}
       }
     }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-odysseywebapp-dev-142331-authRole",
+      "UnauthRoleArn": "arn:aws:iam::572780329593:role/amplify-odysseywebapp-dev-142331-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::572780329593:role/amplify-odysseywebapp-dev-142331-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-odysseywebapp-dev-142331-deployment",
+      "UnauthRoleName": "amplify-odysseywebapp-dev-142331-unauthRole",
+      "StackName": "amplify-odysseywebapp-dev-142331",
+      "StackId": "arn:aws:cloudformation:us-east-2:572780329593:stack/amplify-odysseywebapp-dev-142331/c3622ee0-e541-11ed-ac97-06d8901ded47",
+      "AmplifyAppId": "d259gr2gd29d7b"
+    },
+    "categories": {
+      "auth": {
+        "odysseywebappafd4e4ea": {}
+      }
+    }
   }
 }
