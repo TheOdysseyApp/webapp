@@ -1,4 +1,5 @@
-import { Card, View } from "@aws-amplify/ui-react";
+import { Card, View, Grid } from "@aws-amplify/ui-react";
+import Location from "./Location"
 
 function TravelerInfo({ currentTraveler }) {
     return (
@@ -17,6 +18,14 @@ function TravelerInfo({ currentTraveler }) {
                 <p>{`Number of Days: ${"Number"}`}</p>
                 <p>{`Budget: ${"$maximum"}`}</p>
 
+
+                <Grid
+                templateColumns="1fr 1fr 1fr"
+                >
+                  <Location column={1} />
+                  <Location column={2} />
+                  <Location column={3} />
+                </Grid>
             </View>
 
             :
