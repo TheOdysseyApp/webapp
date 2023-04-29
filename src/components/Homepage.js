@@ -1,12 +1,12 @@
-import Header from "./Header";
-import Navbar from "./Navbar";
+import Header from "./header/Header";
+import Navbar from "./navbar/Navbar";
 
 import { useState } from 'react';
 
 import {
     Grid
   } from "@aws-amplify/ui-react";
-import TravelerInfo from "./TravelerInfo";
+import TravelerInfo from "./main/TravelerInfo";
 
 function Homepage({ items, signOut }) {
     const [currentTraveler, setCurrentTraveler] = useState(null)
