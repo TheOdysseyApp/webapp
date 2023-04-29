@@ -5,3 +5,11 @@
 .amplify-scrollview {
     border: solid black 1px;
 }
+
+.Header > button {
+    float: right;
+}
+
+.TravelerInfoUnselected {
+    text-align: center;
+}
