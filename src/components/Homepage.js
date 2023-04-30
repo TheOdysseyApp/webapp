@@ -14,8 +14,8 @@ function Homepage({ items, signOut }) {
 
     return (
         <Grid
-        templateColumns="0.5fr 2fr"
-        templateRows="1fr 8fr"
+        templateColumns="1fr 4fr"
+        templateRows="55px 6fr"
         height="100vh"
         width="100wh"
       >

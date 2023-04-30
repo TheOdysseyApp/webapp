@@ -6,12 +6,13 @@ function TravelerInfo({ currentTraveler }) {
         <Card
           columnStart="2"
           columnEnd="-1"
+          className="TravelerInfo"
         >
           {
             currentTraveler ? 
             <View className="TravelerInfoSelected">
                 <h1>{currentTraveler.name}</h1>
-                <h2>{`# ${currentTraveler.id}`}</h2>
+                <h3>{`# ${currentTraveler.id}`}</h3>
                 <p>{`Departing from: ${"Location"}`}</p>
                 <p>{`Month of trip: ${"Month"}`}</p>
                 <p>{`Desired activities: ${"Activity1, Activity2, Activity3"}`}</p>

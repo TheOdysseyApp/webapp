@@ -1,20 +1,22 @@
 import {
     Card,
     Button,
-    Image
   } from "@aws-amplify/ui-react";
+
+import './Navbar.css'
 
 function Navbar({ signOut }) {
     return (
-        <Card className="Header"
+        <Card className="Navbar"
           rowStart="1"
           rowEnd="2"
           columnStart="1"
           columnEnd="-1"
         >
-          Header
-          <Image alt="Odyssey Logo" src="src/components/logo.jpg"/>
-          <Button onClick={signOut}>Sign Out</Button>
+          <h4><b>Planner Dashboard</b></h4>
+          <img alt="help" src="/images/logo.png" />
+          <Button onClick={signOut}>Log Out</Button>
+          
 
         </Card>
     )

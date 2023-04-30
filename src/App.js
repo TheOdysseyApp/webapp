@@ -16,6 +16,8 @@ function App({ signOut }) {
     {name: "Tiffany", id: 15, date: "03/12/2022"},
     {name: "Ari", id: 100, date: "04/29/2022"},
     {name: "Zach", id: 150, date: "04/29/2022"},
+    {name: "Traveler Name", id: 156, date: "04/29/2022"},
+
   ]
 
   return (
