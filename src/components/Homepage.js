@@ -1,5 +1,5 @@
-import Header from "./header/Header";
 import Navbar from "./navbar/Navbar";
+import Sidebar from "./sidebar/Sidebar";
 
 import { useState } from 'react';
 
@@ -19,8 +19,8 @@ function Homepage({ items, signOut }) {
         height="100vh"
         width="100wh"
       >
-        <Header signOut={signOut}/>
-        <Navbar items={items} setCurrentTraveler={setCurrentTraveler}/>
+        <Navbar signOut={signOut}/>
+        <Sidebar items={items} setCurrentTraveler={setCurrentTraveler}/>
         <TravelerInfo currentTraveler={currentTraveler}/>
         
       </Grid>

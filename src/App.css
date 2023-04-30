@@ -1,3 +1,27 @@
+body {
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 14px;
+}
+
 .amplify-card {
     border: solid black 1px;
 }
