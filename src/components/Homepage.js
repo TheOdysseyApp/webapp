@@ -9,16 +9,8 @@ import {
 import TravelerInfo from "./main/TravelerInfo";
 
 function Homepage({ items, signOut }) {
+    // Used in Navbar and TravelerInfo to render correct user
     const [currentTraveler, setCurrentTraveler] = useState(null)
-
-    const selectNewTraveler = (traveler) => {
-      if (currentTraveler === traveler) {
-        setCurrentTraveler(null)
-      }
-      else {
-        setCurrentTraveler(traveler)
-      }
-    }
 
     return (
         <Grid
@@ -28,7 +20,7 @@ function Homepage({ items, signOut }) {
         width="100wh"
       >
         <Header signOut={signOut}/>
-        <Navbar items={items} selectNewTraveler={selectNewTraveler}/>
+        <Navbar items={items} setCurrentTraveler={setCurrentTraveler}/>
         <TravelerInfo currentTraveler={currentTraveler}/>
         
       </Grid>

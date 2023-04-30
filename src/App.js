@@ -1,18 +1,6 @@
-// function App() {
-//   return (
-//     <div className="App">
-//       Hello World test
-//     </div>
-//   );
-// }
-
-// export default App;
-// import logo from "./logo.svg";
-
 import "@aws-amplify/ui-react/styles.css";
 import './App.css'
 import Homepage from './components/Homepage'
-
 
 import {
   withAuthenticator,

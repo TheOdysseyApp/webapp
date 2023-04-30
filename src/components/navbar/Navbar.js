@@ -1,12 +1,26 @@
 import TravelerInfoPreview from "./TravelerInfoPreview";
 
+import { useState } from 'react';
+
 import {
     Collection,
-    Card,
     ScrollView
   } from "@aws-amplify/ui-react";
 
-function Navbar({ items, selectNewTraveler }) {
+function Navbar({ items, setCurrentTraveler }) {
+    const [selectedItemIndex, setSelectedItemIndex] = useState(null)
+
+    const handleItemClick = (item, index) => {
+      if (selectedItemIndex === index ) {
+        setCurrentTraveler(null)
+        setSelectedItemIndex(null);
+      }
+      else {
+        setCurrentTraveler(item)
+        setSelectedItemIndex(index)  
+      }
+    }
+
     return (
       <ScrollView 
         width="100%" 
@@ -24,7 +38,12 @@ function Navbar({ items, selectNewTraveler }) {
           {/* For each item passed to Navbar, create a card object that contains a
           TravelerInfo component */}
           {(item, index) => (
-              <TravelerInfoPreview item={item} key={index} onClick={() => selectNewTraveler(item)}/>
+            <TravelerInfoPreview 
+              item={item} 
+              key={index} 
+              onClick={() => handleItemClick(item, index)}
+              isSelected={index === selectedItemIndex}
+            />
           )}
         </Collection>
       </ScrollView>
