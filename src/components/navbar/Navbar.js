@@ -24,13 +24,7 @@ function Navbar({ items, selectNewTraveler }) {
           {/* For each item passed to Navbar, create a card object that contains a
           TravelerInfo component */}
           {(item, index) => (
-            <Card
-              key={index}
-              // this HAS to be an arrow function, do not directly call the function
-              onClick={() => selectNewTraveler(item)}
-            >
-              <TravelerInfoPreview item={item}/>
-            </Card>
+              <TravelerInfoPreview item={item} key={index} onClick={() => selectNewTraveler(item)}/>
           )}
         </Collection>
       </ScrollView>

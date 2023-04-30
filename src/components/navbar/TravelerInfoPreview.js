@@ -1,14 +1,14 @@
 import {
-    View
+    Card
   } from "@aws-amplify/ui-react";
 
-function TravelerInfoPreview({ item }) {
+function TravelerInfoPreview({ item, onClick }) {
     return (
-        <View>
+        <Card onClick={onClick}>
             <p>Name: {item.name}</p>
             <p>ID: {item.id}</p>
             <p>Date: {item.date}</p>    
-        </View>
+        </Card>
     )
 }
 
