@@ -1,0 +1,29 @@
+.TravelerInfoPreview {
+    border-radius: 10px;
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.TravelerInfoPreviewName {
+    flex-basis: 75%;
+    margin: 0px 0px 0px 0px;
+}
+
+.TravelerInfoPreviewDate {
+    flex-basis: 25%;
+    margin: 0px 0px 0px 0px;
+    text-align: right;
+}
+
+.TravelerInfoPreviewId {
+    flex-basis: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+.TravelerInfoPreviewActivities {
+    margin: 0px 0px 0px 0px;
+    flex-basis: 100%;
+}
+

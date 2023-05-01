@@ -26,14 +26,6 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
-.amplify-card {
-    border: solid black 1px;
-}
-
-.amplify-scrollview {
-    border: solid black 1px;
-}
-
 .TravelerInfoUnselected {
     text-align: center;
 }
