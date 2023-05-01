@@ -1,33 +1,29 @@
-import ItinerariesCard from "./ItinerariesCard";
+/* eslint-disable react/prop-types */
+import React from 'react'
+
+import ItinerariesCard from './ItinerariesCard'
 import './ItinerariesList.css'
 
-import { useState } from 'react';
-
 import {
-    Collection,
-    ScrollView,
-    Divider
-  } from "@aws-amplify/ui-react";
+  Collection,
+  ScrollView,
+  Divider
+} from '@aws-amplify/ui-react'
 
-function ItinerariesList({ items, setCurrentTraveler }) {
-    const [selectedItemIndex, setSelectedItemIndex] = useState(null)
-
-    const handleItemClick = (item, index) => {
-      if (selectedItemIndex === index ) {
-        setCurrentTraveler(null)
-        setSelectedItemIndex(null);
-      }
-      else {
-        setCurrentTraveler(item)
-        setSelectedItemIndex(index)  
-      }
+function ItinerariesList ({ items, currentTraveler, setCurrentTraveler }) {
+  const handleItemClick = (item) => {
+    if (currentTraveler === item) {
+      setCurrentTraveler(null)
+    } else {
+      setCurrentTraveler(item)
     }
+  }
 
-    return (
-      <ScrollView 
-        width="100%" 
-        height="100%" 
-        maxWidth="580px" 
+  return (
+      <ScrollView
+        width="100%"
+        height="100%"
+        maxWidth="580px"
         columnStart="1"
         columnEnd="2"
         rowStart="2"
@@ -42,18 +38,18 @@ function ItinerariesList({ items, setCurrentTraveler }) {
           TravelerInfo component */}
           {(item, index) => (
             <>
-              <ItinerariesCard 
-                item={item} 
-                key={index} 
-                onClick={() => handleItemClick(item, index)}
-                isSelected={index === selectedItemIndex}
+              <ItinerariesCard
+                item={item}
+                key={index}
+                onClick={() => handleItemClick(item)}
+                isSelected={item === currentTraveler}
               />
               <Divider className="ItinerariesListDivider" orientation="horizontal" />
             </>
           )}
         </Collection>
       </ScrollView>
-    )
+  )
 }
 
-export default ItinerariesList;
+export default ItinerariesList
