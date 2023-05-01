@@ -20,7 +20,7 @@ function Homepage({ items, signOut }) {
         width="100wh"
       >
         <Navbar signOut={signOut}/>
-        <ItinerariesList items={items} setCurrentTraveler={setCurrentTraveler}/>
+        <ItinerariesList items={items} currentTraveler={currentTraveler} setCurrentTraveler={setCurrentTraveler}/>
         <TravelerInfo currentTraveler={currentTraveler}/>
         
       </Grid>

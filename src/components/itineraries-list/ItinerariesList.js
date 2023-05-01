@@ -9,17 +9,14 @@ import {
     Divider
   } from "@aws-amplify/ui-react";
 
-function ItinerariesList({ items, setCurrentTraveler }) {
-    const [selectedItemIndex, setSelectedItemIndex] = useState(null)
+function ItinerariesList({ items, currentTraveler, setCurrentTraveler }) {
 
-    const handleItemClick = (item, index) => {
-      if (selectedItemIndex === index ) {
+    const handleItemClick = (item) => {
+      if (currentTraveler === item) {
         setCurrentTraveler(null)
-        setSelectedItemIndex(null);
       }
       else {
         setCurrentTraveler(item)
-        setSelectedItemIndex(index)  
       }
     }
 
@@ -46,7 +43,7 @@ function ItinerariesList({ items, setCurrentTraveler }) {
                 item={item} 
                 key={index} 
                 onClick={() => handleItemClick(item, index)}
-                isSelected={index === selectedItemIndex}
+                isSelected={item === currentTraveler}
               />
               <Divider className="ItinerariesListDivider" orientation="horizontal" />
             </>
