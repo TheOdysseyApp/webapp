@@ -1,12 +1,12 @@
 import Navbar from "./navbar/Navbar";
-import Sidebar from "./sidebar/Sidebar";
+import ItinerariesList from "./itineraries-list/ItinerariesList";
+import TravelerInfo from "./main/TravelerInfo";
 
 import { useState } from 'react';
 
 import {
     Grid
   } from "@aws-amplify/ui-react";
-import TravelerInfo from "./main/TravelerInfo";
 
 function Homepage({ items, signOut }) {
     // Used in Navbar and TravelerInfo to render correct user
@@ -14,13 +14,13 @@ function Homepage({ items, signOut }) {
 
     return (
         <Grid
-        templateColumns="1.3fr 4fr"
+        templateColumns="1fr 4fr"
         templateRows="55px 6fr"
         height="100vh"
         width="100wh"
       >
         <Navbar signOut={signOut}/>
-        <Sidebar items={items} setCurrentTraveler={setCurrentTraveler}/>
+        <ItinerariesList items={items} setCurrentTraveler={setCurrentTraveler}/>
         <TravelerInfo currentTraveler={currentTraveler}/>
         
       </Grid>

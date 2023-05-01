@@ -1,9 +1,9 @@
-.Divider {
+.ItinerariesListDivider {
     width: 90%;
     align-self: center;
 }
 
-.Sidebar {
+.ItinerariesList {
     background-color: #FDF7FA;
     padding: 0px 10px 0px 10px;
     border-right: 1px solid #AAAAAA;

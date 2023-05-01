@@ -1,5 +1,5 @@
-import TravelerInfoPreview from "./TravelerInfoPreview";
-import './Sidebar.css'
+import ItinerariesCard from "./ItinerariesCard";
+import './ItinerariesList.css'
 
 import { useState } from 'react';
 
@@ -9,7 +9,7 @@ import {
     Divider
   } from "@aws-amplify/ui-react";
 
-function Sidebar({ items, setCurrentTraveler }) {
+function ItinerariesList({ items, setCurrentTraveler }) {
     const [selectedItemIndex, setSelectedItemIndex] = useState(null)
 
     const handleItemClick = (item, index) => {
@@ -32,7 +32,7 @@ function Sidebar({ items, setCurrentTraveler }) {
         columnEnd="2"
         rowStart="2"
         rowEnd="-1"
-        className="Sidebar"
+        className="ItinerariesList"
       >
         <Collection
           items={items}
@@ -42,13 +42,13 @@ function Sidebar({ items, setCurrentTraveler }) {
           TravelerInfo component */}
           {(item, index) => (
             <>
-              <TravelerInfoPreview 
+              <ItinerariesCard 
                 item={item} 
                 key={index} 
                 onClick={() => handleItemClick(item, index)}
                 isSelected={index === selectedItemIndex}
               />
-              <Divider className="Divider" orientation="horizontal" />
+              <Divider className="ItinerariesListDivider" orientation="horizontal" />
             </>
           )}
         </Collection>
@@ -56,4 +56,4 @@ function Sidebar({ items, setCurrentTraveler }) {
     )
 }
 
-export default Sidebar;
+export default ItinerariesList;

@@ -1,4 +1,4 @@
-.TravelerInfoPreview {
+.ItinerariesCard {
     border-radius: 10px;
     margin: 0px 10px 0px 10px;
     display: flex;
@@ -6,23 +6,23 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.TravelerInfoPreviewName {
-    flex-basis: 75%;
+.ItinerariesCardName {
+    flex-basis: 65%;
     margin: 0px 0px 0px 0px;
 }
 
-.TravelerInfoPreviewDate {
-    flex-basis: 25%;
+.ItinerariesCardDate {
+    flex-basis: 35%;
     margin: 0px 0px 0px 0px;
     text-align: right;
 }
 
-.TravelerInfoPreviewId {
+.ItinerariesCardId {
     flex-basis: 100%;
     margin: 0px 0px 0px 0px;
 }
 
-.TravelerInfoPreviewActivities {
+.ItinerariesCardActivities {
     margin: 0px 0px 0px 0px;
     flex-basis: 100%;
 }
