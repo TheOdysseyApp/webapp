@@ -1,25 +1,24 @@
-/* eslint-disable react/prop-types */
-import React from 'react'
-import Location from './Location'
-import { Card, View, Grid } from '@aws-amplify/ui-react'
+import { Card, View, Grid } from "@aws-amplify/ui-react";
+import Location from "./Location"
 
-function TravelerInfo ({ currentTraveler }) {
-  return (
+function TravelerInfo({ currentTraveler }) {
+    return (
         <Card
           columnStart="2"
           columnEnd="-1"
           className="TravelerInfo"
         >
           {
-            currentTraveler
-              ? <View className="TravelerInfoSelected">
+            currentTraveler ? 
+            <View className="TravelerInfoSelected">
                 <h1>{currentTraveler.name}</h1>
                 <h3>{`# ${currentTraveler.id}`}</h3>
-                <p>{`Departing from: ${'Location'}`}</p>
-                <p>{`Month of trip: ${'Month'}`}</p>
-                <p>{`Desired activities: ${'Activity1, Activity2, Activity3'}`}</p>
-                <p>{`Number of Days: ${'Number'}`}</p>
-                <p>{`Budget: ${'$maximum'}`}</p>
+                <p>{`Departing from: ${"Location"}`}</p>
+                <p>{`Month of trip: ${"Month"}`}</p>
+                <p>{`Desired activities: ${"Activity1, Activity2, Activity3"}`}</p>
+                <p>{`Number of Days: ${"Number"}`}</p>
+                <p>{`Budget: ${"$maximum"}`}</p>
+
 
                 <Grid
                 templateColumns="1fr 1fr 1fr"
@@ -30,12 +29,13 @@ function TravelerInfo ({ currentTraveler }) {
                 </Grid>
             </View>
 
-              : <View className="TravelerInfoUnselected">
+            :
+            <View className="TravelerInfoUnselected">
                 <h1>Select a traveler on the left to get started</h1>
             </View>
           }
         </Card>
-  )
+    )
 }
 
-export default TravelerInfo
+export default TravelerInfo;

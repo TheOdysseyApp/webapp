@@ -1,10 +1,12 @@
-/* eslint-disable react/prop-types */
-import React from 'react'
-import './Navbar.css'
-import { Card, Button } from '@aws-amplify/ui-react'
+import {
+    Card,
+    Button,
+  } from "@aws-amplify/ui-react";
 
-function Navbar ({ signOut }) {
-  return (
+import './Navbar.css'
+
+function Navbar({ signOut }) {
+    return (
         <Card className="Navbar"
           rowStart="1"
           rowEnd="2"
@@ -14,9 +16,10 @@ function Navbar ({ signOut }) {
           <h4><b>Planner Dashboard</b></h4>
           <img alt="help" src="/images/logo.png" />
           <Button onClick={signOut}>Log Out</Button>
+          
 
         </Card>
-  )
+    )
 }
 
-export default Navbar
+export default Navbar;
