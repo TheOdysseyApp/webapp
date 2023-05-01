@@ -1,8 +1,6 @@
 import ItinerariesCard from "./ItinerariesCard";
 import './ItinerariesList.css'
 
-import { useState } from 'react';
-
 import {
     Collection,
     ScrollView,
