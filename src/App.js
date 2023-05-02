@@ -29,7 +29,7 @@ function App({ signOut }) {
     {name: "Nathan", id: 17, date: new Date("05/29/2022")}
   ]
 
-  const sortedItems = items.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const sortedItems = items.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
     <View className="App">
