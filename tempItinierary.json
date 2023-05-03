@@ -1,0 +1,101 @@
+{
+	"details": {
+		"departure": "Los Angeles, CA",
+		"destination": "Tokyo, Japan",
+		"duration": "7 Days",
+		"month": "May",
+		"flightImageURL": "https://i.etsystatic.com/19427004/r/il/6c7f45/2535137705/il_1588xN.2535137705_hqpc.jpg",
+		"totalTripCost": "$2181"
+	},
+	"departingFlight": {
+		"airline": "Singapore Airlines",
+		"departure": "Los Angeles International Airport",
+        "departureAbrev" : "LAX",
+		"arrival": "Haneda Airport",
+        "arrivalAbrev": "HND",
+		"class": "Economy",
+		"cost": "$900",
+		"datetime": "May 17th 11:20am PST",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+        },
+    "returnFlight": {
+        "airline": "Singapore Airlines",
+        "departure": "Haneda Airport",
+        "departureAbrev" : "HND",
+        "arrival": "Los Angeles International Airport",
+        "arrivalAbrev": "LAX",
+        "class": "Economy",
+        "cost": "$900",
+        "datetime": "May 24th 9:20am PST",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+    },
+	"stay": [{   
+        "name": "Hotel Gracery Shinjuku",
+        "roomType": "Standard Double Room",
+        "dailyCost": "$150",
+        "totalCost": "$1050",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs",
+        "stayImgURL":"https://m.media-amazon.com/images/I/61yE5TT16SL._AC_SL1455_.jpg"
+    }],
+	"workspaces":[{
+		"name": "WeWork Shinjuku",
+		"dailyCost":35,
+        "numDays":3,
+		"link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+    }],
+    "experiences": [
+        {
+            "imageURL": "https://m.media-amazon.com/images/I/61yE5TT16SL._AC_SL1455_.jpg",
+            "name": "Tokyo Food Tour in Shibuya",
+            "cost": 120,
+            "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+        },
+        {
+            "imageURL": "https://m.media-amazon.com/images/I/61yE5TT16SL._AC_SL1455_.jpg",
+            "name": "Shopping at Ginza and visit Tsukiji Fish Market",
+            "cost": 120,
+            "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+        }
+    ],
+    "itinerary":{
+        "itineraryImgURL":"https://www.nighttime.org/wp-content/uploads/2020/06/tokyo.jpg",
+        "days": [
+            {
+                "day":"1",
+                "activities":"Arrival, hotel check-in, and explore Shinjuku area",
+                "cost":""
+            },
+            {
+                "day":"2",
+                "activities":"Tokyo Food Tour in Shibuya",
+                "cost":"$120"
+            },
+            {
+                "day":"3",
+                "activities":"Shopping at Ginza and visit Tsukiji Fish Market",
+                "cost":"$0 (excluding purchases)"
+            },
+            {
+                "day":"4",
+                "activities":"Workday, evening social event at a local izakaya ",
+                "cost":""
+            },
+            {
+                "day":"5",
+                "activities":"Workday, evening visit to Akihabara and meet others at a local cafe ",
+                "cost":""
+            },
+            {
+                "day":"6",
+                "activities":"Workday, evening shopping at Harajuku and Omotesando ",
+                "cost":"$0 (excluding purchases)"
+            },
+            {
+                "day":"7",
+                "activities":"Departure",
+                "cost":""
+            }
+
+        ]
+    }
+}
