@@ -1,0 +1,29 @@
+.ItinerariesCard {
+    border-radius: 10px;
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.ItinerariesCardName {
+    flex-basis: 65%;
+    margin: 0px 0px 0px 0px;
+}
+
+.ItinerariesCardDate {
+    flex-basis: 35%;
+    margin: 0px 0px 0px 0px;
+    text-align: right;
+}
+
+.ItinerariesCardId {
+    flex-basis: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+.ItinerariesCardActivities {
+    margin: 0px 0px 0px 0px;
+    flex-basis: 100%;
+}
+
