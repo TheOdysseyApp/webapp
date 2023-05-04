@@ -1,4 +1,22 @@
 {
+  "main": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-odysseywebapp-main-222639-authRole",
+      "UnauthRoleArn": "arn:aws:iam::572780329593:role/amplify-odysseywebapp-main-222639-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::572780329593:role/amplify-odysseywebapp-main-222639-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-odysseywebapp-main-222639-deployment",
+      "UnauthRoleName": "amplify-odysseywebapp-main-222639-unauthRole",
+      "StackName": "amplify-odysseywebapp-main-222639",
+      "StackId": "arn:aws:cloudformation:us-west-2:572780329593:stack/amplify-odysseywebapp-main-222639/930ca620-ea01-11ed-8b13-0a53c894c0e1",
+      "AmplifyAppId": "d2wk1df8nh4cn3"
+    },
+    "categories": {
+      "auth": {
+        "odysseywebappafd4e4ea": {}
+      }
+    }
+  },
   "sampledev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-odysseywebapp-sampledev-191519-authRole",
