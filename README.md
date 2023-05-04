@@ -14,7 +14,7 @@ npm install -g @aws-amplify/cli
 ```
 amplify configure
 ```
-This will prompt you to provide your AWS access key ID, secret access key, default region, and default output format. You can obtain your AWS access keys from the AWS console.
+This will prompt you to provide your AWS access key ID, secret access key, default region, and default output format. You can obtain your AWS access keys from the AWS console. For more detailed instructions, follow the link at https://docs.amplify.aws/lib/client-configuration/configuring-amplify-categories/q/platform/js/.
 
 3. Clone the repository containing your Amplify project onto your new machine.
 
