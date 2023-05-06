@@ -15,7 +15,7 @@ function Navbar({ signOut }) {
         >
           <h4><b>Planner Dashboard</b></h4>
           <img alt="help" src="/images/logo.png" />
-          <Button onClick={signOut}>Log Out</Button>
+          <Button className="primary" onClick={signOut}>Log Out</Button>
           
 
         </Card>
