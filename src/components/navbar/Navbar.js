@@ -13,9 +13,9 @@ function Navbar({ signOut }) {
           columnStart="1"
           columnEnd="-1"
         >
-          <h4><b>Planner Dashboard</b></h4>
+          <h4>Planner Dashboard</h4>
           <img alt="help" src="/images/logo.png" />
-          <Button onClick={signOut}>Log Out</Button>
+          <Button className="primary" onClick={signOut}>Log Out</Button>
           
 
         </Card>

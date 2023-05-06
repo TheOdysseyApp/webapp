@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Colors */
+
+:root {
+  --color-dark-blue: #194260;
+  --color-light-blue: #5F7E96;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F6F6F6;
+  --color-gray: #A9A9A9;
+  --color-dark-gray: #363636;
+  --color-black: #000000;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Typography */
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 49px;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 38px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Buttons */
+
+button.primary {
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  border: none;
+  transition: .2s;
+}
+
+button.primary:hover {
+  background-color: #083150;
+  color: var(--color-white);
+  background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
+}
+
+button.primary:active {
+  scale: 98%;
+}
+
+button.primary:focus {
+  background-color: #083150;
+  color: var(--color-white);
+}
+
+button.secondary {
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
+  border: 1px solid var(--color-gray);
+  transition: .2s;
+}
+
+button.secondary:hover {
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-blue);
+  border: 1px solid var(--color-gray);
+}
+
+button.secondary:focus {
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
+  border: 1px solid var(--color-gray);
+}
+
+button.secondary:active {
+  scale: 98%;
 }
