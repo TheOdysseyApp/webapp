@@ -1,9 +1,38 @@
 .ItinerariesCard {
-    border-radius: 10px;
-    margin: 0px 10px 0px 10px;
-    display: flex;
+    border-radius: 8px;
+    margin: -1px 10px 0px 10px;
+    padding: 0px;
+    z-index: 1;
+}
+
+.ItinerariesCard.selected {
+    background-color: var(--color-light-blue);
+    color: var(--color-white) !important;
+}
+
+.ItinerariesCard.notSelected:hover {
+    background-color: var(--color-light-gray);
+    z-index: 0;
+}
+
+.ItinerariesCard .container {
+    margin: 16px 16px 0px 16px;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+.ItinerariesCard .container.selected {
+    border-bottom: 1px solid rgba(0,0,0,0);
+}
+
+.ItinerariesCard .content {
+    padding-bottom: 16px;
     flex-wrap: wrap;
-    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    transition: .2s;
+}
+
+.ItinerariesCard .content:active {
+    scale: 98%;
 }
 
 .ItinerariesCardName {
@@ -27,3 +56,10 @@
     flex-basis: 100%;
 }
 
+.amplify-card {
+    background: rgba(0,0,0,0);
+}
+
+.amplify-divider {
+    border: none !important;
+}
