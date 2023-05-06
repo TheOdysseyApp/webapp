@@ -20,6 +20,6 @@
     text-align: right;
     border-radius: 20px;
     font-size: 12px;
-    background-color:#194260;
+    background-color: var(--color-dark-blue);
     color: #FDF7FA;
   }
