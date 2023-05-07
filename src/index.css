@@ -5,7 +5,7 @@
   --color-light-blue: #5F7E96;
   --color-white: #FFFFFF;
   --color-light-gray: #F6F6F6;
-  --color-gray: #A9A9A9;
+  --color-gray: #C0C0C0;
   --color-dark-gray: #363636;
   --color-black: #000000;
 
@@ -17,6 +17,7 @@ h1, h2, h3, h4 {
   font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 700;
+  margin: 0px;
 }
 
 h1 {
@@ -44,6 +45,7 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
+  margin: 0px;
 }
 
 /* Buttons */
@@ -55,6 +57,7 @@ button.primary {
   color: var(--color-white);
   border: none;
   transition: .2s;
+  padding: 8px 16px;
 }
 
 button.primary:hover {

@@ -1,6 +1,6 @@
 import Navbar from "./navbar/Navbar";
 import ItinerariesList from "./itineraries-list/ItinerariesList";
-import TravelerInfo from "./main/TravelerInfo";
+import TravelerInfo from "./traveler-info/TravelerInfo";
 
 import { useState } from 'react';
 
@@ -14,7 +14,7 @@ function Homepage({ items, signOut }) {
 
     return (
         <Grid
-        templateColumns="1.25fr 4fr"
+        templateColumns="1.4fr 4fr"
         templateRows="55px 6fr"
         height="100vh"
         width="100wh"
