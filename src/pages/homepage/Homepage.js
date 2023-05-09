@@ -1,6 +1,6 @@
-import Navbar from "./navbar/Navbar";
-import ItinerariesList from "./itineraries-list/ItinerariesList";
-import TravelerInfo from "./traveler-info/TravelerInfo";
+import Navbar from "../../components/navbar/Navbar";
+import ItinerariesList from "../../components/itineraries-list/ItinerariesList";
+import TravelerInfo from "../../components/traveler-info/TravelerInfo";
 
 import { useState } from 'react';
 

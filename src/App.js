@@ -1,6 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "@aws-amplify/ui-react/styles.css";
 import './App.css'
-import Homepage from './components/Homepage'
+import Homepage from './pages/homepage/Homepage'
+import Dev from "./pages/dev/Dev";
 
 import {
   withAuthenticator,
@@ -33,7 +36,12 @@ function App({ signOut }) {
 
   return (
     <View className="App">
-      <Homepage items={sortedItems} signOut={signOut}/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage items={sortedItems} signOut={signOut}/>}/>
+          <Route path="/dev" element={<Dev/>}/>
+        </Routes>
+      </BrowserRouter>
     </View>
   );
 }
