@@ -2,7 +2,7 @@ import { Card, View, Grid } from "@aws-amplify/ui-react";
 import CompareTrip from "../compare-trip/CompareTrip"
 import './TravelerInfo.css'
 
-function TravelerInfo({ currentTraveler }) {
+function TravelerInfo({ currentTraveler, forwardStage }) {
     return (
         <Card
           columnStart="2"
@@ -27,9 +27,9 @@ function TravelerInfo({ currentTraveler }) {
               templateColumns="1fr 1fr 1fr"
               className="options"
               >
-                <CompareTrip column={1} />
-                <CompareTrip column={2} />
-                <CompareTrip column={3} style={{border: "none"}}/>
+                <CompareTrip column={1} forwardStage={forwardStage} />
+                <CompareTrip column={2} forwardStage={forwardStage} />
+                <CompareTrip column={3} forwardStage={forwardStage} style={{border: "none"}}/>
               </Grid>
             </View>
 

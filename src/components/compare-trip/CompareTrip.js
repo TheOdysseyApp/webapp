@@ -1,7 +1,7 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './CompareTrip.css'
 
-function CompareTrip({ column }) {
+function CompareTrip({ column, forwardStage }) {
     return (
         <Card className="compare-trip" columnStart={column}>
             <h3>Destination {column}</h3>
@@ -32,7 +32,7 @@ function CompareTrip({ column }) {
                 <p>Activity goes here</p>
             </div>
             <div>
-            <Button className="primary">Continue</Button>
+            <Button className="primary" onClick={forwardStage}>Continue</Button>
             </div>
             
         </Card>

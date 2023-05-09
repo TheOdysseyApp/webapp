@@ -7,15 +7,16 @@ import {
     Divider
   } from "@aws-amplify/ui-react";
 
-function ItinerariesList({ items, currentTraveler, setCurrentTraveler }) {
+function ItinerariesList({ items, currentTraveler, setCurrentTraveler, resetStage }) {
 
     const handleItemClick = (item) => {
       if (currentTraveler === item) {
-        setCurrentTraveler(null)
+        setCurrentTraveler(null);
       }
       else {
-        setCurrentTraveler(item)
+        setCurrentTraveler(item);
       }
+      resetStage();
     }
 
     return (
