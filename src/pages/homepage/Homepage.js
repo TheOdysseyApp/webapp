@@ -1,7 +1,7 @@
-import Navbar from "./navbar/Navbar";
-import ItinerariesList from "./itineraries-list/ItinerariesList";
-import TravelerInfo from "./traverler-info/TravelerInfo";
-import Confirmation from "./confirmation/Confirmation";
+import Navbar from "../../components/navbar/Navbar";
+import ItinerariesList from "../../components/itineraries-list/ItinerariesList";
+import TravelerInfo from "../../components/traverler-info/TravelerInfo";
+import Confirmation from "../../components/confirmation/Confirmation";
 
 import { useState } from 'react';
 

@@ -1,6 +1,6 @@
 import "@aws-amplify/ui-react/styles.css";
 import './App.css'
-import Homepage from './components/Homepage'
+import Homepage from './pages/homepage/Homepage'
 
 import {
   withAuthenticator,
