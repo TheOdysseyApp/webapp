@@ -1,7 +1,11 @@
-function Dev({ items, signOut }) {
+function Dev() {
 
     return (
-        <p>hi</p>
+        <div className="dev">
+            <div className="container">
+                <p>hi</p>
+            </div>
+        </div>
     )
 }
 

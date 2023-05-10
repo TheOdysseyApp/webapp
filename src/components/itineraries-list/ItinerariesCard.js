@@ -8,7 +8,7 @@ function ItinerariesCard({ item, onClick, isSelected }) {
 
     return (
         <Card className={isSelected ? "ItinerariesCard selected" : "ItinerariesCard notSelected"} onClick={onClick}>
-            <div className={isSelected ? "container selected" : "container"}>
+            <div className={isSelected ? "card-content selected" : "card-content"}>
                 <div className="content">
                     <h4 className="ItinerariesCardName">{item.name}</h4>
                     <p className="ItinerariesCardDate">{item.date.toLocaleDateString()}</p>    
