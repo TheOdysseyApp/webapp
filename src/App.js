@@ -4,6 +4,7 @@ import "@aws-amplify/ui-react/styles.css";
 import './App.css'
 import Homepage from './pages/homepage/Homepage'
 import Dev from "./pages/dev/Dev";
+import fetchStagingItems from "./api.js"
 
 import {
   withAuthenticator,
@@ -33,6 +34,9 @@ function App({ signOut }) {
   ]
 
   const sortedItems = items.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const userTripMap = fetchStagingItems()
+  console.log(userTripMap)
 
   return (
     <View className="App">

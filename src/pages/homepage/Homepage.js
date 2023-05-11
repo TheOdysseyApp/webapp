@@ -37,9 +37,9 @@ function Homepage({ items, signOut }) {
         {
           0: <TravelerInfo currentTraveler={currentTraveler} forwardStage={() => forwardStage()}/>,
           1: <Confirmation/>
-        } [plannerStage]
+        }[plannerStage]
       }
-    </Grid>
+    </Grid> 
   )
 }
 

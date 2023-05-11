@@ -1,0 +1,85 @@
+{
+    "id": "54e074cc-f280-4522-906c-5c6c18ad9ec3_3",
+    "departingFlight": {
+     "airline": "American Airlines",
+     "arrival": "John F. Kennedy International Airport (JFK)",
+     "arrivalAbbrev": "JFK",
+     "class": "Economy",
+     "cost": 800,
+     "datetime": "2023-06-16T08:00:00Z",
+     "departure": "San Diego International Airport (SAN)",
+     "departureAbbrev": "SAN",
+     "link": "https://www.aa.com/"
+    },
+    "details": {
+     "departure": "San Diego, CA, USA",
+     "destination": "None",
+     "duration": "4 days",
+     "flightImageURL": "https://unsplash.com/photos/UawyfyXnKj0",
+     "month": "June",
+     "totalTripCost": 9000
+    },
+    "experiences": [
+    ],
+    "itinerary": [
+     {
+      "days": {
+       "activities": "Arrive in New York, check-in to the hotel, and explore the city.",
+       "cost": 0,
+       "day": 1
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Visit the Statue of Liberty and Ellis Island. (Cost: 50)",
+       "cost": 50,
+       "day": 2
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Explore Central Park and visit the Metropolitan Museum of Art. (Cost: 40)",
+       "cost": 40,
+       "day": 3
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Visit the Empire State Building and enjoy the views of New York City. (Cost: 40)",
+       "cost": 40,
+       "day": 4
+      },
+      "itineraryImgURL": ""
+     }
+    ],
+    "returnFlight": {
+     "airline": "American Airlines",
+     "arrival": "San Diego International Airport (SAN)",
+     "arrivalAbbrev": "SAN",
+     "class": "Economy",
+     "cost": 800,
+     "datetime": "2023-06-20T16:00:00Z",
+     "departure": "John F. Kennedy International Airport (JFK)",
+     "departureAbbrev": "JFK",
+     "link": "https://www.aa.com/"
+    },
+    "stay": {
+     "dailyCost": 800,
+     "description": "Experience luxury at its finest at The Langham, New York, Fifth Avenue.",
+     "link": "https://www.langhamhotels.com/en/the-langham/new-york/",
+     "name": "The Langham, New York, Fifth Avenue",
+     "numDays": 4,
+     "rating": 4.9,
+     "roomType": "Grand Executive King Room",
+     "stayImgURL": "https://unsplash.com/photos/cM6XZtOqZwA"
+    },
+    "workspaces": {
+     "dailyCost": 50,
+     "link": "https://www.regus.com/office-space/united-states/new-york/new-york-city/office-space/manhattan-245-park-avenue",
+     "name": "Regus - New York, 245 Park Avenue",
+     "numDays": 4
+    }
+   }

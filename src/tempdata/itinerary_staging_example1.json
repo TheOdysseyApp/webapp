@@ -1,0 +1,85 @@
+{
+    "id": "54e074cc-f280-4522-906c-5c6c18ad9ec3_1",
+    "departingFlight": {
+     "airline": "Southwest Airlines",
+     "arrival": "John F. Kennedy International Airport (JFK)",
+     "arrivalAbbrev": "JFK",
+     "class": "Economy",
+     "cost": 600,
+     "datetime": "2023-06-16T10:30:00Z",
+     "departure": "San Diego International Airport (SAN)",
+     "departureAbbrev": "SAN",
+     "link": "https://www.southwest.com/"
+    },
+    "details": {
+     "departure": "San Diego, CA, USA",
+     "destination": "None",
+     "duration": "4 days",
+     "flightImageURL": "https://unsplash.com/photos/5AvhdGIXiMU",
+     "month": "June",
+     "totalTripCost": 9000
+    },
+    "experiences": [
+    ],
+    "itinerary": [
+     {
+      "days": {
+       "activities": "Arrival, hotel check-in, and explore Coronado Island. (Cost: 0)",
+       "cost": 0,
+       "day": 1
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Spend the day at the San Diego Zoo. (Cost: 200)",
+       "cost": 200,
+       "day": 2
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Visit the USS Midway Museum and Old Town San Diego. (Cost: 100)",
+       "cost": 100,
+       "day": 3
+      },
+      "itineraryImgURL": ""
+     },
+     {
+      "days": {
+       "activities": "Relax on the beach and enjoy the hotel amenities. (Cost: 0)",
+       "cost": 0,
+       "day": 4
+      },
+      "itineraryImgURL": ""
+     }
+    ],
+    "returnFlight": {
+     "airline": "Southwest Airlines",
+     "arrival": "San Diego International Airport (SAN)",
+     "arrivalAbbrev": "SAN",
+     "class": "Economy",
+     "cost": 600,
+     "datetime": "2023-06-20T15:30:00Z",
+     "departure": "John F. Kennedy International Airport (JFK)",
+     "departureAbbrev": "JFK",
+     "link": "https://www.southwest.com/"
+    },
+    "stay": {
+     "dailyCost": 700,
+     "description": "Experience luxury and Victorian elegance at the Hotel del Coronado.",
+     "link": "https://hoteldel.com/",
+     "name": "Hotel del Coronado",
+     "numDays": 4,
+     "rating": 4.7,
+     "roomType": "Ocean View Room",
+     "stayImgURL": "https://unsplash.com/photos/5X8gWIDYJfA"
+    },
+    "workspaces": {
+     "dailyCost": 50,
+     "link": "https://www.regus.com/locations/united-states/california/san-diego",
+     "name": "Regus San Diego",
+     "numDays": 4
+    }
+   }
