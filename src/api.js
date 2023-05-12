@@ -3,7 +3,7 @@ import temp1 from "./tempdata/itinerary_staging_example1.json"
 import temp2 from "./tempdata/itinerary_staging_example2.json"
 import temp3 from "./tempdata/itinerary_staging_example3.json"
 
-function fetchStagingItems() {
+export function fetchStagingItems() {
     // temporarily pulling info from json files stored in project directory
     const items = [temp1, temp2, temp3] // should be replaced with dynamodb call
 
@@ -43,4 +43,19 @@ function fetchStagingItems() {
     return userTripMap
 }
 
-export default fetchStagingItems;
+export function fetchTravelerPreviews() {
+    const userTripMap = fetchStagingItems()
+    const previews = []
+    
+    Array.from(userTripMap.entries()).forEach((entry) => {
+        previews.push({name: "Not given", id: entry[0], date: new Date("07/07/2001")})
+    })
+
+    return previews
+}
+
+export function fetchTravelerInfo(id) {
+    const userTripMap = fetchStagingItems()
+    console.log(userTripMap)
+    return userTripMap.get(id)
+}

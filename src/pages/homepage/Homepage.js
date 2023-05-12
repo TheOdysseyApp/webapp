@@ -9,10 +9,11 @@ import {
     Grid
   } from "@aws-amplify/ui-react";
 
-function Homepage({ items, signOut }) {
+function Homepage({ previews, signOut }) {
   // Used in Navbar and TravelerInfo to render correct user
-  const [currentTraveler, setCurrentTraveler] = useState(null);
+  const [currentTravelerId, setCurrentTravelerId] = useState(null);
   const [plannerStage, setPlannerStage] = useState(0);
+  
   const forwardStage = () => {
     setPlannerStage(plannerStage + 1);
   }
@@ -32,10 +33,10 @@ function Homepage({ items, signOut }) {
       width="100wh"
     >
       <Navbar signOut={signOut}/>
-      <ItinerariesList items={items} currentTraveler={currentTraveler} setCurrentTraveler={setCurrentTraveler} resetStage={() => resetStage()}/>
+      <ItinerariesList previews={previews} currentTravelerId={currentTravelerId} setCurrentTravelerId={setCurrentTravelerId} resetStage={() => resetStage()}/>
       {
         {
-          0: <TravelerInfo currentTraveler={currentTraveler} forwardStage={() => forwardStage()}/>,
+          0: <TravelerInfo currentTravelerId={currentTravelerId} forwardStage={() => forwardStage()}/>,
           1: <Confirmation/>
         }[plannerStage]
       }
