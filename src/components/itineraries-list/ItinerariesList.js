@@ -3,8 +3,7 @@ import './ItinerariesList.css'
 
 import {
     Collection,
-    ScrollView,
-    Divider
+    ScrollView
   } from "@aws-amplify/ui-react";
 
 function ItinerariesList({ previews, currentTravelerId, setCurrentTravelerId, resetStage }) {
@@ -32,15 +31,12 @@ function ItinerariesList({ previews, currentTravelerId, setCurrentTravelerId, re
           {/* For each item passed to Navbar, create a card object that contains a
           TravelerInfo component */}
           {(preview, index) => (
-            <>
               <ItinerariesCard 
                 item={preview} 
                 key={index} 
                 onClick={() => handleItemClick(preview, index)}
                 isSelected={preview.id === currentTravelerId}
               />
-              <Divider className="ItinerariesListDivider" orientation="horizontal" />
-            </>
           )}
         </Collection>
       </ScrollView>

@@ -4,10 +4,7 @@ import './TravelerInfo.css'
 import { fetchTravelerInfo } from "../../api";
 
 function TravelerInfo({ currentTravelerId, forwardStage }) {
-    console.log(currentTravelerId)
     const currentTraveler = currentTravelerId ? fetchTravelerInfo(currentTravelerId) : null;
-    console.log("current traveler")
-    console.log(currentTraveler)
 
     return (
         <Card

@@ -56,6 +56,5 @@ export function fetchTravelerPreviews() {
 
 export function fetchTravelerInfo(id) {
     const userTripMap = fetchStagingItems()
-    console.log(userTripMap)
     return userTripMap.get(id)
 }
