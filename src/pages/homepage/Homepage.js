@@ -5,9 +5,7 @@ import Confirmation from "../../components/confirmation/Confirmation";
 
 import { useState } from 'react';
 
-import {
-    Grid
-  } from "@aws-amplify/ui-react";
+import { Grid } from "@aws-amplify/ui-react";
 
 function Homepage({ items, signOut }) {
   // Used in Navbar and TravelerInfo to render correct user

@@ -8,7 +8,6 @@
   --color-gray: #C0C0C0;
   --color-dark-gray: #363636;
   --color-black: #000000;
-
 }
 
 /* Typography */
@@ -108,4 +107,18 @@ button.secondary:active {
   padding: 36px 56px;
   border: 1px solid var(--color-gray);
   border-radius: 8px;
+}
+
+input {
+  border: 1px solid var(--color-gray) !important;
+  background-color: var(--color-light-gray) !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.amplify-label {
+  color: var(--color-black) !important;
+  font-size: 14px !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
