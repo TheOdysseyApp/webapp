@@ -2,10 +2,14 @@
 import temp1 from "./tempdata/itinerary_staging_example1.json"
 import temp2 from "./tempdata/itinerary_staging_example2.json"
 import temp3 from "./tempdata/itinerary_staging_example3.json"
+import temp4 from "./tempdata/itinerary_staging_example4.json"
+import temp5 from "./tempdata/itinerary_staging_example5.json"
+import temp6 from "./tempdata/itinerary_staging_example6.json"
+
 
 export function fetchStagingItems() {
     // temporarily pulling info from json files stored in project directory
-    const items = [temp1, temp2, temp3] // should be replaced with dynamodb call
+    const items = [temp1, temp2, temp3, temp4, temp5, temp6] // should be replaced with dynamodb call
 
     // for each entry in staging, parse the id to retrieve the userId and tripId
     // then match each userId to their 3 tripIds respectively and return that
