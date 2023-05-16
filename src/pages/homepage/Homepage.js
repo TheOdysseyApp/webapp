@@ -2,6 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 import ItinerariesList from "../../components/itineraries-list/ItinerariesList";
 import TravelerInfo from "../../components/traverler-info/TravelerInfo";
 import Confirmation from "../../components/confirmation/Confirmation";
+import TripDetails from "../../components/trip-details/TripDetails";
 
 import { useState } from 'react';
 
@@ -15,6 +16,7 @@ import { fetchTravelerInfo } from "../../api";
 function Homepage({ previews, signOut }) {
   // Used in Navbar and TravelerInfo to render correct user
   const [currentTravelerId, setCurrentTravelerId] = useState(null);
+  const [currentTrip, setCurrentTrip] = useState(null);
   const [plannerStage, setPlannerStage] = useState(0);
   
   const forwardStage = () => {
@@ -40,8 +42,9 @@ function Homepage({ previews, signOut }) {
       <ItinerariesList previews={previews} currentTravelerId={currentTravelerId} setCurrentTravelerId={setCurrentTravelerId} resetStage={() => resetStage()}/>
       {
         {
-          0: <TravelerInfo currentTraveler={currentTraveler} currentTravelerId={currentTravelerId} forwardStage={() => forwardStage()}/>,
-          1: <Confirmation/>
+          0: <TravelerInfo currentTraveler={currentTraveler} currentTravelerId={currentTravelerId} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()}/>,
+          1: <TripDetails currentTraveler={currentTraveler} currentTrip={currentTrip} backStage={() => backStage()}/>,
+          2: <Confirmation />
         }[plannerStage]
       }
     </Grid> 

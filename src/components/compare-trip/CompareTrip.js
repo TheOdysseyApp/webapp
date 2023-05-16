@@ -12,7 +12,12 @@ function Activities({ activities, day }) {
 }
 
 
-function CompareTrip({ itinerary, column, forwardStage }) {
+function CompareTrip({ itinerary, column, setCurrentTrip, forwardStage }) {
+
+    function chooseTrip(trip) {
+        setCurrentTrip(trip)
+        forwardStage()
+    }
 
     return (
         <Card className="compare-trip" columnStart={column}>
@@ -38,7 +43,7 @@ function CompareTrip({ itinerary, column, forwardStage }) {
                             ))}
                         </div>
                         <div>
-                            <Button className="primary" onClick={forwardStage}>Continue</Button>
+                            <Button className="primary" onClick={() => chooseTrip(itinerary)}>Continue</Button>
                         </div>
                     </>
                     :
