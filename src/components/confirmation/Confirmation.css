@@ -1,3 +1,32 @@
-.confirmation {
+.confirmation .TravelerInfo {
     margin-top: 100px;
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 46px 40px;
+gap: 14px;
+
+position: absolute;
+width: 800px;
+height: 240px;
+left: 555px;
+top: 286px;
+
+}
+.confirmation .Success {
+    text-align: center;
+    
+    color: #194260;    
+}
+.confirmation .Traveler, .IDnum, .Days {
+text-align: center;
+color: #000000;
+}
+
+.confirmation .IDnum, .Days{
+    color: #194260;
 }
