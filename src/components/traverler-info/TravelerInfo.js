@@ -1,10 +1,8 @@
 import { Card, View, Grid } from "@aws-amplify/ui-react";
 import CompareTrip from "../compare-trip/CompareTrip"
 import './TravelerInfo.css'
-import { fetchTravelerInfo } from "../../api";
 
-function TravelerInfo({ currentTravelerId, forwardStage }) {
-    const currentTraveler = currentTravelerId ? fetchTravelerInfo(currentTravelerId) : null;
+function TravelerInfo({ currentTraveler, currentTravelerId, forwardStage }) {
 
     return (
         <Card

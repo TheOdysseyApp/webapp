@@ -9,6 +9,9 @@ import {
     Grid
   } from "@aws-amplify/ui-react";
 
+import { fetchTravelerInfo } from "../../api";
+
+
 function Homepage({ previews, signOut }) {
   // Used in Navbar and TravelerInfo to render correct user
   const [currentTravelerId, setCurrentTravelerId] = useState(null);
@@ -24,6 +27,7 @@ function Homepage({ previews, signOut }) {
     setPlannerStage(0);
   }
   
+  const currentTraveler = currentTravelerId ? fetchTravelerInfo(currentTravelerId) : null;
 
   return (
     <Grid
@@ -36,7 +40,7 @@ function Homepage({ previews, signOut }) {
       <ItinerariesList previews={previews} currentTravelerId={currentTravelerId} setCurrentTravelerId={setCurrentTravelerId} resetStage={() => resetStage()}/>
       {
         {
-          0: <TravelerInfo currentTravelerId={currentTravelerId} forwardStage={() => forwardStage()}/>,
+          0: <TravelerInfo currentTraveler={currentTraveler} currentTravelerId={currentTravelerId} forwardStage={() => forwardStage()}/>,
           1: <Confirmation/>
         }[plannerStage]
       }
