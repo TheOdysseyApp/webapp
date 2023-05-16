@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField } from "@aws-amplify/ui-react";
+import { Button, TextField } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
@@ -18,6 +18,10 @@ function Dev() {
                     onChange={(e) => setText(e.target.value)}
                 ></TextField>
                 <DateTime onChange={setDate} value={date} label='datetime test'/>
+                <label for="file-upload" class="file-upload">
+                    Upload Image
+                </label>
+                <input type="file" id='file-upload'/>
             </div>
         </div>
     )
