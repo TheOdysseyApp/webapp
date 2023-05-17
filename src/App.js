@@ -34,13 +34,12 @@ function App({ signOut }) {
   // ]
 
   // const sortedItems = items.sort((a, b) => new Date(a.date) - new Date(b.date));
-  const travelerPreviews = fetchTravelerPreviews()
 
   return (
     <View className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage previews={travelerPreviews} signOut={signOut}/>}/>
+          <Route path="/" element={<Homepage signOut={signOut}/>}/>
           <Route path="/dev" element={<Dev/>}/>
         </Routes>
       </BrowserRouter>
