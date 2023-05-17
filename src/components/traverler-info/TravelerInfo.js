@@ -2,7 +2,8 @@ import { Card, View, Grid } from "@aws-amplify/ui-react";
 import CompareTrip from "../compare-trip/CompareTrip"
 import './TravelerInfo.css'
 
-function TravelerInfo({ currentTraveler, forwardStage }) {
+function TravelerInfo({ currentTraveler, currentTravelerId, setCurrentTrip, forwardStage }) {
+
     return (
         <Card
           columnStart="2"
@@ -10,11 +11,11 @@ function TravelerInfo({ currentTraveler, forwardStage }) {
           className="TravelerInfo"
         >
           {
-            currentTraveler ? 
+            currentTravelerId ? 
             <View className="TravelerInfoSelected">
               <div className="header">
                 <h1>{currentTraveler.name}</h1>
-                <p>{`# ${currentTraveler.id}`}</p>
+                <p>{`# ${currentTravelerId}`}</p>
                 <div>
                   <p>{`Departing from: ${"Location"}`}</p>
                   <p>{`Month of trip: ${"Month"}`}</p>
@@ -27,9 +28,9 @@ function TravelerInfo({ currentTraveler, forwardStage }) {
               templateColumns="1fr 1fr 1fr"
               className="options"
               >
-                <CompareTrip column={1} forwardStage={forwardStage} />
-                <CompareTrip column={2} forwardStage={forwardStage} />
-                <CompareTrip column={3} forwardStage={forwardStage} style={{border: "none"}}/>
+                <CompareTrip itinerary={currentTraveler.get("1")} column={1} setCurrentTrip={setCurrentTrip} forwardStage={forwardStage} />
+                <CompareTrip itinerary={currentTraveler.get("2")} column={2} setCurrentTrip={setCurrentTrip} forwardStage={forwardStage} />
+                <CompareTrip itinerary={currentTraveler.get("3")} column={3} setCurrentTrip={setCurrentTrip} forwardStage={forwardStage} style={{border: "none"}}/>
               </Grid>
             </View>
 

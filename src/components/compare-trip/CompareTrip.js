@@ -1,40 +1,54 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './CompareTrip.css'
 
-function CompareTrip({ column, forwardStage }) {
+
+function Activities({ activities, day }) {
+    return (
+        <div>
+            <p><b>Day {day + 1}:</b></p>
+            <p>{activities}</p>
+        </div>
+    );
+}
+
+
+function CompareTrip({ itinerary, column, setCurrentTrip, forwardStage }) {
+
+    function chooseTrip(trip) {
+        setCurrentTrip(trip)
+        forwardStage()
+    }
+
     return (
         <Card className="compare-trip" columnStart={column}>
-            <h3>Destination {column}</h3>
-            <div>
-                <p><b>Departure to Arrival</b></p>
-                <p><b>Round Trip Cost:</b></p>
-            </div>
-            <div>
-                <p><b>Hotel Name:</b></p>
-                <p><b>Hotel Cost / Night: </b></p>
-            </div>
-            <div>
-                <p><b>Airport Transportation:</b></p>
-                <p><b>Transportation Cost: </b></p>
-            </div>
-            <div>
-                <p><b>Day 1:</b></p>
-                <p>Activity goes here</p>
-                <p><b>Day 2:</b></p>
-                <p>Activity goes here</p>
-                <p><b>Day 3:</b></p>
-                <p>Activity goes here</p>
-                <p><b>Day 4:</b></p>
-                <p>Activity goes here</p>
-                <p><b>Day 5:</b></p>
-                <p>Activity goes here</p>
-                <p><b>Day 6:</b></p>
-                <p>Activity goes here</p>
-            </div>
-            <div>
-            <Button className="primary" onClick={forwardStage}>Continue</Button>
-            </div>
-            
+            {
+                itinerary ?
+                    <>
+                        <h3>{itinerary.details.destination}</h3>
+                        <div>
+                            <p><b>{itinerary.details.departure} to {itinerary.details.destination}</b></p>
+                            <p><b>Round Trip Cost: ${itinerary.details.totalTripCost}</b></p>
+                        </div>
+                        <div>
+                            <p><b>Hotel Name: {itinerary.stay.name}</b></p>
+                            <p><b>Hotel Cost / Night: ${itinerary.stay.dailyCost}</b></p>
+                        </div>
+                        <div>
+                            <p><b>Airport Transportation:</b></p>
+                            <p><b>Transportation Cost: </b></p>
+                        </div>
+                        <div>
+                            {itinerary.itinerary.map((item, index) => (
+                                <Activities key={index} activities={item.days.activities} day={index}></Activities>
+                            ))}
+                        </div>
+                        <div>
+                            <Button className="primary" onClick={() => chooseTrip(itinerary)}>Continue</Button>
+                        </div>
+                    </>
+                    :
+                    <>Error loading itinerary</>
+            }
         </Card>
     )
 }

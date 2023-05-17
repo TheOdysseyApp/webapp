@@ -3,19 +3,13 @@ import './ItinerariesList.css'
 
 import {
     Collection,
-    ScrollView,
-    Divider
+    ScrollView
   } from "@aws-amplify/ui-react";
 
-function ItinerariesList({ items, currentTraveler, setCurrentTraveler, resetStage }) {
+function ItinerariesList({ previews, currentTravelerId, setCurrentTravelerId, resetStage }) {
 
-    const handleItemClick = (item) => {
-      if (currentTraveler === item) {
-        setCurrentTraveler(null);
-      }
-      else {
-        setCurrentTraveler(item);
-      }
+    const handleItemClick = (preview) => {
+      setCurrentTravelerId(currentTravelerId === preview.id ? null : preview.id)
       resetStage();
     }
 
@@ -31,21 +25,18 @@ function ItinerariesList({ items, currentTraveler, setCurrentTraveler, resetStag
         className="ItinerariesList"
       >
         <Collection
-          items={items}
+          items={previews}
           gap="0px"
         >
           {/* For each item passed to Navbar, create a card object that contains a
           TravelerInfo component */}
-          {(item, index) => (
-            <>
+          {(preview, index) => (
               <ItinerariesCard 
-                item={item} 
+                item={preview} 
                 key={index} 
-                onClick={() => handleItemClick(item, index)}
-                isSelected={item === currentTraveler}
+                onClick={() => handleItemClick(preview, index)}
+                isSelected={preview.id === currentTravelerId}
               />
-              <Divider className="ItinerariesListDivider" orientation="horizontal" />
-            </>
           )}
         </Collection>
       </ScrollView>

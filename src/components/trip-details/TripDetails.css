@@ -1,0 +1,11 @@
+.tripdetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+}
+
+.tripdetails Button {
+    margin: 30px 10% 0px;
+}

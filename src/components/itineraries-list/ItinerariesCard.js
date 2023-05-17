@@ -1,5 +1,6 @@
 import {
-    Card
+    Card,
+    Divider
   } from "@aws-amplify/ui-react";
 
 import './ItinerariesCard.css'
@@ -17,6 +18,7 @@ function ItinerariesCard({ item, onClick, isSelected }) {
                     <p className="ItinerariesCardActivities">Desired Activites: Activities</p>
                 </div>
             </div>
+            <Divider className="ItinerariesListDivider" orientation="horizontal" />
         </Card>
     )
 }
