@@ -6,9 +6,7 @@ import TripDetails from "../../components/trip-details/TripDetails";
 
 import { useState } from 'react';
 
-import {
-    Grid
-  } from "@aws-amplify/ui-react";
+import { Grid } from "@aws-amplify/ui-react";
 
 import { fetchTravelerPreviews, fetchTravelerInfo } from "../../api";
 
