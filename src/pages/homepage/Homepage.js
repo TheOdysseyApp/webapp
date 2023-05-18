@@ -4,7 +4,7 @@ import TravelerInfo from "../../components/traverler-info/TravelerInfo";
 import Confirmation from "../../components/confirmation/Confirmation";
 import TripDetails from "../../components/trip-details/TripDetails";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Grid } from "@aws-amplify/ui-react";
 
@@ -12,6 +12,8 @@ import { fetchTravelerPreviews, fetchTravelerInfo } from "../../api";
 
 
 function Homepage({ signOut }) {
+  const [previews, setPreviews] = useState(null);
+
   // Used in Navbar and TravelerInfo to render correct user
   const [currentTravelerId, setCurrentTravelerId] = useState(null);
 
@@ -29,7 +31,31 @@ function Homepage({ signOut }) {
     setPlannerStage(0);
   }
   
-  const previews = fetchTravelerPreviews()
+  // Fetches previews on page mount
+  useEffect(() => {
+    const fetchPreviews = async () => {
+      try {
+        const response = await fetchTravelerPreviews();
+
+        // Converting dates from strings into json date representation 
+        const datedResponse = JSON.parse(response).map((preview) => {
+          return {
+            ...preview,
+            date: new Date(preview.date)
+          }
+        })
+
+        const sortedItems = datedResponse.sort((a, b) => new Date(a.date) - new Date(b.date))
+
+        setPreviews(sortedItems);
+      } catch (error) {
+        console.error('Error fetching previews:', error);
+      }
+    };
+
+    fetchPreviews();
+  }, []);
+
   const currentTraveler = currentTravelerId ? fetchTravelerInfo(currentTravelerId) : null;
 
   return (

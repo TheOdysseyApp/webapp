@@ -4,7 +4,6 @@ import "@aws-amplify/ui-react/styles.css";
 import './App.css'
 import Homepage from './pages/homepage/Homepage'
 import Dev from "./pages/dev/Dev";
-import { fetchStagingItems, fetchTravelerPreviews } from "./api.js"
 
 import {
   withAuthenticator,

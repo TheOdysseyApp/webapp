@@ -47,16 +47,18 @@ export function fetchStagingItems() {
     return userTripMap
 }
 
-export function fetchTravelerPreviews() {
-    const userTripMap = fetchStagingItems()
-    const previews = []
-    
-    Array.from(userTripMap.entries()).forEach((entry) => {
-        previews.push({name: "Not given", id: entry[0], date: new Date("07/07/2001")})
-    })
+export const fetchTravelerPreviews = async () => {
+    try {
+      const response = await fetch('https://jv5lg0evra.execute-api.us-west-2.amazonaws.com/test/traveler-preview');
+      if (!response.ok) {
+        throw new Error('Error fetching data');
+      }
 
-    return previews
-}
+      return response.json();
+    } catch (error) {
+      throw new Error('Error fetching data:', error);
+    }
+  };
 
 export function fetchTravelerInfo(id) {
     const userTripMap = fetchStagingItems()
