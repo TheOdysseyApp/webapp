@@ -21,6 +21,8 @@ function Homepage({ signOut }) {
   const [currentTrip, setCurrentTrip] = useState(null);
   const [plannerStage, setPlannerStage] = useState(0);
   
+  const [currentTraveler, setCurrentTraveler] = useState(null)
+
   const forwardStage = () => {
     setPlannerStage(plannerStage + 1);
   }
@@ -56,7 +58,22 @@ function Homepage({ signOut }) {
     fetchPreviews();
   }, []);
 
-  const currentTraveler = currentTravelerId ? fetchTravelerInfo(currentTravelerId) : null;
+  // Refetch itinerary data whenever currentTravelerId changes
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`https://ggiilu9oe9.execute-api.us-west-2.amazonaws.com/work/${currentTravelerId}`);
+        const data = await response.json();
+
+        setCurrentTraveler(data.Item)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Call the fetchData function whenever the ID changes
+    fetchData();
+  }, [currentTravelerId])
 
   return (
     <Grid
@@ -69,7 +86,7 @@ function Homepage({ signOut }) {
       <ItinerariesList previews={previews} currentTravelerId={currentTravelerId} setCurrentTravelerId={setCurrentTravelerId} resetStage={() => resetStage()}/>
       {
         {
-          0: <TravelerInfo currentTraveler={currentTraveler} currentTravelerId={currentTravelerId} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()}/>,
+          0: <TravelerInfo currentTraveler={currentTraveler} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()}/>,
           1: <TripDetails currentTraveler={currentTraveler} currentTrip={currentTrip} backStage={() => backStage()}/>,
           2: <Confirmation />
         }[plannerStage]

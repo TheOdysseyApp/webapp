@@ -15,7 +15,7 @@ function ItinerariesCard({ item, onClick, isSelected }) {
                     <p className="ItinerariesCardDate">{item.date.toLocaleDateString()}</p>    
 
                     <p className="ItinerariesCardId"># {item.id}</p>
-                    <p className="ItinerariesCardActivities">Desired Activites: Activities</p>
+                    <p className="ItinerariesCardActivities">{item.activities}</p>
                 </div>
             </div>
             <Divider className="ItinerariesListDivider" orientation="horizontal" />
