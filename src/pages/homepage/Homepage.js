@@ -14,87 +14,60 @@ import { fetchTravelerPreviews, fetchTravelerInfo } from "../../api";
 
 
 function Homepage({ signOut }) {
-  const [previews, setPreviews] = useState(null);
+    const [previews, setPreviews] = useState(null);
 
-  // Used in Navbar and TravelerInfo to render correct user
-  const [currentTripId, setCurrentTripId] = useState(null);
+    // Used in Navbar and TravelerInfo to render correct user
+    const [currentTripId, setCurrentTripId] = useState(null);
 
-  // This state is set in TravelerInfo, and used in Trip details
-  const [currentDestination, setCurrentDestination] = useState(null);
-  const [plannerStage, setPlannerStage] = useState(0);
-  
-  const [currentTrip, setCurrentTrip] = useState(null)
+    // This state is set in TravelerInfo, and used in Trip details
+    const [currentDestination, setCurrentDestination] = useState(null);
+    const [plannerStage, setPlannerStage] = useState(0);
+    const [currentTrip, setCurrentTrip] = useState(null);
 
-  const forwardStage = () => {
-    setPlannerStage(plannerStage + 1);
-  }
-  const backStage = () => {
-    setPlannerStage(plannerStage - 1);
-  }
-  const resetStage = () => {
-    setPlannerStage(0);
-  }
-  
-  // Fetches previews on page mount
-  useEffect(() => {
-    const fetchPreviews = async () => {
-      try {
-        const response = await fetchTravelerPreviews();
-
-        // Converting dates from strings into json date representation 
-        const datedResponse = JSON.parse(response).map((preview) => {
-          return {
-            ...preview,
-            date: new Date(preview.date)
-          }
+    const forwardStage = () => {
+        setPlannerStage(plannerStage + 1);
+    }
+    const backStage = () => {
+        setPlannerStage(plannerStage - 1);
+    }
+    const resetStage = () => {
+        setPlannerStage(0);
+    }
+    
+    // Fetches previews on page mount
+    useEffect(() => {
+        fetchTravelerPreviews().then((r) => {
+            setPreviews(r);
         })
+    }, []);
 
-        const sortedItems = datedResponse.sort((a, b) => new Date(a.date) - new Date(b.date))
-
-        setPreviews(sortedItems);
-      } catch (error) {
-        console.error('Error fetching previews:', error);
-      }
-    };
-
-    fetchPreviews();
-  }, []);
-
-  // Refetch itinerary data whenever currentTravelerId changes
-  useEffect(() => {
-    try {
+    // Refetch itinerary data whenever currentTravelerId changes
+    useEffect(() => {
         if (currentTripId != null) {
             fetchItineraries(currentTripId).then((r) => {
-                setCurrentTrip(r)
+                setCurrentTrip(r);
             })
         }
-    }
-    catch (error) {
-        console.log(error)
-    }
+    }, [currentTripId])
 
-    // Call the fetchData function whenever the ID changes
-    fetchItineraries();
-  }, [currentTripId])
-
-  return (
-    <Grid
-      templateColumns="1.4fr 4fr"
-      templateRows="55px 6fr"
-      height="100vh"
-      width="100wh"
-    >
-      <Navbar signOut={signOut}/>
-      <ItinerariesList previews={previews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
-      {
+    return (
+        <Grid
+        templateColumns="1.4fr 4fr"
+        templateRows="55px 6fr"
+        height="100vh"
+        width="100wh"
+        >
+        <Navbar signOut={signOut}/>
+        <ItinerariesList previews={previews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
         {
-          0: <TravelerInfo currentTrip={currentTrip} setCurrentDestination={setCurrentDestination} forwardStage={() => forwardStage()}/>,
-          1: <TripDetails currentTrip={currentTrip} currentDestination={currentDestination} backStage={() => backStage()}/>,
-          2: <Confirmation />
-        }[plannerStage]
-      }
-    </Grid> 
-  )
+            {
+            0: <TravelerInfo trip={currentTrip} setCurrentDestination={setCurrentDestination} forwardStage={() => forwardStage()}/>,
+            1: <TripDetails trip={currentTrip} destination={currentDestination} backStage={() => backStage()}/>,
+            2: <Confirmation />
+            }[plannerStage]
+        }
+        </Grid> 
+    )
 }
 
 export default Homepage;
