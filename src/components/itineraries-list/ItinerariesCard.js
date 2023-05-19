@@ -6,7 +6,6 @@ import {
 import './ItinerariesCard.css'
 
 function ItinerariesCard({ item, onClick, isSelected }) {
-
     return (
         <Card className={isSelected ? "ItinerariesCard selected" : "ItinerariesCard notSelected"} onClick={onClick}>
             <div className={isSelected ? "card-content selected" : "card-content"}>
@@ -14,8 +13,8 @@ function ItinerariesCard({ item, onClick, isSelected }) {
                     <h4 className="ItinerariesCardName">{item.name}</h4>
                     <p className="ItinerariesCardDate">{item.date.toLocaleDateString()}</p>    
 
-                    <p className="ItinerariesCardId"># {item.id}</p>
-                    <p className="ItinerariesCardActivities">Desired Activites: Activities</p>
+                    <p className="ItinerariesCardId"># {item.tripId}</p>
+                    <p className="ItinerariesCardActivities">{item.activities}</p>
                 </div>
             </div>
             <Divider className="ItinerariesListDivider" orientation="horizontal" />

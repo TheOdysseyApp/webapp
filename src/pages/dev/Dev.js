@@ -4,7 +4,7 @@ import DateTime from '../../components/datetime/DateTime';
 
 
 function Dev() {
-    const [text, setText] = useState(null);
+    const [text, setText] = useState('default value here');
     const [date, setDate] = useState(null);
 
     return (
@@ -14,7 +14,7 @@ function Dev() {
                 <TextField
                     placeholder="..."
                     label="field label"
-                    defaultValue='default value'
+                    defaultValue='default value here'
                     onChange={(e) => setText(e.target.value)}
                 ></TextField>
                 <DateTime onChange={setDate} value={date} label='datetime test'/>
