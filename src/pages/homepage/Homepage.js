@@ -4,6 +4,8 @@ import TravelerInfo from "../../components/traverler-info/TravelerInfo";
 import Confirmation from "../../components/confirmation/Confirmation";
 import TripDetails from "../../components/trip-details/TripDetails";
 
+import { fetchItineraries } from "../../api";
+
 import { useEffect, useState } from 'react';
 
 import { Grid } from "@aws-amplify/ui-react";
@@ -15,13 +17,13 @@ function Homepage({ signOut }) {
   const [previews, setPreviews] = useState(null);
 
   // Used in Navbar and TravelerInfo to render correct user
-  const [currentTravelerId, setCurrentTravelerId] = useState(null);
+  const [currentTripId, setCurrentTripId] = useState(null);
 
   // This state is set in TravelerInfo, and used in Trip details
-  const [currentTrip, setCurrentTrip] = useState(null);
+  const [currentDestination, setCurrentDestination] = useState(null);
   const [plannerStage, setPlannerStage] = useState(0);
   
-  const [currentTraveler, setCurrentTraveler] = useState(null)
+  const [currentTrip, setCurrentTrip] = useState(null)
 
   const forwardStage = () => {
     setPlannerStage(plannerStage + 1);
@@ -60,20 +62,20 @@ function Homepage({ signOut }) {
 
   // Refetch itinerary data whenever currentTravelerId changes
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(`https://ggiilu9oe9.execute-api.us-west-2.amazonaws.com/work/${currentTravelerId}`);
-        const data = await response.json();
-
-        setCurrentTraveler(data.Item)
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+        if (currentTripId != null) {
+            fetchItineraries(currentTripId).then((r) => {
+                setCurrentTrip(r)
+            })
+        }
+    }
+    catch (error) {
+        console.log(error)
     }
 
     // Call the fetchData function whenever the ID changes
-    fetchData();
-  }, [currentTravelerId])
+    fetchItineraries();
+  }, [currentTripId])
 
   return (
     <Grid
@@ -83,11 +85,11 @@ function Homepage({ signOut }) {
       width="100wh"
     >
       <Navbar signOut={signOut}/>
-      <ItinerariesList previews={previews} currentTravelerId={currentTravelerId} setCurrentTravelerId={setCurrentTravelerId} resetStage={() => resetStage()}/>
+      <ItinerariesList previews={previews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
       {
         {
-          0: <TravelerInfo currentTraveler={currentTraveler} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()}/>,
-          1: <TripDetails currentTraveler={currentTraveler} currentTrip={currentTrip} backStage={() => backStage()}/>,
+          0: <TravelerInfo currentTrip={currentTrip} setCurrentDestination={setCurrentDestination} forwardStage={() => forwardStage()}/>,
+          1: <TripDetails currentTrip={currentTrip} currentDestination={currentDestination} backStage={() => backStage()}/>,
           2: <Confirmation />
         }[plannerStage]
       }

@@ -12,8 +12,7 @@ function Activities({ activities, day }) {
 }
 
 
-function CompareTrip({ currentTraveler, column, setCurrentTrip, forwardStage }) {
-
+function CompareTrip({ currentTrip, column, setCurrentTrip, forwardStage }) {
     function chooseTrip(trip) {
         setCurrentTrip(trip)
         forwardStage()
@@ -22,28 +21,28 @@ function CompareTrip({ currentTraveler, column, setCurrentTrip, forwardStage }) 
     return (
         <Card className="compare-trip" columnStart={column}>
             {
-                currentTraveler ?
+                currentTrip ?
                     <>
-                        <h3>{currentTraveler.details.M.destination.S}</h3>
+                        <h3>{currentTrip.details.destination}</h3>
                         <div>
-                            <p><b>{currentTraveler.details.M.departure.S} to {currentTraveler.details.M.destination.S}</b></p>
-                            <p><b>Round Trip Cost: ${currentTraveler.details.M.totalTripCost.N}</b></p>
+                            <p><b>{currentTrip.details.departure} to {currentTrip.details.destination}</b></p>
+                            <p><b>Round Trip Cost: ${currentTrip.details.totalTripCost}</b></p>
                         </div>
                         <div>
-                            <p><b>Hotel Name: {currentTraveler.stay.M.name.S}</b></p>
-                            <p><b>Hotel Cost / Night: ${currentTraveler.stay.M.dailyCost.N}</b></p>
+                            <p><b>Hotel Name: {currentTrip.stay.name}</b></p>
+                            <p><b>Hotel Cost / Night: ${currentTrip.stay.dailyCost}</b></p>
                         </div>
                         <div>
                             <p><b>Airport Transportation:</b></p>
                             <p><b>Transportation Cost: </b></p>
                         </div>
                         <div>
-                            {/* {itinerary.itinerary.map((item, index) => (
+                            {currentTrip.itinerary.map((item, index) => (
                                 <Activities key={index} activities={item.days.activities} day={index}></Activities>
-                            ))} */}
+                            ))}
                         </div>
                         <div>
-                            <Button className="primary" onClick={() => chooseTrip(currentTraveler)}>Continue</Button>
+                            <Button className="primary" onClick={() => chooseTrip(currentTrip)}>Continue</Button>
                         </div>
                     </>
                     :

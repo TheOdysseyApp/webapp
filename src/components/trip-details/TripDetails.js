@@ -4,7 +4,7 @@ import {
     Button
   } from "@aws-amplify/ui-react";
 
-function TripDetails({ currentTraveler, currentTrip, backStage }) {
+function TripDetails({ currentTrip, currentDestination, backStage }) {
 
     return (
         <div className='tripdetails'>
@@ -15,6 +15,7 @@ function TripDetails({ currentTraveler, currentTrip, backStage }) {
 
             </div>
         </div>
+
     )
 }
 
