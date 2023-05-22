@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './TripDetails.css'
 import { Button, TextField } from "@aws-amplify/ui-react";
 
-function TripDetails({ trip, destination, backStage }) {
+function TripDetails({ trip, destination, forwardStage, backStage }) {
     const tripCopy = { ...trip }
 
     return (
@@ -31,7 +31,7 @@ function TripDetails({ trip, destination, backStage }) {
                     onChange={(e) => tripCopy.departingFlight.arrival = e.target.value} />
                 <TextField
                     placeholder="..."
-                    label="Flight Round tripCopy Cost*"
+                    label="Flight Round Trip Cost*"
                     defaultValue={tripCopy.departingFlight.cost}
                     onChange={(e) => tripCopy.departingFlight.cost = e.target.value} />
                 <TextField
@@ -44,7 +44,7 @@ function TripDetails({ trip, destination, backStage }) {
                 <h1>Hotel Information</h1>
                 <p>Hotel Name*</p>
             </div>
-            <Button className="primary" onClick={() => console.log(tripCopy)}>Continue</Button>
+            <Button className="primary" onClick={forwardStage}>Continue</Button>
         </div>
 
     )
