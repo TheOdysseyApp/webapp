@@ -31,9 +31,14 @@ function TripDetails({ trip, destination, forwardStage, backStage }) {
                     onChange={(e) => tripCopy.departingFlight.arrival = e.target.value} />
                 <TextField
                     placeholder="..."
-                    label="Flight Round Trip Cost*"
+                    label="Departing Flight Trip Cost*"
                     defaultValue={tripCopy.departingFlight.cost}
                     onChange={(e) => tripCopy.departingFlight.cost = e.target.value} />
+                <TextField
+                    placeholder="..."
+                    label="Return Flight Trip Cost*"
+                    defaultValue={tripCopy.returnFlight.cost}
+                    onChange={(e) => tripCopy.returnFlight.cost = e.target.value} />
                 <TextField
                     placeholder="..."
                     label="Flight Booking Link*"
