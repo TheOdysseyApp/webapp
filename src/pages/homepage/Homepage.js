@@ -4,14 +4,9 @@ import TravelerInfo from "../../components/traverler-info/TravelerInfo";
 import Confirmation from "../../components/confirmation/Confirmation";
 import TripDetails from "../../components/trip-details/TripDetails";
 
-import { fetchItineraries } from "../../api";
-
-import { useEffect, useState } from 'react';
-
+import { fetchItineraries, fetchTravelerPreviews } from "../../api";
+import React, { useEffect, useState } from 'react';
 import { Grid } from "@aws-amplify/ui-react";
-
-import { fetchTravelerPreviews, fetchTravelerInfo } from "../../api";
-
 
 function Homepage({ signOut }) {
     const [previews, setPreviews] = useState(null);

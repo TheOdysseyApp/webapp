@@ -1,6 +1,6 @@
 import './Confirmation.css'
 
-function Confirmation({}) {
+function Confirmation() {
     return (
         <div className='confirmation'>
             <div className='container'>
