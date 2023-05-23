@@ -49,18 +49,21 @@
     color: var(--color-gray) !important;
 }
 
-.react-calendar__tile--now {
+.react-calendar__tile--active {
     outline: 1px solid var(--color-dark-gray) !important;
+    color: var(--color-dark-gray) !important;
     background: none !important;
+    z-index: 2;
 }
 
 .react-calendar__tile {
     border-radius: 8px;
 }
 
-.react-calendar__tile--active {
+.react-calendar__tile--now {
     background: var(--color-light-gray) !important;
     color: var(--color-dark-gray) !important;
+    z-index: 1;
 }
 
 .react-calendar__navigation button {
