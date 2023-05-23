@@ -69,7 +69,7 @@ function Homepage({ signOut }) {
         {
             {
             0: <TravelerInfo trip={currentTrip} setCurrentDestination={setCurrentDestination} forwardStage={() => forwardStage()}/>,
-            1: <TripDetails trip={currentTrip} destination={currentDestination} forwardStage={() => forwardStage()} backStage={() => backStage()}/>,
+            1: <TripDetails trip={currentTrip} destination={currentDestination} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()} backStage={() => backStage()}/>,
             2: <Review trip={currentTrip} destination={currentDestination} forwardStage={() => forwardStage()} backStage={() => backStage()}/>,
             3: <Confirmation />
             }[plannerStage]

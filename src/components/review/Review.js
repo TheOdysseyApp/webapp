@@ -16,7 +16,7 @@ export default function Review({ trip, destination, forwardStage, backStage }) {
             </div>
             <div className="container">
                 <p><b>{trip.details.departure} -{'>'} {trip.details.destination}</b></p>
-                <p><b>Round Trip Cost: </b>${trip.details.totalTripCost}</p>
+                <p><b>Round Trip Cost: </b>${trip.departingFlight.cost + trip.returnFlight.cost}</p>
                 <p><b>Arrival Date: </b>{new Date(trip.departingFlight.datetime).toLocaleDateString()}</p>
                 <p><b>Departure Date: </b>{new Date(trip.returnFlight.datetime).toLocaleDateString()}</p>
                 <p><b>Flight Booking Link: </b>{trip.departingFlight.link}</p>
