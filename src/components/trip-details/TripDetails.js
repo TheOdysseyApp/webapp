@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './TripDetails.css'
 import { Button, TextField } from "@aws-amplify/ui-react";
+import DateTime from '../../components/datetime/DateTime';
+
 
 function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
     const destinationCopy = { ...destination }
@@ -14,6 +16,10 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
         // setCurrentTrip(tripCopy)
         // forwardStage()
     }
+
+    const [departureDate, setDepartureDate] = useState(null);
+    const [returnDate, setReturnDate] = useState(null);
+
 
     return (
         <div className='tripdetails'>
@@ -57,10 +63,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
-                <TextField
-                    label="Datetime*"
-                    defaultValue={destinationCopy.departingFlight.datetime}
-                    onChange={(e) => destinationCopy.departingFlight.datetime = e.target.value} />
+                <DateTime onChange={setDepartureDate} value={departureDate} label='Departure Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.departingFlight.link}
@@ -96,10 +99,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.returnFlight.cost}
                     onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
-                <TextField
-                    label="Datetime*"
-                    defaultValue={destinationCopy.returnFlight.datetime}
-                    onChange={(e) => destinationCopy.returnFlight.datetime = e.target.value} />
+                <DateTime onChange={setReturnDate} value={returnDate} label='Return Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.returnFlight.link}
