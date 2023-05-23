@@ -18,9 +18,9 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
     return (
         <div className='tripdetails'>
             <Button className="secondary" onClick={backStage}>&lt; Back</Button>
-            <div className='container'>
+            <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
-                <h3>{traveler.first_name} {traveler.last_name}, {traveler.tripId}</h3>
+                <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.tripId}</p></div>
                 <p>Departing from: {destinationCopy.details.departure}</p>
                 <p>Month of trip: {destinationCopy.details.month}</p>
                 <p>Number of days: {destinationCopy.details.duration}</p>
@@ -174,9 +174,10 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Link*"
                     defaultValue={destinationCopy.experiences.link}
                     onChange={(e) => destinationCopy.experiences.link = e.target.value} />
+                {/* Image is hardcoded for the demo, change later */}
                 <TextField
                     label="Experience Image*"
-                    defaultValue={destinationCopy.experiences.imageURL}
+                    defaultValue={'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=983&q=80'}
                     onChange={(e) => destinationCopy.experiences.imageURL = e.target.value} />
             </div>
             <div className='container'>
@@ -191,7 +192,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
             </div>
 
             
-            <Button className="primary" onClick={() => saveAndContinue()}>Continue</Button>
+            <Button className="primary" onClick={() => saveAndContinue()} style={{marginBottom: '40px'}}>Continue</Button>
         </div>
 
     )

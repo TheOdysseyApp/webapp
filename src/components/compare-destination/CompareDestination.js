@@ -38,7 +38,7 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                             ))}
                         </div>
                         <div>
-                            <Button className="primary" onClick={() => chooseDestination(destination)}>Continue</Button>
+                            <Button className="primary floatBottom" onClick={() => chooseDestination(destination)}>Continue</Button>
                         </div>
                     </>
                     :
