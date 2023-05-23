@@ -28,37 +28,83 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                 <p>Budget: ${}-${}</p>
             </div>
             <div className='container'>
-                <h2>Flight Information</h2>
+                <h2>Departing Flight</h2>
                 <TextField
-                    label="Flight Arrival*"
+                    label="Airline*"
+                    defaultValue={destinationCopy.departingFlight.airline}
+                    onChange={(e) => destinationCopy.departingFlight.airline = e.target.value} />
+                <TextField
+                    label="Departure*"
                     defaultValue={destinationCopy.departingFlight.departure}
                     onChange={(e) => destinationCopy.departingFlight.departure = e.target.value} />
                 <TextField
-                    label="Flight Destination*"
+                    label="Departure Abbreviation*"
+                    defaultValue={destinationCopy.departingFlight.departureAbbrev}
+                    onChange={(e) => destinationCopy.departingFlight.departureAbbrev = e.target.value} />
+                <TextField
+                    label="Arrival*"
                     defaultValue={destinationCopy.departingFlight.arrival}
                     onChange={(e) => destinationCopy.departingFlight.arrival = e.target.value} />
                 <TextField
-                    label="Departing Flight Trip Cost*"
+                    label="Arrival Abbreviation*"
+                    defaultValue={destinationCopy.departingFlight.arrivalAbbrev}
+                    onChange={(e) => destinationCopy.departingFlight.arrivalAbbrev = e.target.value} />
+                <TextField
+                    label="Class*"
+                    defaultValue={destinationCopy.departingFlight.class}
+                    onChange={(e) => destinationCopy.departingFlight.class = e.target.value} />
+                <TextField
+                    label="Cost*"
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
                 <TextField
-                    label="Return Flight Trip Cost*"
-                    defaultValue={destinationCopy.returnFlight.cost}
-                    onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
+                    label="Datetime*"
+                    defaultValue={destinationCopy.departingFlight.datetime}
+                    onChange={(e) => destinationCopy.departingFlight.datetime = e.target.value} />
                 <TextField
-                    label="Flight Booking Link*"
+                    label="Link*"
                     defaultValue={destinationCopy.departingFlight.link}
                     onChange={(e) => destinationCopy.departingFlight.link = e.target.value} />
             </div>
-            {/* stay: 
-            dailyCost: 800
-            description: "Escape to a tropical paradise at The Ritz-Carlton, Kapalua."
-            link: "https://www.ritzcarlton.com/en/hotels/kapalua-maui"
-            name: "The Ritz-Carlton, Kapalua"
-            numDays: 5
-            rating: 4.9
-            roomType: "Deluxe Room"
-            stayImgURL: "" */}
+            <div className='container'>
+                <h2>Return Flight</h2>
+                <TextField
+                    label="Airline*"
+                    defaultValue={destinationCopy.returnFlight.airline}
+                    onChange={(e) => destinationCopy.returnFlight.airline = e.target.value} />
+                <TextField
+                    label="Departure*"
+                    defaultValue={destinationCopy.returnFlight.departure}
+                    onChange={(e) => destinationCopy.returnFlight.departure = e.target.value} />
+                <TextField
+                    label="Departure Abbreviation*"
+                    defaultValue={destinationCopy.returnFlight.departureAbbrev}
+                    onChange={(e) => destinationCopy.returnFlight.departureAbbrev = e.target.value} />
+                <TextField
+                    label="Arrival*"
+                    defaultValue={destinationCopy.returnFlight.arrival}
+                    onChange={(e) => destinationCopy.returnFlight.arrival = e.target.value} />
+                <TextField
+                    label="Arrival Abbreviation*"
+                    defaultValue={destinationCopy.returnFlight.arrivalAbbrev}
+                    onChange={(e) => destinationCopy.returnFlight.arrivalAbbrev = e.target.value} />
+                <TextField
+                    label="Class*"
+                    defaultValue={destinationCopy.returnFlight.class}
+                    onChange={(e) => destinationCopy.returnFlight.class = e.target.value} />
+                <TextField
+                    label="Cost*"
+                    defaultValue={destinationCopy.returnFlight.cost}
+                    onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
+                <TextField
+                    label="Datetime*"
+                    defaultValue={destinationCopy.returnFlight.datetime}
+                    onChange={(e) => destinationCopy.returnFlight.datetime = e.target.value} />
+                <TextField
+                    label="Link*"
+                    defaultValue={destinationCopy.returnFlight.link}
+                    onChange={(e) => destinationCopy.returnFlight.link = e.target.value} />
+            </div>
             <div className='container'>
                 <h2>Hotel Information</h2>
                 <TextField
@@ -96,6 +142,44 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     onChange={(e) => destinationCopy.stay.stayImgURL = e.target.value} />
             </div>
             <div className='container'>
+                <h2>Workspaces</h2>
+                <TextField
+                    label="Name"
+                    defaultValue={destinationCopy.workspaces.name}
+                    onChange={(e) => destinationCopy.workspaces.name = e.target.value} />
+                <TextField
+                    label="Daily Cost"
+                    defaultValue={destinationCopy.workspaces.dailyCost}
+                    onChange={(e) => destinationCopy.workspaces.dailyCost = e.target.value} />
+                <TextField
+                    label="Number of Days"
+                    defaultValue={destinationCopy.workspaces.numDays}
+                    onChange={(e) => destinationCopy.workspaces.numDays = e.target.value} />
+                <TextField
+                    label="Link"
+                    defaultValue={destinationCopy.workspaces.link}
+                    onChange={(e) => destinationCopy.workspaces.link = e.target.value} />
+            </div>
+            <div className='container'>
+                <h2>Experiences</h2>
+                <TextField
+                    label="Name"
+                    defaultValue={destinationCopy.experiences.name}
+                    onChange={(e) => destinationCopy.experiences.name = e.target.value} />
+                <TextField
+                    label="Cost"
+                    defaultValue={destinationCopy.experiences.cost}
+                    onChange={(e) => destinationCopy.experiences.cost = e.target.value} />
+                <TextField
+                    label="Link"
+                    defaultValue={destinationCopy.experiences.link}
+                    onChange={(e) => destinationCopy.experiences.link = e.target.value} />
+                <TextField
+                    label="Experience Image"
+                    defaultValue={destinationCopy.experiences.imageURL}
+                    onChange={(e) => destinationCopy.experiences.imageURL = e.target.value} />
+            </div>
+            <div className='container'>
                 <h2>Itinerary</h2>
                 {destinationCopy.itinerary.map((item, index) => (
                     <TextField
@@ -105,6 +189,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                         key={index} />
                 ))}
             </div>
+
             
             <Button className="primary" onClick={() => saveAndContinue()}>Continue</Button>
         </div>
