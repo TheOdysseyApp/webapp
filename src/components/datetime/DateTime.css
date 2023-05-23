@@ -60,7 +60,8 @@
 }
 
 .react-calendar__tile--now {
-    background: var(--color-light-gray) !important;
+    outline: 1px solid var(--color-dark-gray) !important;
+    background: none !important;
 }
 
 .react-calendar__tile {
@@ -70,6 +71,11 @@
 
 .react-calendar__tile:active {
     scale: 90%;
+}
+
+.react-calendar__tile--active {
+    background: var(--color-light-gray) !important;
+    color: var(--color-dark-gray) !important;
 }
 
 .react-calendar__navigation button {
@@ -83,4 +89,18 @@
 
 .dateTime p {
     margin-bottom: 8px;
+}
+
+.react-datetime-picker svg {
+    stroke: #777 !important;
+    transition: .2s;
+}
+
+.react-datetime-picker svg:hover {
+    stroke: var(--color-dark-gray) !important;
+    scale: 105%;
+}
+
+.react-datetime-picker svg:active {
+    scale: 100%;
 }

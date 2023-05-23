@@ -9,7 +9,7 @@ function DateTime({onChange, value, label}) {
     return (
         <div className='dateTime'>
             <p>{label}</p>
-            <DateTimePicker onChange={onChange} value={value} disableClock={true} minDetail='year' clearIcon={null} calendarIcon={null}/>
+            <DateTimePicker onChange={onChange} value={value} disableClock={true} minDetail='year' clearIcon={null}/>
         </div>
     )
 }
