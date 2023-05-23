@@ -64,6 +64,14 @@
     color: #222;
 }
 
-.ItinerariesCard p {
+.ItinerariesCard .card-content.selected p {
+    color: var(--color-white);
+}
+
+.ItinerariesCard h4 {
     color: #111;
+}
+
+.ItinerariesCard .card-content.selected h4 {
+    color: var(--color-white);
 }
