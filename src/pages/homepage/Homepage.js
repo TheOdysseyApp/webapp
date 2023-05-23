@@ -52,12 +52,9 @@ function Homepage({ signOut }) {
     useEffect(() => {
         if (currentTripId != null) {
             fetchItineraries(currentTripId).then((r) => {
-                // the response r contains some identifying information and then
-                // 3 different itineraries. We're extracting the travelers information
-                // since it will be used in multiple places
                 const { first_name, last_name, id: tripId, userID: userId } = r
                 const traveler = { first_name, last_name,  tripId, userId }
-                console.log(traveler)
+                setCurrentTraveler(traveler)
                 setCurrentTrip(r);
             })
         }
@@ -74,9 +71,26 @@ function Homepage({ signOut }) {
         <ItinerariesList previews={previews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
         {
             {
-            0: <TravelerInfo trip={currentTrip} setCurrentDestination={setCurrentDestination} forwardStage={() => forwardStage()}/>,
-            1: <TripDetails trip={currentTrip} destination={currentDestination} setCurrentTrip={setCurrentTrip} forwardStage={() => forwardStage()} backStage={() => backStage()}/>,
-            2: <Review trip={currentTrip} destination={currentDestination} forwardStage={() => forwardStage()} backStage={() => backStage()}/>,
+            0: <TravelerInfo 
+                    currentTripId={currentTripId}
+                    traveler={currentTraveler}
+                    trip={currentTrip} 
+                    setCurrentDestination={setCurrentDestination} 
+                    forwardStage={() => forwardStage()}
+                />,
+            1: <TripDetails 
+                    traveler={currentTraveler} 
+                    trip={currentTrip} 
+                    destination={currentDestination} 
+                    setCurrentTrip={setCurrentTrip} 
+                    forwardStage={() => forwardStage()} 
+                    backStage={() => backStage()}
+                />,
+            2: <Review 
+                    destination={currentDestination} 
+                    forwardStage={() => forwardStage()} 
+                    backStage={() => backStage()}
+                />,
             3: <Confirmation />
             }[plannerStage]
         }
