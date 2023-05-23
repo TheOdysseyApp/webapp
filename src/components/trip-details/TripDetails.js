@@ -54,7 +54,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.departingFlight.class}
                     onChange={(e) => destinationCopy.departingFlight.class = e.target.value} />
                 <TextField
-                    label="Cost*"
+                    label="Cost (USD)*"
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
                 <TextField
@@ -93,7 +93,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.returnFlight.class}
                     onChange={(e) => destinationCopy.returnFlight.class = e.target.value} />
                 <TextField
-                    label="Cost*"
+                    label="Cost (USD)*"
                     defaultValue={destinationCopy.returnFlight.cost}
                     onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
                 <TextField
@@ -112,7 +112,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.stay.name}
                     onChange={(e) => destinationCopy.stay.name = e.target.value} />
                 <TextField
-                    label="Daily Cost*"
+                    label="Daily Cost (USD)*"
                     defaultValue={destinationCopy.stay.dailyCost}
                     onChange={(e) => destinationCopy.stay.dailyCost = e.target.value} />
                 <TextField
@@ -148,7 +148,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.workspaces.name}
                     onChange={(e) => destinationCopy.workspaces.name = e.target.value} />
                 <TextField
-                    label="Daily Cost*"
+                    label="Daily Cost (USD)*"
                     defaultValue={destinationCopy.workspaces.dailyCost}
                     onChange={(e) => destinationCopy.workspaces.dailyCost = e.target.value} />
                 <TextField
@@ -167,7 +167,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.experiences.name}
                     onChange={(e) => destinationCopy.experiences.name = e.target.value} />
                 <TextField
-                    label="Cost*"
+                    label="Cost (USD)*"
                     defaultValue={destinationCopy.experiences.cost}
                     onChange={(e) => destinationCopy.experiences.cost = e.target.value} />
                 <TextField
