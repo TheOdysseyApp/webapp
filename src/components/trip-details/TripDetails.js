@@ -4,10 +4,10 @@ import { Button, TextField } from "@aws-amplify/ui-react";
 
 function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
     const destinationCopy = { ...destination }
-    function stringToInt(target, value) {
-        // TODO: handle invalid args
-        target = parseInt(value)
-    }
+    // function stringToInt(target, value) {
+    //     // TODO: handle invalid args
+    //     target = parseInt(value)
+    // }
 
     function saveAndContinue() {
         console.log(destinationCopy)
@@ -144,38 +144,38 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
             <div className='container'>
                 <h2>Workspaces</h2>
                 <TextField
-                    label="Name"
+                    label="Name*"
                     defaultValue={destinationCopy.workspaces.name}
                     onChange={(e) => destinationCopy.workspaces.name = e.target.value} />
                 <TextField
-                    label="Daily Cost"
+                    label="Daily Cost*"
                     defaultValue={destinationCopy.workspaces.dailyCost}
                     onChange={(e) => destinationCopy.workspaces.dailyCost = e.target.value} />
                 <TextField
-                    label="Number of Days"
+                    label="Number of Days*"
                     defaultValue={destinationCopy.workspaces.numDays}
                     onChange={(e) => destinationCopy.workspaces.numDays = e.target.value} />
                 <TextField
-                    label="Link"
+                    label="Link*"
                     defaultValue={destinationCopy.workspaces.link}
                     onChange={(e) => destinationCopy.workspaces.link = e.target.value} />
             </div>
             <div className='container'>
                 <h2>Experiences</h2>
                 <TextField
-                    label="Name"
+                    label="Name*"
                     defaultValue={destinationCopy.experiences.name}
                     onChange={(e) => destinationCopy.experiences.name = e.target.value} />
                 <TextField
-                    label="Cost"
+                    label="Cost*"
                     defaultValue={destinationCopy.experiences.cost}
                     onChange={(e) => destinationCopy.experiences.cost = e.target.value} />
                 <TextField
-                    label="Link"
+                    label="Link*"
                     defaultValue={destinationCopy.experiences.link}
                     onChange={(e) => destinationCopy.experiences.link = e.target.value} />
                 <TextField
-                    label="Experience Image"
+                    label="Experience Image*"
                     defaultValue={destinationCopy.experiences.imageURL}
                     onChange={(e) => destinationCopy.experiences.imageURL = e.target.value} />
             </div>
@@ -183,7 +183,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                 <h2>Itinerary</h2>
                 {destinationCopy.itinerary.map((item, index) => (
                     <TextField
-                        label={`Day ${index + 1}`}
+                        label={`Day ${index + 1}*`}
                         defaultValue={item.days.activities}
                         onChange={(e) => item.days.activities = e.target.value} 
                         key={index} />

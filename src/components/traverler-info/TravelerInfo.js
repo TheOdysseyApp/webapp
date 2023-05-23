@@ -2,7 +2,7 @@ import { Card, View, Grid } from "@aws-amplify/ui-react";
 import CompareDestination from "../compare-destination/CompareDestination"
 import './TravelerInfo.css'
 
-function TravelerInfo({ currentTripId,traveler, trip, setCurrentDestination, forwardStage }) {
+function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, forwardStage }) {
   return (
     <Card
       columnStart="2"
@@ -17,13 +17,13 @@ function TravelerInfo({ currentTripId,traveler, trip, setCurrentDestination, for
             <p>{`# ${traveler.tripId}`}</p>
             {/* We need to move this information into the traveler object as well
                 which we need to contact backend team about */}
-            {/* <div>
-              <p>{`Departing from: ${trip.details.departure}`}</p>
-              <p>{`Month of trip: ${trip.details.month}`}</p>
-              <p>{`Number of Days: ${trip.details.duration}`}</p>
+            <div>
+              <p>{`Departing from: `}</p>
+              <p>{`Month of trip: `}</p>
+              <p>{`Number of Days: `}</p>
             </div>
             <p>{`Desired activities: ${"Activity1, Activity2, Activity3"}`}</p>
-            <p>{`Budget: $${trip.details.totalTripCost}`}</p> */}
+            <p>{`Budget: `}</p>
       
           </div>
           <Grid
