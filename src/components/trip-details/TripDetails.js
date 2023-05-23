@@ -8,7 +8,7 @@ function TripDetails({ trip, destination, backStage }) {
 
     return (
         <div className='tripdetails'>
-            <Button className="secondary" onClick={backStage}>Back</Button>
+            <Button className="secondary" onClick={backStage}>&lt; Back</Button>
             <div className='container'>
 
                 <h1>{trip.stay.name}</h1>
