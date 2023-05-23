@@ -23,7 +23,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
 
     return (
         <div className='tripdetails'>
-            <Button className="secondary" onClick={backStage}>&lt; Back</Button>
+            <Button className="secondary back-button" onClick={backStage}>&lt; Back</Button>
             <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
                 <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.tripId}</p></div>

@@ -6,7 +6,7 @@
     gap: 20px;
 }
 
-.tripdetails Button {
+.tripdetails Button.back-button {
     margin: 30px 10% 0px;
 }
 
