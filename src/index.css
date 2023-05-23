@@ -5,7 +5,7 @@
   --color-light-blue: #5F7E96;
   --color-white: #FFFFFF;
   --color-light-gray: #F6F6F6;
-  --color-gray: #C0C0C0;
+  --color-gray: #CFCFCF;
   --color-dark-gray: #363636;
   --color-black: #000000;
 }
@@ -56,7 +56,7 @@ button.primary {
   color: var(--color-white);
   border: none;
   transition: .2s;
-  padding: 8px 16px;
+  padding: 8px 18px;
 }
 
 button.primary:hover {
@@ -81,6 +81,7 @@ button.secondary {
   color: var(--color-dark-blue);
   border: 1px solid var(--color-gray);
   transition: .2s;
+  padding: 8px 18px;
 }
 
 button.secondary:hover {
@@ -90,7 +91,7 @@ button.secondary:hover {
 }
 
 button.secondary:focus {
-  background-color: var(--color-white);
+  background-color: var(--color-light-gray);
   color: var(--color-dark-blue);
   border: 1px solid var(--color-gray);
   box-shadow: none;
