@@ -20,11 +20,11 @@ function Homepage({ signOut }) {
     // This state is set in TravelerInfo, and used in Trip details
     // For clarification, Odyssey users can have multiple trips, each trip will
     // have multiple destinations generated (hence the different variables)
-    // As of now (5/22/23), Trip and Destination are interchangeable because
-    // we are trying to get a basic flow setup for a demo i.e one trip 
-    // has only one destination
     const [currentTrip, setCurrentTrip] = useState(null);
     const [currentDestination, setCurrentDestination] = useState(null);
+
+    const [currentTraveler, setCurrentTraveler] = useState(null);
+
     
     // This state and the functions that follow control which component is rendered 
     // as the main content of the page. The component that is rendered is assigned
@@ -52,6 +52,9 @@ function Homepage({ signOut }) {
     useEffect(() => {
         if (currentTripId != null) {
             fetchItineraries(currentTripId).then((r) => {
+                const { first_name, last_name, id: tripId, userID: userId } = r
+                const traveler = { first_name, last_name,  tripId, userId }
+                console.log(traveler)
                 setCurrentTrip(r);
             })
         }
