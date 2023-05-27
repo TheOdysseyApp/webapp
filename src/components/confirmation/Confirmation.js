@@ -1,16 +1,17 @@
 import './Confirmation.css'
+import { Button } from "@aws-amplify/ui-react";
+import React from 'react';
 
-function Confirmation() {
+export default function Confirmation(traveler, destination, forwardStage, backStage) {
     return (
         <div className='confirmation'>
             <div className='container'>
               <h1 className = "Success">Success!</h1>
-              <p className="Traveler">Itinerary has been sent to Liam Johnson</p>
-              <p className="IDnum">0b24c9ac-1b6c-4a85-8b2d-2d40e208b87c</p>
+              <p className="Traveler">Itinerary has been sent to <b>{traveler.first_name}, {traveler.last_name}</b></p>
+              <p className="IDnum">{traveler.id}</p>
               <p className="Days"># Days in Location</p>
             </div>
         </div>
     )
 }
 
-export default Confirmation;
