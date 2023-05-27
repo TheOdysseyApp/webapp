@@ -1,5 +1,6 @@
 import './Review.css'
 import { Button } from "@aws-amplify/ui-react";
+import React from 'react';
 
 
 export default function Review({ traveler, destination, forwardStage, backStage }) {
@@ -24,8 +25,18 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                 <p><b>Hotel Cost / Night: </b>${destination.stay.dailyCost}</p>
                 <p><b>Hotel Booking Link: </b>{destination.stay.link}</p>
                 <p><b>Airport Transportation: </b></p>
-                <p><b>Transportation Cost: </b></p>
+                <p><b>Transportation Cost: </b></p> 
+                <div>
+                    {destination.itinerary.map((item, index) => (
+                        <div key={index}>
+                            <p><b>Day {index + 1}:</b></p>
+                            <p>{item.days.activities}</p>
+                        </div>
+                    ))}
+                </div>
+                <p><b>Estimated Cost: </b>$</p>
             </div>
+            
             <Button className="primary" onClick={forwardStage}>Submit</Button>
             <Button className="secondary" onClick={backStage}>Return to editing</Button>
 
