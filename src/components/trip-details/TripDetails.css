@@ -18,3 +18,15 @@
 .tripdetails .heading-container {
     gap: 10px;
 }
+
+.tripdetails .experience {
+    width: 100%
+}
+
+.tripdetails .workspace {
+    width: 100%
+}
+
+.tripdetails .stay {
+    width: 100%
+}

@@ -55,6 +55,7 @@ function Homepage({ signOut }) {
     useEffect(() => {
         if (currentTripId != null) {
             fetchItineraries(currentTripId).then((r) => {
+                console.log(r)
                 const { first_name, last_name, id: tripId, userID: userId } = r
                 const traveler = { first_name, last_name,  tripId, userId }
                 setCurrentTraveler(traveler)
