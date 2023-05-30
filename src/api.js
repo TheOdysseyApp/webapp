@@ -40,7 +40,7 @@ export const fetchItineraries = async (currentTripId) => {
 export const createItinerary = async(tripDetails) => {
     try {
         const response = await fetch(
-            "URL GOES HERE",
+            "https://c9aj9i6qbb.execute-api.us-west-2.amazonaws.com/prod/myresource",
             {headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

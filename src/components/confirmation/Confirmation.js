@@ -2,7 +2,6 @@ import './Confirmation.css'
 import React from 'react';
 
 export default function Confirmation({traveler, destination}) {
-    console.log(traveler, destination)
     return (
         <div className='confirmation'>
             <div className='container'>

@@ -5,10 +5,9 @@ import React from 'react';
 
 
 export default function Review({ traveler, destination, forwardStage, backStage }) {
-
     function confirmTripData() {
-        console.log(destination);
-        //createItinerary(destination);
+        destination.id = traveler.tripId;
+        createItinerary(destination);
         forwardStage();
     }
 

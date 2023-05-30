@@ -24,8 +24,6 @@ function Homepage({ signOut }) {
     const [currentDestination, setCurrentDestination] = useState(null);
 
     const [currentTraveler, setCurrentTraveler] = useState(null);
-    console.log(currentDestination)
-
     
     // This state and the functions that follow control which component is rendered 
     // as the main content of the page. The component that is rendered is assigned
