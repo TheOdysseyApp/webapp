@@ -26,8 +26,8 @@ export default function Review({ traveler, destination, forwardStage, backStage 
             <div className="container">
                 <p><b>{destination.details.departure} -{'>'} {destination.details.destination}</b></p>
                 <p><b>Round Trip Cost: </b>${destination.departingFlight.cost + destination.returnFlight.cost}</p>
-                <p><b>Arrival Date: </b>{new Date(destination.departingFlight.datetime).toLocaleDateString()}</p>
-                <p><b>Departure Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()}</p>
+                <p><b>Arrival Date: </b>{new Date(destination.departingFlight.datetime).toLocaleDateString()} {new Date(destination.departingFlight.datetime).toLocaleTimeString()}</p>
+                <p><b>Departure Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()} {new Date(destination.returnFlight.datetime).toLocaleTimeString()}</p>
                 <p><b>Flight Booking Link: </b>{destination.departingFlight.link}</p>
                 <p><b>Hotel Name: </b>{destination.stay.name}</p>
                 <p><b>Hotel Cost / Night: </b>${destination.stay.dailyCost}</p>

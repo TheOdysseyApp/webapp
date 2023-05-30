@@ -63,6 +63,7 @@ button.primary:hover {
   background-color: #083150;
   color: var(--color-white);
   background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
+  scale: 102%;
 }
 
 button.primary:active {
@@ -72,6 +73,7 @@ button.primary:active {
 button.primary:focus {
   background-color: #083150;
   color: var(--color-white);
+  scale: 102%;
 }
 
 button.secondary {
@@ -88,6 +90,7 @@ button.secondary:hover {
   background-color: var(--color-light-gray);
   color: var(--color-dark-blue);
   border: 1px solid var(--color-gray);
+  scale: 102%;
 }
 
 button.secondary:focus {
@@ -95,6 +98,7 @@ button.secondary:focus {
   color: var(--color-dark-blue);
   border: 1px solid var(--color-gray);
   box-shadow: none;
+  scale: 102%;
 }
 
 button.secondary:active {
