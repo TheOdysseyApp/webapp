@@ -3,7 +3,6 @@ import './ItinerariesList.css'
 
 import {
     Collection,
-    Image,
     ScrollView
   } from "@aws-amplify/ui-react";
 

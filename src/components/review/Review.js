@@ -1,5 +1,5 @@
 import './Review.css'
-import { Button } from "@aws-amplify/ui-react";
+import { Button, ScrollView } from "@aws-amplify/ui-react";
 import { createItinerary } from '../../api';
 import React from 'react';
 
@@ -12,7 +12,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
     }
 
     return (
-        <div className="review">
+        <ScrollView className="review">
             <div className="container heading-container">
                 <h1>Review</h1>
                 <h3>{traveler.first_name} {traveler.last_name}, {traveler.id}</h3>
@@ -48,6 +48,6 @@ export default function Review({ traveler, destination, forwardStage, backStage 
             </div>
             
 
-        </div>
+        </ScrollView>
     )
 }

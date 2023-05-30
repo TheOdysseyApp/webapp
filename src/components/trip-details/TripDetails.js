@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
@@ -23,7 +23,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
 
 
     return (
-        <div className='tripdetails'>
+        <ScrollView className='tripdetails'>
             <Button className="secondary stage-button" onClick={backStage}>&lt; Back</Button>
             <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
@@ -194,7 +194,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
 
             
             <Button className="primary stage-button" onClick={() => saveAndContinue()} style={{marginBottom: '40px'}}>Continue</Button>
-        </div>
+        </ScrollView>
 
     )
 }
