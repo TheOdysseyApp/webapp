@@ -1,5 +1,5 @@
 import './Review.css'
-import { Button } from "@aws-amplify/ui-react";
+import { Button, ScrollView } from "@aws-amplify/ui-react";
 import { createItinerary } from '../../api';
 import React from 'react';
 
@@ -12,7 +12,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
     }
 
     return (
-        <div className="review">
+        <ScrollView className="review">
             <div className="container heading-container">
                 <h1>Review</h1>
                 <h3>{traveler.first_name} {traveler.last_name}, {traveler.id}</h3>
@@ -23,7 +23,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                 <p>Budget: ${}-${}</p>
             </div>
             <div className="container">
-                <p><b>{destination.details.departure} -{'>'} {destination.details.destination}</b></p>
+                <h3>{destination.details.departure} to {destination.details.destination}</h3>
                 <p><b>Round Trip Cost: </b>${destination.departingFlight.cost + destination.returnFlight.cost}</p>
                 <p><b>Arrival Date: </b>{new Date(destination.departingFlight.datetime).toLocaleDateString()} {new Date(destination.departingFlight.datetime).toLocaleTimeString()}</p>
                 <p><b>Departure Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()} {new Date(destination.returnFlight.datetime).toLocaleTimeString()}</p>
@@ -48,6 +48,6 @@ export default function Review({ traveler, destination, forwardStage, backStage 
             </div>
             
 
-        </div>
+        </ScrollView>
     )
 }

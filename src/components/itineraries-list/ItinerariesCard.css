@@ -1,10 +1,18 @@
-.ItinerariesCard {
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+  
+  .ItinerariesCard {
     border-radius: 8px;
     margin: -1px 10px 0px 10px;
     padding: 0px;
     z-index: 1;
     transition: .08s;
     min-height: 110px;
+    animation: fadeIn .2s;
+    cursor: pointer;
 }
 
 .ItinerariesCard.selected {
@@ -16,6 +24,7 @@
     margin: 16px 16px 0px 16px;
     border-bottom: 1px solid var(--color-gray);
     min-height: 94px;
+    transition: .06s;
 }
 
 .ItinerariesCard .card-content.selected {
@@ -26,7 +35,7 @@
     padding-bottom: 16px;
     flex-wrap: wrap;
     display: flex;
-    transition: scale .2s;
+    transition: .06s;
 }
 
 .ItinerariesCard .content:active {
@@ -76,4 +85,24 @@
 
 .ItinerariesCard .card-content.selected h4 {
     color: var(--color-white);
+}
+
+.ItinerariesCard:hover {
+    box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.2);
+    scale: 102%;
+    z-index: 2;
+    background-color: var(--color-light-gray);
+}
+
+.ItinerariesCard.selected:hover {
+    z-index: 2;
+    background-color: var(--color-light-blue);
+}
+
+.ItinerariesCard:hover .card-content.selected {
+    border-color: var(--color-light-blue);
+}
+
+.ItinerariesCard:hover .card-content {
+    border-color: var(--color-light-gray);
 }
