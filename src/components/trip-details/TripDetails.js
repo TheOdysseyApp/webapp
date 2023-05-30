@@ -13,8 +13,8 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
 
     function saveAndContinue() {
         console.log(destinationCopy)
-        // setCurrentTrip(tripCopy)
-        // forwardStage()
+        setCurrentTrip(destinationCopy)
+        forwardStage()
     }
 
     const [departureDate, setDepartureDate] = useState(null);

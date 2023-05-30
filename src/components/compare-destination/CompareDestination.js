@@ -1,10 +1,6 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './CompareDestination.css'
 
-
-
-
-
 function CompareDestination({ destination, column, setCurrentDestination, forwardStage }) {
     function chooseDestination(d) {
         setCurrentDestination(d)

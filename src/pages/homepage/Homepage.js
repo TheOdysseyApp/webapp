@@ -87,6 +87,7 @@ function Homepage({ signOut }) {
                     backStage={() => backStage()}
                 />,
             2: <Review 
+                    traveler={currentTraveler}   
                     destination={currentDestination} 
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
