@@ -3,6 +3,7 @@ import './ItinerariesList.css'
 
 import {
     Collection,
+    Image,
     ScrollView
   } from "@aws-amplify/ui-react";
 
@@ -23,21 +24,33 @@ function ItinerariesList({ previews, currentTripId, setCurrentTripId, resetStage
             rowEnd="-1"
             className="ItinerariesList"
         >
-        <Collection
-          items={previews}
-          gap="0px"
-        >
-        {/* For each item passed to Navbar, create a card object that contains a
-        TravelerInfo component */}
-        {(preview, index) => (
-            <ItinerariesCard 
-            item={preview} 
-            key={index} 
-            onClick={() => handleItemClick(preview, index)}
-            isSelected={preview.tripId === currentTripId}
-            />
-        )}
-        </Collection>
+        { previews !== null ?
+          <div className="list-content">
+            <div className="load-list">
+              <img alt='loading' src='/images/loading.gif' className="fade"></img>
+            </div>
+            <Collection
+              items={previews}
+              gap="0px"
+            >
+            {/* For each item passed to Navbar, create a card object that contains a
+            TravelerInfo component */}
+            {(preview, index) => (
+                <ItinerariesCard 
+                item={preview} 
+                key={index} 
+                onClick={() => handleItemClick(preview, index)}
+                isSelected={preview.tripId === currentTripId}
+                />
+            )}
+            </Collection>
+          </div> :
+          <div className="list-content">
+            <div className="load-list">
+              <img alt='loading' src='/images/loading.gif'></img>
+            </div>
+          </div>
+        }
       </ScrollView>
     )
 }

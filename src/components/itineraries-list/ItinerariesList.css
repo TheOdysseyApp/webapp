@@ -7,4 +7,30 @@
     background-color: var(--color-light-gray);
     padding: 10px;
     border-right: 1px solid var(--color-gray);
+    
+}
+
+.ItinerariesList .load-list img {
+    position: absolute;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: .15s;
+}
+
+.ItinerariesList .list-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ItinerariesList .load-list .fade {
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }

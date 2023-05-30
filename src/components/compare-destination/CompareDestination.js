@@ -22,10 +22,6 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                             <p><b>Hotel Cost / Night:</b> ${destination.stay.dailyCost}</p>
                         </div>
                         <div>
-                            <p><b>Airport Transportation:</b></p>
-                            <p><b>Transportation Cost: </b></p>
-                        </div>
-                        <div>
                             {destination.itinerary.map((item, index) => (
                                 <div key={index}>
                                     <p><b>Day {index + 1}:</b></p>
