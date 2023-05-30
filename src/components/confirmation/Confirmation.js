@@ -1,5 +1,4 @@
 import './Confirmation.css'
-import { Button } from "@aws-amplify/ui-react";
 import React from 'react';
 
 export default function Confirmation(traveler, destination, forwardStage, backStage) {

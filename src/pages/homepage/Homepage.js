@@ -33,12 +33,15 @@ function Homepage({ signOut }) {
     const [plannerStage, setPlannerStage] = useState(0);
     const forwardStage = () => {
         setPlannerStage(plannerStage + 1);
+        window.scrollTo(0, 0);
     }
     const backStage = () => {
         setPlannerStage(plannerStage - 1);
+        window.scrollTo(0, 0);
     }
     const resetStage = () => {
         setPlannerStage(0);
+        window.scrollTo(0, 0);
     }
     
     // Fetches previews on page mount

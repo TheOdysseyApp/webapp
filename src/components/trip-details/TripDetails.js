@@ -12,13 +12,14 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
     // }
 
     function saveAndContinue() {
-        console.log(destinationCopy)
-        setCurrentTrip(destinationCopy)
-        forwardStage()
+        destinationCopy.departingFlight.datetime = departureDate;
+        destinationCopy.returnFlight.datetime = returnDate;
+        setCurrentTrip(destinationCopy);
+        forwardStage();
     }
 
-    const [departureDate, setDepartureDate] = useState(null);
-    const [returnDate, setReturnDate] = useState(null);
+    const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
+    const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.datetime);
 
 
     return (
