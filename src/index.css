@@ -64,6 +64,7 @@ button.primary:hover {
   color: var(--color-white);
   background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
   scale: 102%;
+  box-shadow: 0px 0.5px 3px 0px rgba(0,0,0,0.2);
 }
 
 button.primary:active {
@@ -91,6 +92,7 @@ button.secondary:hover {
   color: var(--color-dark-blue);
   border: 1px solid var(--color-gray);
   scale: 102%;
+  box-shadow: 0px 0.5px 3px 0px rgba(0,0,0,0.1);
 }
 
 button.secondary:focus {
