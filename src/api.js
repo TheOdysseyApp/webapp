@@ -32,7 +32,27 @@ export const fetchItineraries = async (currentTripId) => {
             return {}
         }
         return unmarshall(json.Item)
-      } catch (error) {
+    } catch (error) {
         console.error(error);
-      }
+    }
+}
+
+export const createItinerary = async(tripDetails) => {
+    try {
+        const response = await fetch(
+            "https://c9aj9i6qbb.execute-api.us-west-2.amazonaws.com/prod/myresource",
+            {headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(tripDetails)
+        });
+        if (!response.ok) {
+            throw new Error('Error submitting data');
+        }
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
 }

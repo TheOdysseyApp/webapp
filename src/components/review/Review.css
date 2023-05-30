@@ -1,7 +1,20 @@
-.Review {
+.review {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 20px;
+}
+
+.review .heading-container {
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.review Button.stage-button {
+    margin-right: 10px;
+}
+
+.review .stage-button-container {
+    margin: 28px 10% 40px;
 }

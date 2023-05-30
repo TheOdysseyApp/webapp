@@ -24,7 +24,6 @@ function Homepage({ signOut }) {
     const [currentDestination, setCurrentDestination] = useState(null);
 
     const [currentTraveler, setCurrentTraveler] = useState(null);
-
     
     // This state and the functions that follow control which component is rendered 
     // as the main content of the page. The component that is rendered is assigned
@@ -33,12 +32,15 @@ function Homepage({ signOut }) {
     const [plannerStage, setPlannerStage] = useState(0);
     const forwardStage = () => {
         setPlannerStage(plannerStage + 1);
+        window.scrollTo(0, 0);
     }
     const backStage = () => {
         setPlannerStage(plannerStage - 1);
+        window.scrollTo(0, 0);
     }
     const resetStage = () => {
         setPlannerStage(0);
+        window.scrollTo(0, 0);
     }
     
     // Fetches previews on page mount
@@ -92,7 +94,10 @@ function Homepage({ signOut }) {
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
                 />,
-            3: <Confirmation />
+            3: <Confirmation
+                    traveler={currentTraveler}
+                    destination={currentDestination}  
+                />
             }[plannerStage]
         }
         </Grid> 
