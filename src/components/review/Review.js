@@ -1,5 +1,6 @@
 import './Review.css'
 import { Button } from "@aws-amplify/ui-react";
+import { createItinerary } from '../../api';
 import React from 'react';
 
 
@@ -7,7 +8,8 @@ export default function Review({ traveler, destination, forwardStage, backStage 
 
     function confirmTripData() {
         console.log(destination);
-        //forwardStage();
+        //createItinerary(destination);
+        forwardStage();
     }
 
     return (

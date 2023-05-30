@@ -24,6 +24,7 @@ function Homepage({ signOut }) {
     const [currentDestination, setCurrentDestination] = useState(null);
 
     const [currentTraveler, setCurrentTraveler] = useState(null);
+    console.log(currentDestination)
 
     
     // This state and the functions that follow control which component is rendered 
@@ -95,7 +96,10 @@ function Homepage({ signOut }) {
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
                 />,
-            3: <Confirmation />
+            3: <Confirmation
+                    traveler={currentTraveler}
+                    destination={currentDestination}  
+                />
             }[plannerStage]
         }
         </Grid> 
