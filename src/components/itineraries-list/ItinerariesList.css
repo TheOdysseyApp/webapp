@@ -29,8 +29,3 @@
 .ItinerariesList .load-list .fade {
     opacity: 0;
 }
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
