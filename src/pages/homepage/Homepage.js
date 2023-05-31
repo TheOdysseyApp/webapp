@@ -50,10 +50,11 @@ function Homepage({ signOut }) {
             setPreviews(r);
         })
     }, []);
-
+    
     // Refetch itinerary data whenever currentTravelerId changes
     useEffect(() => {
         if (currentTripId != null) {
+            setCurrentTrip("loading");
             fetchItineraries(currentTripId).then((r) => {
                 const { first_name, last_name, id: tripId, userID: userId } = r
                 const traveler = { first_name, last_name,  tripId, userId }
