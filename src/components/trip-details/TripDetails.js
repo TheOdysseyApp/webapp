@@ -109,7 +109,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
             <div className='container'>
                 <h2>Hotel Information</h2>
                 <TextField
-                    label="Flight Booking Link*"
+                    label="Name*"
                     defaultValue={destinationCopy.stay.name}
                     onChange={(e) => destinationCopy.stay.name = e.target.value} />
                 <TextField
@@ -136,10 +136,9 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Room Type*"
                     defaultValue={destinationCopy.stay.roomType}
                     onChange={(e) => destinationCopy.stay.roomType = e.target.value} />
-                {/* Image is hardcoded for the demo, change later */}
                 <TextField
                     label="Hotel Image*"
-                    defaultValue={"https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"}
+                    defaultValue={""}
                     onChange={(e) => destinationCopy.stay.stayImgURL = e.target.value} />
             </div>
             <div className='container'>
@@ -175,10 +174,9 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Link*"
                     defaultValue={destinationCopy.experiences.link}
                     onChange={(e) => destinationCopy.experiences.link = e.target.value} />
-                {/* Image is hardcoded for the demo, change later */}
                 <TextField
                     label="Experience Image*"
-                    defaultValue={'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=983&q=80'}
+                    defaultValue={''}
                     onChange={(e) => destinationCopy.experiences.imageURL = e.target.value} />
             </div>
             <div className='container'>
