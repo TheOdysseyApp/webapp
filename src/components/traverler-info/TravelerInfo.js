@@ -12,11 +12,7 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, fo
 		{
 			(currentTripId && traveler && trip && trip !== "loading" && Object.keys(trip).length !== 0) ? 
 			<View className="TravelerInfoSelected">
-				<div className="loading-traveler">
-					<div className="fade">
-						<img alt='loading' src='/images/loading.gif'/>
-					</div>
-				</div>
+				<img alt='loading' src='/images/loading.gif' className="loading-traveler fade"/>
 				<div className="header">
 					<h1>{traveler.first_name + " " + traveler.last_name}</h1>
 					<p>{`# ${traveler.tripId}`}</p>
@@ -44,12 +40,10 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, fo
 			<View className="TravelerInfoUnselected">
 				<h3 className="noTraveler">Server error</h3>
 			</View>
-			: (trip === "loading") ? 
-			<div className="loading-traveler">
-				<div className="load-container">
-					<img alt='loading' src='/images/loading.gif'/>
-				</div>
-			</div>
+			: (trip === "loading") ?
+			<View className="TravelerInfoSelected">
+				<img alt='loading' src='/images/loading.gif' className="loading-traveler"/>
+			</View>
 			:
 			<View className="TravelerInfoUnselected">
 				<h3 className="noTraveler">Select a traveler to get started</h3>
