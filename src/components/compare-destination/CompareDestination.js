@@ -18,26 +18,26 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                             <p><b>Total Trip Cost:</b> ${destination.details.totalTripCost}</p>
                         </div>
                         <div>
+                            <p><b>Hotels</b></p>
                             {destination.stay.map((item, index) => (
                                 <div key={index}>
-                                    <p><b>Hotel {index + 1} Name:</b> {item.name}</p>
-                                    <p><b>Hotel {index + 1} Cost / Night:</b> ${item.dailyCost}</p>
+                                    <p>{index + 1}. {item.name} (${item.dailyCost})</p>
                                 </div>
                             ))}
                         </div>
                         <div>
+                            <p><b>Workspaces</b></p>
                             {destination.workspaces.map((item, index) => (
                                 <div key={index}>
-                                    <p><b>Workspace {index + 1} Name:</b> {item.name}</p>
-                                    <p><b>Workspace {index + 1} Cost / Day:</b> ${item.dailyCost}</p>
+                                    <p>{index + 1}. {item.name} (${item.dailyCost})</p>
                                 </div>
                             ))}
                         </div>
                         <div>
+                            <p><b>Experiences</b></p>
                             {destination.experiences.map((item, index) => (
                                 <div key={index}>
-                                    <p><b>Experience {index + 1}:</b> {item.name}</p>
-                                    <p><b>Experience {index + 1} Cost:</b> ${item.cost}</p>
+                                    <p>{index + 1}. {item.name} (${item.cost})</p>
                                 </div>
                             ))}
                         </div>
