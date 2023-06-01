@@ -59,6 +59,26 @@ function Homepage({ signOut }) {
                 const { first_name, last_name, id: tripId, userID: userId } = r
                 const traveler = { first_name, last_name,  tripId, userId }
                 setCurrentTraveler(traveler)
+
+                // TEMPORARY FIX FOR STAYS/HOTELS/EXPERIENCES BEING SINGLE OBJECTS AND NOT LISTS
+                // converts each of the above fields to lists if they are not lists already
+                // once traveler api is updated to have these set as lists, then we can remove
+                // this
+                const trips = [r.A, r.B, r.C]
+
+                trips.forEach((item) => {
+                    if (!Array.isArray(item.experiences)) {
+                        item.experiences = [item.experiences]
+                    }
+                    if (!Array.isArray(item.stay)) {
+                        item.stay = [item.stay]
+                    }
+                    if (!Array.isArray(item.workspaces)) {
+                        item.workspaces = [item.workspaces]
+                    }
+                })
+                // END TEMP FIX
+
                 setCurrentTrip(r);
             })
         }
