@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField, ScrollView } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView, Divider } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
 function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
+    console.log(destination)
     const destinationCopy = { ...destination }
     // function stringToInt(target, value) {
     //     // TODO: handle invalid args
@@ -108,78 +109,99 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
             </div>
             <div className='container'>
                 <h2>Hotel Information</h2>
-                <TextField
-                    label="Flight Booking Link*"
-                    defaultValue={destinationCopy.stay.name}
-                    onChange={(e) => destinationCopy.stay.name = e.target.value} />
-                <TextField
-                    label="Daily Cost (USD)*"
-                    defaultValue={destinationCopy.stay.dailyCost}
-                    onChange={(e) => destinationCopy.stay.dailyCost = e.target.value} />
-                <TextField
-                    label="Description*"
-                    defaultValue={destinationCopy.stay.description}
-                    onChange={(e) => destinationCopy.stay.description = e.target.value} />
-                <TextField
-                    label="Number of Days*"
-                    defaultValue={destinationCopy.stay.numDays}
-                    onChange={(e) => destinationCopy.stay.numDays = e.target.value} />
-                <TextField
-                    label="Booking Link*"
-                    defaultValue={destinationCopy.stay.link}
-                    onChange={(e) => destinationCopy.stay.link = e.target.value} />
-                <TextField
-                    label="Hotel Rating*"
-                    defaultValue={destinationCopy.stay.rating}
-                    onChange={(e) => destinationCopy.stay.rating = e.target.value} />
-                <TextField
-                    label="Room Type*"
-                    defaultValue={destinationCopy.stay.roomType}
-                    onChange={(e) => destinationCopy.stay.roomType = e.target.value} />
-                {/* Image is hardcoded for the demo, change later */}
-                <TextField
-                    label="Hotel Image*"
-                    defaultValue={"https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"}
-                    onChange={(e) => destinationCopy.stay.stayImgURL = e.target.value} />
+                {destinationCopy.stay.map((item, index) => (
+                    <div className="stay" key={index}>
+                        <h4>Option {index+1}</h4>
+                        <TextField
+                            label="Flight Booking Link*"
+                            defaultValue={item.name}
+                            onChange={(e) => item.name = e.target.value} />
+                        <TextField
+                            label="Daily Cost (USD)*"
+                            defaultValue={item.dailyCost}
+                            onChange={(e) => item.dailyCost = e.target.value} />
+                        <TextField
+                            label="Description*"
+                            defaultValue={item.description}
+                            onChange={(e) => item.description = e.target.value} />
+                        <TextField
+                            label="Number of Days*"
+                            defaultValue={item.numDays}
+                            onChange={(e) => item.numDays = e.target.value} />
+                        <TextField
+                            label="Booking Link*"
+                            defaultValue={item.link}
+                            onChange={(e) => item.link = e.target.value} />
+                        <TextField
+                            label="Hotel Rating*"
+                            defaultValue={item.rating}
+                            onChange={(e) => item.rating = e.target.value} />
+                        <TextField
+                            label="Room Type*"
+                            defaultValue={item.roomType}
+                            onChange={(e) => item.roomType = e.target.value} />
+                        {/* Image is hardcoded for the demo, change later */}
+                        <TextField
+                            label="Hotel Image*"
+                            defaultValue={"https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"}
+                            onChange={(e) => item.stayImgURL = e.target.value} />
+                        <Divider />
+                    </div>
+                ))}
+                
             </div>
             <div className='container'>
                 <h2>Workspaces</h2>
-                <TextField
-                    label="Name*"
-                    defaultValue={destinationCopy.workspaces.name}
-                    onChange={(e) => destinationCopy.workspaces.name = e.target.value} />
-                <TextField
-                    label="Daily Cost (USD)*"
-                    defaultValue={destinationCopy.workspaces.dailyCost}
-                    onChange={(e) => destinationCopy.workspaces.dailyCost = e.target.value} />
-                <TextField
-                    label="Number of Days*"
-                    defaultValue={destinationCopy.workspaces.numDays}
-                    onChange={(e) => destinationCopy.workspaces.numDays = e.target.value} />
-                <TextField
-                    label="Link*"
-                    defaultValue={destinationCopy.workspaces.link}
-                    onChange={(e) => destinationCopy.workspaces.link = e.target.value} />
+                {destinationCopy.workspaces.map((item, index) => (
+                    <div className="workspace" key={index}>
+                        <h4>Option {index+1}</h4>
+                        <TextField
+                            label="Name*"
+                            defaultValue={item.name}
+                            onChange={(e) => item.name = e.target.value} />
+                        <TextField
+                            label="Daily Cost (USD)*"
+                            defaultValue={item.dailyCost}
+                            onChange={(e) => item.dailyCost = e.target.value} />
+                        <TextField
+                            label="Number of Days*"
+                            defaultValue={item.numDays}
+                            onChange={(e) => item.numDays = e.target.value} />
+                        <TextField
+                            label="Link*"
+                            defaultValue={item.link}
+                            onChange={(e) => item.link = e.target.value} />
+                        <Divider />
+                    </div>
+                ))}
+                
             </div>
             <div className='container'>
                 <h2>Experiences</h2>
-                <TextField
-                    label="Name*"
-                    defaultValue={destinationCopy.experiences.name}
-                    onChange={(e) => destinationCopy.experiences.name = e.target.value} />
-                <TextField
-                    label="Cost (USD)*"
-                    defaultValue={destinationCopy.experiences.cost}
-                    onChange={(e) => destinationCopy.experiences.cost = e.target.value} />
-                <TextField
-                    label="Link*"
-                    defaultValue={destinationCopy.experiences.link}
-                    onChange={(e) => destinationCopy.experiences.link = e.target.value} />
-                {/* Image is hardcoded for the demo, change later */}
-                <TextField
-                    label="Experience Image*"
-                    defaultValue={'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=983&q=80'}
-                    onChange={(e) => destinationCopy.experiences.imageURL = e.target.value} />
+                {destinationCopy.experiences.map((item, index) => (
+                    <div className="experience" key={index}>
+                        <h4>Option {index+1}</h4>
+                        <TextField
+                        label="Name*"
+                        defaultValue={item.name}
+                        onChange={(e) => item.name = e.target.value} />
+                        <TextField
+                            label="Cost (USD)*"
+                            defaultValue={item.cost}
+                            onChange={(e) => item.cost = e.target.value} />
+                        <TextField
+                            label="Link*"
+                            defaultValue={item.link}
+                            onChange={(e) => item.link = e.target.value} />
+                        {/* Image is hardcoded for the demo, change later */}
+                        <TextField
+                            label="Experience Image*"
+                            defaultValue={'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=983&q=80'}
+                            onChange={(e) => item.imageURL = e.target.value} />
+                        <Divider />
+                    </div>
+                ))}
+                
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>
