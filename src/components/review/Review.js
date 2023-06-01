@@ -49,28 +49,46 @@ export default function Review({ traveler, destination, forwardStage, backStage 
             </div>
             <div className='container'>
                 <h2>Hotel information</h2>
-                    <p><b>Name: </b>{destination.stay.name}</p>
-                    <p><b>Daily Cost (USD): </b>{destination.stay.dailyCost}</p>
-                    <p><b>Description: </b>{destination.stay.description}</p>
-                    <p><b>Number of Days: </b>{destination.stay.numDays}</p>
-                    <p><b>Booking Link: </b>{destination.stay.link}</p>
-                    <p><b>Hotel Rating: </b>{destination.stay.rating}</p>
-                    <p><b>Room Type: </b>{destination.stay.roomType}</p>
-                    <p><b>Hotel Image: </b>{destination.stay.stayImgURL}</p>
+                {destination.stay.map((item, index) => (
+                    <div className="stay" key={index}>
+                        <h4>Option {index + 1}</h4>
+                        <p><b>Name: </b>{item.name}</p>
+                        <p><b>Daily Cost (USD): </b>{item.dailyCost}</p>
+                        <p><b>Description: </b>{item.description}</p>
+                        <p><b>Number of Days: </b>{item.numDays}</p>
+                        <p><b>Booking Link: </b>{item.link}</p>
+                        <p><b>Hotel Rating: </b>{item.rating}</p>
+                        <p><b>Room Type: </b>{item.roomType}</p>
+                        <p><b>Hotel Image: </b>{item.stayImgURL}</p>
+                    </div>
+                ))}
+                    
             </div>
             <div className='container'>
                 <h2>Workspaces</h2>
-                    <p><b>Name: </b>{destination.workspaces.name}</p>
-                    <p><b>Daily Cost (USD): </b>{destination.workspaces.dailyCost}</p>
-                    <p><b>Number of Days: </b>{destination.workspaces.numDays}</p>
-                    <p><b>Link: </b>{destination.workspaces.link}</p>
+                {destination.workspaces.map((item, index) => (
+                    <div className="workspaces" key={index}>
+                        <h4>Option {index + 1}</h4>
+                        <p><b>Name: </b>{item.name}</p>
+                        <p><b>Daily Cost (USD): </b>{item.dailyCost}</p>
+                        <p><b>Number of Days: </b>{item.numDays}</p>
+                        <p><b>Link: </b>{item.link}</p>
+                    </div>
+                ))}
+                    
             </div>
             <div className='container'>
                 <h2>Experiences</h2>
-                    <p><b>Name: </b>{destination.experiences.name}</p>
-                    <p><b>Cost (USD): </b>{destination.experiences.dailyCost}</p>
-                    <p><b>Link: </b>{destination.experiences.link}</p>
-                    <p><b>Experience Image: </b>{destination.experiences.imageURL}</p>
+                {destination.experiences.map((item, index) => (
+                    <div className='experiences' key={index} >
+                        <h4>Option {index + 1}</h4>
+                        <p><b>Name: </b>{item.name}</p>
+                        <p><b>Cost (USD): </b>{item.cost}</p>
+                        <p><b>Link: </b>{item.link}</p>
+                        <p><b>Experience Image: </b>{item.imageURL}</p>
+                    </div>
+                ))}
+                    
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>
