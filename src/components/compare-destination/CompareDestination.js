@@ -37,7 +37,7 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                             {destination.experiences.map((item, index) => (
                                 <div key={index}>
                                     <p><b>Experience {index + 1}:</b> {item.name}</p>
-                                    <p><b>Experiences {index + 1} Cost:</b> ${item.cost}</p>
+                                    <p><b>Experience {index + 1} Cost:</b> ${item.cost}</p>
                                 </div>
                             ))}
                         </div>
