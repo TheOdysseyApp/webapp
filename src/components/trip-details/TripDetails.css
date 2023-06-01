@@ -19,14 +19,9 @@
     gap: 10px;
 }
 
-.tripdetails .experience {
-    width: 100%
-}
-
-.tripdetails .workspace {
-    width: 100%
-}
-
-.tripdetails .stay {
-    width: 100%
+.tripdetails .stay, .tripdetails .experience, .tripdetails .workspace {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
 }
