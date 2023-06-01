@@ -56,7 +56,6 @@ function Homepage({ signOut }) {
         if (currentTripId != null) {
             setCurrentTrip("loading");
             fetchItineraries(currentTripId).then((r) => {
-                console.log(r)
                 const { first_name, last_name, id: tripId, userID: userId } = r
                 const traveler = { first_name, last_name,  tripId, userId }
                 setCurrentTraveler(traveler)

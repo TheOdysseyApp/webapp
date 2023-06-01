@@ -5,7 +5,6 @@ import DateTime from '../../components/datetime/DateTime';
 
 
 function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
-    console.log(destination)
     const destinationCopy = { ...destination }
     // function stringToInt(target, value) {
     //     // TODO: handle invalid args
