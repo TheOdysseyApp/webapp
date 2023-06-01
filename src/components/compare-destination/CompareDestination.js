@@ -15,7 +15,7 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                         <h3>{destination.details.destination}</h3>
                         <div>
                             <p><b>{destination.details.departure} -&gt; {destination.details.destination}</b></p>
-                            <p><b>Round Trip Cost:</b> ${destination.details.totalTripCost}</p>
+                            <p><b>Total Trip Cost:</b> ${destination.details.totalTripCost}</p>
                         </div>
                         <div>
                             <p><b>Hotel Name:</b> {destination.stay.name}</p>

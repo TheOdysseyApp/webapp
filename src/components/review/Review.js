@@ -34,7 +34,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                         </div>
                     ))}
                 </div>
-                <p><b>Estimated Cost: </b>$</p>
+                <p><b>Estimated Cost: </b>${destination.details.totalTripCost}</p>
             </div>
             
             <Button className="primary" onClick={forwardStage}>Submit</Button>
