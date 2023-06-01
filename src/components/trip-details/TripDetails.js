@@ -113,7 +113,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     <div className="stay" key={index}>
                         <h4>Option {index+1}</h4>
                         <TextField
-                            label="Flight Booking Link*"
+                            label="Hotel Name*"
                             defaultValue={item.name}
                             onChange={(e) => item.name = e.target.value} />
                         <TextField
@@ -193,10 +193,9 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             label="Link*"
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
-                        {/* Image is hardcoded for the demo, change later */}
-                        <TextField
+                                <TextField
                             label="Experience Image*"
-                            defaultValue={'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=983&q=80'}
+                            defaultValue={''}
                             onChange={(e) => item.imageURL = e.target.value} />
                         <Divider />
                     </div>
