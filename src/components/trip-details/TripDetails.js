@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField, ScrollView, Divider, Expander, ExpanderItem } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
-
 function TripDetails({ traveler, destination, setCurrentDestination, setCurrentTrip, forwardStage, backStage }) {
-    console.log(destination)
     const destinationCopy = structuredClone(destination)
     // function stringToInt(target, value) {
     //     // TODO: handle invalid args
@@ -144,6 +142,16 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                     defaultValue={destinationCopy.returnFlight.link}
                     onChange={(e) => destinationCopy.returnFlight.link = e.target.value} />
             </div>
+            {/* All textfields in this Expander update the currentDestination
+            onBlur (which is whenever they are unfocused). This is to ensure that the
+            data in destinationCopy is updated, which is necessary to have the travel
+            planners progress visually save. If you remove the onBlurs, the data the travel
+            planner inputs WILL UPDATE BUT WONT SHOW UNTIL THE COMPONENT RE-RENDERS. This
+            solution is almost 100% functional except when changing the name of the item,
+            which causes the expander to close. I suspect this is because the name is used
+            in the tital of the ExpanderItem, and when it changes React re-renders the
+            whole ExpanderItem which defaults to unexpanded, thus causing it to appear
+            to close by itself. Not sure how to fix this */}
             <div className='container hotels'>
                 <h2>Hotels</h2>
                 <Button className="primary add" onClick={() => addNewHotel()}>+ New Option</Button>
@@ -153,35 +161,43 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                         <TextField
                             label="Hotel Name*"
                             defaultValue={item.name}
-                            onChange={(e) => item.name = e.target.value} />
+                            onChange={(e) => item.name = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Daily Cost (USD)*"
                             defaultValue={item.dailyCost}
-                            onChange={(e) => item.dailyCost = e.target.value} />
+                            onChange={(e) => item.dailyCost = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Description*"
                             defaultValue={item.description}
-                            onChange={(e) => item.description = e.target.value} />
+                            onChange={(e) => item.description = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Number of Days*"
                             defaultValue={item.numDays}
-                            onChange={(e) => item.numDays = e.target.value} />
+                            onChange={(e) => item.numDays = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Booking Link*"
                             defaultValue={item.link}
-                            onChange={(e) => item.link = e.target.value} />
+                            onChange={(e) => item.link = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Hotel Rating*"
                             defaultValue={item.rating}
-                            onChange={(e) => item.rating = e.target.value} />
+                            onChange={(e) => item.rating = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Room Type*"
                             defaultValue={item.roomType}
-                            onChange={(e) => item.roomType = e.target.value} />
+                            onChange={(e) => item.roomType = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Hotel Image*"
-                            defaultValue={""}
-                            onChange={(e) => item.stayImgURL = e.target.value} />
+                            defaultValue={item.stayImgURL}
+                            onChange={(e) => item.stayImgURL = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                     </ExpanderItem>
                 ))}
                 </Expander>
@@ -195,20 +211,23 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                         <TextField
                             label="Name*"
                             defaultValue={item.name}
-                            onChange={(e) => item.name = e.target.value} />
+                            onChange={(e) => item.name = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Daily Cost (USD)*"
                             defaultValue={item.dailyCost}
-                            onChange={(e) => item.dailyCost = e.target.value} />
+                            onChange={(e) => item.dailyCost = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Number of Days*"
                             defaultValue={item.numDays}
-                            onChange={(e) => item.numDays = e.target.value} />
+                            onChange={(e) => item.numDays = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Link*"
                             defaultValue={item.link}
-                            onChange={(e) => item.link = e.target.value} />
-                        <Divider />
+                            onChange={(e) => item.link = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                     </ExpanderItem>
                 ))}
                 </Expander>
@@ -222,20 +241,23 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                         <TextField
                         label="Name*"
                         defaultValue={item.name}
-                        onChange={(e) => item.name = e.target.value} />
+                        onChange={(e) => item.name = e.target.value} 
+                        onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Cost (USD)*"
                             defaultValue={item.cost}
-                            onChange={(e) => item.cost = e.target.value} />
+                            onChange={(e) => item.cost = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                         <TextField
                             label="Link*"
                             defaultValue={item.link}
-                            onChange={(e) => item.link = e.target.value} />
-                                <TextField
+                            onChange={(e) => item.link = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
+                        <TextField
                             label="Experience Image*"
-                            defaultValue={''}
-                            onChange={(e) => item.imageURL = e.target.value} />
-                        <Divider />
+                            defaultValue={item.imageURL}
+                            onChange={(e) => item.imageURL = e.target.value} 
+                            onBlur={(e) => setCurrentDestination(destinationCopy)} />
                     </ExpanderItem>
                 ))}
                 </Expander>
