@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField, ScrollView, Divider } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView, Divider, Expander, ExpanderItem } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
-function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
-    const destinationCopy = { ...destination }
+function TripDetails({ traveler, destination, setCurrentDestination, setCurrentTrip, forwardStage, backStage }) {
+    console.log(destination)
+    const destinationCopy = structuredClone(destination)
     // function stringToInt(target, value) {
     //     // TODO: handle invalid args
     //     target = parseInt(value)
@@ -16,6 +17,43 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
         destinationCopy.returnFlight.datetime = returnDate;
         setCurrentTrip(destinationCopy);
         forwardStage();
+    }
+
+    function addNewHotel() {
+        const newItem = {
+            dailyCost: "",
+            description: "",
+            link: "",
+            name: "New option",
+            numDays: "",
+            rating: "",
+            roomType: "",
+            stayImgURL: "",
+        }   
+        destinationCopy.stay.push(newItem)
+        setCurrentDestination(destinationCopy)
+    }
+
+    function addNewWorkspace() {
+        const newItem = {
+            name: "New option",
+            dailyCost: "",
+            numDays: "",
+            link: "",
+        }   
+        destinationCopy.workspaces.push(newItem)
+        setCurrentDestination(destinationCopy)
+    }
+
+    function addNewExperience() {
+        const newItem = {
+            name: "New option",
+            cost: "",
+            link: "",
+            imgURL: "",
+        }   
+        destinationCopy.experiences.push(newItem)
+        setCurrentDestination(destinationCopy)
     }
 
     const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
@@ -106,11 +144,12 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     defaultValue={destinationCopy.returnFlight.link}
                     onChange={(e) => destinationCopy.returnFlight.link = e.target.value} />
             </div>
-            <div className='container'>
-                <h2>Hotel Information</h2>
+            <div className='container hotels'>
+                <h2>Hotels</h2>
+                <Button className="primary add" onClick={() => addNewHotel()}>+ New Option</Button>
+                <Expander type="multiple">
                 {destinationCopy.stay.map((item, index) => (
-                    <div className="stay" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Hotel Name*"
                             defaultValue={item.name}
@@ -143,16 +182,16 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             label="Hotel Image*"
                             defaultValue={""}
                             onChange={(e) => item.stayImgURL = e.target.value} />
-                        <Divider />
-                    </div>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
                 <h2>Workspaces</h2>
+                <Button className="primary add" onClick={() => addNewWorkspace()}>+ New Option</Button>
+                <Expander type="multiple">
                 {destinationCopy.workspaces.map((item, index) => (
-                    <div className="workspace" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Name*"
                             defaultValue={item.name}
@@ -170,15 +209,16 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
                         <Divider />
-                    </div>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
                 <h2>Experiences</h2>
+                <Button className="primary add" onClick={() => addNewExperience()}>+ New Option</Button>
+                <Expander type="multiple">
                 {destinationCopy.experiences.map((item, index) => (
-                    <div className="experience" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                         label="Name*"
                         defaultValue={item.name}
@@ -196,9 +236,9 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             defaultValue={''}
                             onChange={(e) => item.imageURL = e.target.value} />
                         <Divider />
-                    </div>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>

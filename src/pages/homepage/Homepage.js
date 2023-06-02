@@ -105,7 +105,8 @@ function Homepage({ signOut }) {
             1: <TripDetails 
                     traveler={currentTraveler} 
                     trip={currentTrip} 
-                    destination={currentDestination} 
+                    destination={currentDestination}
+                    setCurrentDestination={setCurrentDestination} 
                     setCurrentTrip={setTripPlan} 
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
