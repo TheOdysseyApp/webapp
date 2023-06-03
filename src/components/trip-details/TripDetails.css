@@ -31,6 +31,6 @@
 }
 
 .amplify-expander {
-    --amplify-components-expander-background-color: var(--color-light-gray);
+    /* --amplify-components-expander-background-color: var(--color-light-gray); */
     --amplify-components-expander-box-shadow: 0 0 2px;
 }
