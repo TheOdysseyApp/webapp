@@ -30,7 +30,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                 <p>Departing from: {destinationCopy.details.departure}</p>
                 <p>Month of trip: {destinationCopy.details.month}</p>
                 <p>Number of days: {destinationCopy.details.duration}</p>
-                <p>Desired activities: {}</p>
+                <p>Desired activities: {destination.details.activities}</p>
                 <p>Budget: ${}-${}</p>
             </div>
             <div className='container'>
