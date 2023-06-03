@@ -158,6 +158,9 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     <h2>Hotels</h2>
                     <Button className="primary add" onClick={() => addNewItem(destinationCopy.stay, newHotel)}>+ New Option</Button>
                 </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
                 <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.stay.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -203,6 +206,9 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     <h2>Workspaces</h2>
                     <Button className="primary add" onClick={() => addNewItem(destinationCopy.workspaces, newWorkspace)}>+ New Option</Button>
                 </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
                 <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.workspaces.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -232,6 +238,9 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     <h2>Experiences</h2>
                     <Button className="primary add" onClick={() => addNewItem(destinationCopy.experiences, newExperience)}>+ New Option</Button>
                 </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
                 <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.experiences.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
