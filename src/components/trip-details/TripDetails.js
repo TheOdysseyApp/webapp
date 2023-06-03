@@ -18,40 +18,36 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
         forwardStage();
     }
 
-    function addNewHotel() {
-        const newItem = {
-            dailyCost: "",
-            description: "",
-            link: "",
-            name: "New option",
-            numDays: "",
-            rating: "",
-            roomType: "",
-            stayImgURL: "",
-        }   
-        destinationCopy.stay.push(newItem)
-        setCurrentDestination(destinationCopy)
-    }
+    const newHotel = {
+        dailyCost: "",
+        description: "",
+        link: "",
+        name: "New option",
+        numDays: "",
+        rating: "",
+        roomType: "",
+        stayImgURL: "",
+    }  
 
-    function addNewWorkspace() {
-        const newItem = {
-            name: "New option",
-            dailyCost: "",
-            numDays: "",
-            link: "",
-        }   
-        destinationCopy.workspaces.push(newItem)
-        setCurrentDestination(destinationCopy)
-    }
+    const newWorkspace = {
+        name: "New option",
+        dailyCost: "",
+        numDays: "",
+        link: "",
+    } 
 
-    function addNewExperience() {
-        const newItem = {
-            name: "New option",
-            cost: "",
-            link: "",
-            imgURL: "",
-        }   
-        destinationCopy.experiences.push(newItem)
+    const newExperience = {
+        name: "New option",
+        cost: "",
+        link: "",
+        imgURL: "",
+    } 
+
+    // Adding a new item with the same name (i.e. "New option") makes
+    // the expanders open and close together, not a huge bug but something
+    // to fix later
+    function addNewItem(array, item) {
+        array.push(item)
         setCurrentDestination(destinationCopy)
     }
 
@@ -163,7 +159,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
             to close by itself. Not sure how to fix this */}
             <div className='container hotels'>
                 <h2>Hotels</h2>
-                <Button className="primary add" onClick={() => addNewHotel()}>+ New Option</Button>
+                <Button className="primary add" onClick={() => addNewItem(destinationCopy.stay, newHotel)}>+ New Option</Button>
                 <Expander type="multiple">
                 {destinationCopy.stay.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -214,7 +210,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
             </div>
             <div className='container'>
                 <h2>Workspaces</h2>
-                <Button className="primary add" onClick={() => addNewWorkspace()}>+ New Option</Button>
+                <Button className="primary add" onClick={() => addNewItem(destinationCopy.workspaces, newWorkspace)}>+ New Option</Button>
                 <Expander type="multiple">
                 {destinationCopy.workspaces.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -245,7 +241,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
             </div>
             <div className='container'>
                 <h2>Experiences</h2>
-                <Button className="primary add" onClick={() => addNewExperience()}>+ New Option</Button>
+                <Button className="primary add" onClick={() => addNewItem(destinationCopy.experiences, newExperience)}>+ New Option</Button>
                 <Expander type="multiple">
                 {destinationCopy.experiences.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
