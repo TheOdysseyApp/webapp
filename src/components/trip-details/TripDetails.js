@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField, ScrollView, Divider } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
-function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, backStage }) {
-    const destinationCopy = { ...destination }
+function TripDetails({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
+    const destinationCopy = structuredClone(destination)
     // function stringToInt(target, value) {
     //     // TODO: handle invalid args
     //     target = parseInt(value)
@@ -14,8 +14,49 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
     function saveAndContinue() {
         destinationCopy.departingFlight.datetime = departureDate;
         destinationCopy.returnFlight.datetime = returnDate;
-        setCurrentTrip(destinationCopy);
+        setCurrentDestination(destinationCopy);
         forwardStage();
+    }
+
+    const newHotel = {
+        dailyCost: "",
+        description: "",
+        link: "",
+        name: "New option",
+        numDays: "",
+        rating: "",
+        roomType: "",
+        stayImgURL: "",
+    }  
+
+    const newWorkspace = {
+        name: "New option",
+        dailyCost: "",
+        numDays: "",
+        link: "",
+    } 
+
+    const newExperience = {
+        name: "New option",
+        cost: "",
+        link: "",
+        imgURL: "",
+    } 
+
+    // Adding a new item with the same name (i.e. "New option") makes
+    // the expanders open and close together, not a huge bug but something
+    // to fix later
+    function addNewItem(array, item) {
+        array.push(item)
+        setCurrentDestination(destinationCopy)
+    }
+
+    function removeItem(array, item) {
+        const index = array.indexOf(item);
+        if (index !== -1) {
+          array.splice(index, 1);
+          setCurrentDestination(destinationCopy)
+        }
     }
 
     const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
@@ -64,7 +105,10 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
-                <DateTime onChange={setDepartureDate} value={departureDate} label='Departure Date/Time*'/>
+                {/* For some reason, setDepartureDate will revert any changes made to destinationCopy,
+                so forcing destinationCopy to save as the current destination will make sure the changes
+                don't dissapear */}
+                <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setDepartureDate(e)}} value={departureDate} label='Departure Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.departingFlight.link}
@@ -100,17 +144,26 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.returnFlight.cost}
                     onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
-                <DateTime onChange={setReturnDate} value={returnDate} label='Return Date/Time*'/>
+                {/* For some reason, setReturnDate will revert any changes made to destinationCopy,
+                so forcing destinationCopy to save as the current destination will make sure the changes
+                don't dissapear */}
+                <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setReturnDate(e)}} value={returnDate} label='Return Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.returnFlight.link}
                     onChange={(e) => destinationCopy.returnFlight.link = e.target.value} />
             </div>
             <div className='container'>
-                <h2>Hotel Information</h2>
+                <div className="header">
+                    <h2>Hotels</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.stay, newHotel)}>+ New Option</Button>
+                </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
+                <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.stay.map((item, index) => (
-                    <div className="stay" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Hotel Name*"
                             defaultValue={item.name}
@@ -141,18 +194,24 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             onChange={(e) => item.roomType = e.target.value} />
                         <TextField
                             label="Hotel Image*"
-                            defaultValue={""}
+                            defaultValue={item.stayImgURL}
                             onChange={(e) => item.stayImgURL = e.target.value} />
-                        <Divider />
-                    </div>
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.stay, item)}>Remove</Button>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
-                <h2>Workspaces</h2>
+                <div className='header'>
+                    <h2>Workspaces</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.workspaces, newWorkspace)}>+ New Option</Button>
+                </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
+                <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.workspaces.map((item, index) => (
-                    <div className="workspace" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Name*"
                             defaultValue={item.name}
@@ -169,20 +228,26 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             label="Link*"
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
-                        <Divider />
-                    </div>
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.workspaces, item)}>Remove</Button>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
-                <h2>Experiences</h2>
+                <div className='header'>
+                    <h2>Experiences</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.experiences, newExperience)}>+ New Option</Button>
+                </div>
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
+                <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
                 {destinationCopy.experiences.map((item, index) => (
-                    <div className="experience" key={index}>
-                        <h4>Option {index+1}</h4>
+                    <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
-                        label="Name*"
-                        defaultValue={item.name}
-                        onChange={(e) => item.name = e.target.value} />
+                            label="Name*"
+                            defaultValue={item.name}
+                            onChange={(e) => item.name = e.target.value} />
                         <TextField
                             label="Cost (USD)*"
                             defaultValue={item.cost}
@@ -191,14 +256,14 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                             label="Link*"
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
-                                <TextField
+                        <TextField
                             label="Experience Image*"
-                            defaultValue={''}
+                            defaultValue={item.imageURL}
                             onChange={(e) => item.imageURL = e.target.value} />
-                        <Divider />
-                    </div>
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.experiences, item)}>Remove</Button>
+                    </ExpanderItem>
                 ))}
-                
+                </Expander>
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>

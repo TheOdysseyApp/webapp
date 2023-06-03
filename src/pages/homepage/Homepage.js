@@ -21,7 +21,6 @@ function Homepage({ signOut }) {
     // For clarification, Odyssey users can have multiple trips, each trip will
     // have multiple destinations generated (hence the different variables)
     const [currentTrip, setCurrentTrip] = useState(null);
-    const [tripPlan, setTripPlan] = useState(null);
     const [currentDestination, setCurrentDestination] = useState(null);
 
     const [currentTraveler, setCurrentTraveler] = useState(null);
@@ -105,20 +104,20 @@ function Homepage({ signOut }) {
             1: <TripDetails 
                     traveler={currentTraveler} 
                     trip={currentTrip} 
-                    destination={currentDestination} 
-                    setCurrentTrip={setTripPlan} 
+                    destination={currentDestination}
+                    setCurrentDestination={setCurrentDestination} 
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
                 />,
             2: <Review 
                     traveler={currentTraveler}   
-                    destination={tripPlan} 
+                    destination={currentDestination} 
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
                 />,
             3: <Confirmation
                     traveler={currentTraveler}
-                    destination={tripPlan}  
+                    destination={currentDestination}  
                 />
             }[plannerStage]
         }
