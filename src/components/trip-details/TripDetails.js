@@ -105,7 +105,10 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
-                <DateTime onChange={setDepartureDate} value={departureDate} label='Departure Date/Time*'/>
+                {/* For some reason, setDepartureDate will revert any changes made to destinationCopy,
+                so forcing destinationCopy to save as the current destination will make sure the changes
+                don't dissapear */}
+                <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setDepartureDate(e)}} value={departureDate} label='Departure Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.departingFlight.link}
@@ -141,7 +144,10 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     label="Cost (USD)*"
                     defaultValue={destinationCopy.returnFlight.cost}
                     onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
-                <DateTime onChange={setReturnDate} value={returnDate} label='Return Date/Time*'/>
+                {/* For some reason, setReturnDate will revert any changes made to destinationCopy,
+                so forcing destinationCopy to save as the current destination will make sure the changes
+                don't dissapear */}
+                <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setReturnDate(e)}} value={returnDate} label='Return Date/Time*'/>
                 <TextField
                     label="Link*"
                     defaultValue={destinationCopy.returnFlight.link}
