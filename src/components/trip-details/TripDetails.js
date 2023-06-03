@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './TripDetails.css'
-import { Button, TextField, ScrollView, Divider, Expander, ExpanderItem } from "@aws-amplify/ui-react";
+import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-amplify/ui-react";
 import DateTime from '../../components/datetime/DateTime';
 
 
-function TripDetails({ traveler, destination, setCurrentDestination, setCurrentTrip, forwardStage, backStage }) {
+function TripDetails({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
     console.log(destination)
     const destinationCopy = structuredClone(destination)
     // function stringToInt(target, value) {
@@ -15,7 +15,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
     function saveAndContinue() {
         destinationCopy.departingFlight.datetime = departureDate;
         destinationCopy.returnFlight.datetime = returnDate;
-        setCurrentTrip(destinationCopy);
+        setCurrentDestination(destinationCopy);
         forwardStage();
     }
 
@@ -54,6 +54,14 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
         }   
         destinationCopy.experiences.push(newItem)
         setCurrentDestination(destinationCopy)
+    }
+
+    function removeItem(array, item) {
+        const index = array.indexOf(item);
+        if (index !== -1) {
+          array.splice(index, 1);
+          setCurrentDestination(destinationCopy)
+        }
     }
 
     const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
@@ -182,6 +190,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                             label="Hotel Image*"
                             defaultValue={""}
                             onChange={(e) => item.stayImgURL = e.target.value} />
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.stay, item)}>Remove</Button>
                     </ExpanderItem>
                 ))}
                 </Expander>
@@ -208,7 +217,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                             label="Link*"
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
-                        <Divider />
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.workspaces, item)}>Remove</Button>
                     </ExpanderItem>
                 ))}
                 </Expander>
@@ -235,7 +244,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, setCurrentT
                             label="Experience Image*"
                             defaultValue={''}
                             onChange={(e) => item.imageURL = e.target.value} />
-                        <Divider />
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.experiences, item)}>Remove</Button>
                     </ExpanderItem>
                 ))}
                 </Expander>
