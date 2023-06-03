@@ -106,3 +106,7 @@
 .ItinerariesCard:hover .card-content {
     border-color: var(--color-light-gray);
 }
+
+.ItinerariesCard:last-child .card-content {
+    border-bottom: none !important;
+}

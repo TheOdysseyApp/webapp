@@ -110,6 +110,14 @@ button.secondary:active {
   scale: 95% !important;
 }
 
+button.small-btn {
+  font-size: 14px;
+  
+  border: none;
+  transition: .2s;
+  padding: 8px 18px;
+}
+
 /* Components */
 
 .container {
