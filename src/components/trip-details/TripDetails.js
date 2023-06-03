@@ -157,9 +157,11 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
             in the tital of the ExpanderItem, and when it changes React re-renders the
             whole ExpanderItem which defaults to unexpanded, thus causing it to appear
             to close by itself. Not sure how to fix this */}
-            <div className='container hotels'>
-                <h2>Hotels</h2>
-                <Button className="primary add" onClick={() => addNewItem(destinationCopy.stay, newHotel)}>+ New Option</Button>
+            <div className='container'>
+                <div className="header">
+                    <h2>Hotels</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.stay, newHotel)}>+ New Option</Button>
+                </div>
                 <Expander type="multiple">
                 {destinationCopy.stay.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -209,8 +211,10 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 </Expander>
             </div>
             <div className='container'>
-                <h2>Workspaces</h2>
-                <Button className="primary add" onClick={() => addNewItem(destinationCopy.workspaces, newWorkspace)}>+ New Option</Button>
+                <div className='header'>
+                    <h2>Workspaces</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.workspaces, newWorkspace)}>+ New Option</Button>
+                </div>
                 <Expander type="multiple">
                 {destinationCopy.workspaces.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
@@ -240,8 +244,10 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 </Expander>
             </div>
             <div className='container'>
-                <h2>Experiences</h2>
-                <Button className="primary add" onClick={() => addNewItem(destinationCopy.experiences, newExperience)}>+ New Option</Button>
+                <div className='header'>
+                    <h2>Experiences</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.experiences, newExperience)}>+ New Option</Button>
+                </div>
                 <Expander type="multiple">
                 {destinationCopy.experiences.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
