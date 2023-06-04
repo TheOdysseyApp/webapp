@@ -51,12 +51,6 @@ function Homepage({ signOut }) {
             return true ? found !== undefined : false;
         }
     }
-
-    function setTripCompleted() {
-        const newCompleted = previews.filter(p => p.tripId !== currentTripId);
-        setPreviews(newCompleted);
-        setCompletedPreviews([...completedPreviews, previews.find(p => p.tripId === currentTripId)]);
-    }
     
     // Fetches previews on page mount
     useEffect(() => {
@@ -101,9 +95,11 @@ function Homepage({ signOut }) {
 
     useEffect(() => {
         if (plannerStage === 3) {
-            setTripCompleted();
+            const newCompleted = previews.filter(p => p.tripId !== currentTripId);
+            setPreviews(newCompleted);
+            setCompletedPreviews([...completedPreviews, previews.find(p => p.tripId === currentTripId)]);
         }
-    }, [plannerStage])
+    }, [plannerStage, previews, completedPreviews, currentTripId])
 
     return (
         <Grid
