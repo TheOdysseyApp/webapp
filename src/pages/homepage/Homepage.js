@@ -13,6 +13,7 @@ function Homepage({ signOut }) {
     // Previews are small blocks of information that are generated per trip stored
     // in the itinerary_staging dynamodb
     const [previews, setPreviews] = useState(null);
+    const [completedPreviews, setCompletedPreviews] = useState(null);
 
     // Used in Navbar and TravelerInfo to render correct trip
     const [currentTripId, setCurrentTripId] = useState(null);
@@ -42,11 +43,19 @@ function Homepage({ signOut }) {
         setPlannerStage(0);
         window.scrollTo(0, 0);
     }
+
+    function isTripCompleted() {
+        if (completedPreviews) {
+            const found = completedPreviews.find(p => p.tripId === currentTripId);
+            return true ? found !== undefined : false;
+        }
+    }
     
     // Fetches previews on page mount
     useEffect(() => {
         fetchTravelerPreviews().then((r) => {
-            setPreviews(r);
+            setPreviews(r.filter((p) => !p.completed));
+            setCompletedPreviews(r.filter((p) => p.completed));
         })
     }, []);
     
@@ -83,6 +92,14 @@ function Homepage({ signOut }) {
         }
     }, [currentTripId])
 
+    useEffect(() => {
+        if (plannerStage === 3) {
+            const newCompleted = previews.filter(p => p.tripId !== currentTripId);
+            setPreviews(newCompleted);
+            setCompletedPreviews([...completedPreviews, previews.find(p => p.tripId === currentTripId)]);
+        }
+    }, [plannerStage, previews, completedPreviews, currentTripId])
+
     return (
         <Grid
         templateColumns="1.4fr 4fr"
@@ -91,14 +108,15 @@ function Homepage({ signOut }) {
         width="100wh"
         >
         <Navbar signOut={signOut}/>
-        <ItinerariesList previews={previews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
+        <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
         {
             {
-            0: <TravelerInfo 
+            0:  <TravelerInfo 
                     currentTripId={currentTripId}
                     traveler={currentTraveler}
                     trip={currentTrip} 
-                    setCurrentDestination={setCurrentDestination} 
+                    setCurrentDestination={setCurrentDestination}
+                    completed={isTripCompleted()} 
                     forwardStage={() => forwardStage()}
                 />,
             1: <TripDetails 

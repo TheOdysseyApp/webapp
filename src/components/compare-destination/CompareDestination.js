@@ -1,7 +1,7 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './CompareDestination.css'
 
-function CompareDestination({ destination, column, setCurrentDestination, forwardStage }) {
+function CompareDestination({ destination, column, setCurrentDestination, tripPlanned, forwardStage }) {
     function chooseDestination(d) {
         setCurrentDestination(d)
         forwardStage()
@@ -49,9 +49,11 @@ function CompareDestination({ destination, column, setCurrentDestination, forwar
                                 </div>
                             ))}
                         </div>
-                        <div>
-                            <Button className="primary floatBottom" onClick={() => chooseDestination(destination)}>Continue</Button>
-                        </div>
+                        {tripPlanned ? null :
+                            <div>
+                                <Button className="primary floatBottom" onClick={() => chooseDestination(destination)}>Continue</Button>
+                            </div>
+                        }
                     </>
                     :
                     <p>Error loading itinerary</p>

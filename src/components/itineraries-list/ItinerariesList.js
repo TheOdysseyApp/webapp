@@ -1,15 +1,23 @@
 import ItinerariesCard from "./ItinerariesCard";
 import './ItinerariesList.css'
+import React, { useState } from 'react';
 
 import {
     Collection,
-    ScrollView
+    ScrollView,
+    Button
   } from "@aws-amplify/ui-react";
 
-function ItinerariesList({ previews, currentTripId, setCurrentTripId, resetStage }) {
+function ItinerariesList({ previews, completedPreviews, currentTripId, setCurrentTripId, resetStage }) {
+    const [showCompleted, setShowCompleted] = useState(false);
+
     const handleItemClick = (preview) => {
       setCurrentTripId(currentTripId === preview.tripId ? null : preview.tripId)
       resetStage();
+    }
+
+    function toggleCompleted() {
+        setShowCompleted(!showCompleted);
     }
 
     return (
@@ -28,6 +36,9 @@ function ItinerariesList({ previews, currentTripId, setCurrentTripId, resetStage
             <div className="load-list">
               <img alt='loading' src='/images/loading.gif' className="fade"></img>
             </div>
+            <div className="btn-cont" onClick={toggleCompleted}>
+              <Button className="text-btn">{showCompleted ? "Hide completed trips" : "Show completed trips"}</Button>
+            </div>
             <Collection
               items={previews}
               gap="0px"
@@ -43,6 +54,28 @@ function ItinerariesList({ previews, currentTripId, setCurrentTripId, resetStage
                 />
             )}
             </Collection>
+            
+            { showCompleted ?
+                <div className="completed">
+                <h3>Completed Trips</h3>
+                <Collection
+                    items={completedPreviews}
+                    gap="0px"
+                >
+                {/* For each item passed to Navbar, create a card object that contains a
+                TravelerInfo component */}
+                {(preview, index) => (
+                    <ItinerariesCard 
+                    item={preview} 
+                    key={index} 
+                    onClick={() => handleItemClick(preview, index)}
+                    isSelected={preview.tripId === currentTripId}
+                    />
+                )}
+                </Collection>
+                </div>
+                : null
+            }
           </div> :
           <div className="list-content">
             <div className="load-list">
