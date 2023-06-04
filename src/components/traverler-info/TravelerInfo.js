@@ -3,7 +3,6 @@ import CompareDestination from "../compare-destination/CompareDestination"
 import './TravelerInfo.css'
 
 function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
-	console.log(completed)
   	return (
 		<Card
 		columnStart="2"
