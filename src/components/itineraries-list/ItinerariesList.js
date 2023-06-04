@@ -16,8 +16,6 @@ function ItinerariesList({ previews, completedPreviews, currentTripId, setCurren
       resetStage();
     }
 
-    console.log(completedPreviews)
-    console.log(previews)
     function toggleCompleted() {
         setShowCompleted(!showCompleted);
     }

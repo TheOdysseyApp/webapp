@@ -44,6 +44,13 @@ function Homepage({ signOut }) {
         setPlannerStage(0);
         window.scrollTo(0, 0);
     }
+
+    function isTripCompleted() {
+        if (completedPreviews) {
+            const found = completedPreviews.find(p => p.tripId === currentTripId);
+            return true ? found !== undefined : false;
+        }
+    }
     
     // Fetches previews on page mount
     useEffect(() => {
@@ -97,11 +104,12 @@ function Homepage({ signOut }) {
         <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
         {
             {
-            0: <TravelerInfo 
+            0:  <TravelerInfo 
                     currentTripId={currentTripId}
                     traveler={currentTraveler}
                     trip={currentTrip} 
-                    setCurrentDestination={setCurrentDestination} 
+                    setCurrentDestination={setCurrentDestination}
+                    completed={isTripCompleted()} 
                     forwardStage={() => forwardStage()}
                 />,
             1: <TripDetails 

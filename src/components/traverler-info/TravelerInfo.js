@@ -2,7 +2,8 @@ import { Card, View, Grid } from "@aws-amplify/ui-react";
 import CompareDestination from "../compare-destination/CompareDestination"
 import './TravelerInfo.css'
 
-function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, forwardStage }) {
+function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
+	console.log(completed)
   	return (
 		<Card
 		columnStart="2"
@@ -31,9 +32,9 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, fo
 				templateColumns="1fr 1fr 1fr"
 				className="options"
 				>
-					<CompareDestination destination={trip.A} column={1} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} />
-					<CompareDestination destination={trip.B} column={2} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} />
-					<CompareDestination destination={trip.C} column={3} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} style={{border: "none"}}/>
+					<CompareDestination destination={trip.A} column={1} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} tripPlanned={completed}/>
+					<CompareDestination destination={trip.B} column={2} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} tripPlanned={completed} />
+					<CompareDestination destination={trip.C} column={3} setCurrentDestination={setCurrentDestination} forwardStage={forwardStage} tripPlanned={completed} style={{border: "none"}}/>
 				</Grid>
 			</View>
 			: (trip && Object.keys(trip).length === 0) ? 
