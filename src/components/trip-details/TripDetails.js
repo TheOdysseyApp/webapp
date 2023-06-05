@@ -10,12 +10,34 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     //     // TODO: handle invalid args
     //     target = parseInt(value)
     // }
+    console.log(destination)
+    console.log(destinationCopy.details.flightImageURL)
 
-    function saveAndContinue() {
+    function saveAndContinue(event) {
+        event.preventDefault();
         destinationCopy.departingFlight.datetime = departureDate;
         destinationCopy.returnFlight.datetime = returnDate;
-        setCurrentDestination(destinationCopy);
-        forwardStage();
+        // swap out this if statement to validate all object fields
+        // if (noMissingValues(destinationCopy)) {
+        if (true) {
+            setCurrentDestination(destinationCopy);
+            forwardStage();
+        };
+    }
+
+    // checks destination object for missing fields. currently only checks for fields present on the
+    // form, but can be made to look through all object fields by switching out the if statement above
+    function noMissingValues(obj) {
+        for (let key in obj) {
+            if (!obj[key] || obj[key] === '') {
+                console.log(obj)
+                console.log(key)
+                return false
+            } else if (typeof obj[key] === 'object' && obj !== 'itinerary') {
+                if (!noMissingValues(obj[key])) return false
+            }
+        }
+        return true
     }
 
     const newHotel = {
@@ -75,42 +97,65 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 <p>Desired activities: {}</p>
                 <p>Budget: ${}-${}</p>
             </div>
+            <form onSubmit={saveAndContinue}>
             <div className='container'>
                 <h2>Departing Flight</h2>
                 <TextField
                     label="Airline*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.airline}
                     onChange={(e) => destinationCopy.departingFlight.airline = e.target.value} />
                 <TextField
                     label="Departure*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.departure}
                     onChange={(e) => destinationCopy.departingFlight.departure = e.target.value} />
                 <TextField
                     label="Departure Abbreviation*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.departureAbbrev}
                     onChange={(e) => destinationCopy.departingFlight.departureAbbrev = e.target.value} />
                 <TextField
                     label="Arrival*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.arrival}
                     onChange={(e) => destinationCopy.departingFlight.arrival = e.target.value} />
                 <TextField
                     label="Arrival Abbreviation*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.arrivalAbbrev}
                     onChange={(e) => destinationCopy.departingFlight.arrivalAbbrev = e.target.value} />
                 <TextField
                     label="Class*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.class}
                     onChange={(e) => destinationCopy.departingFlight.class = e.target.value} />
                 <TextField
                     label="Cost (USD)*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.cost}
                     onChange={(e) => destinationCopy.departingFlight.cost = e.target.value} />
+                <TextField
+                    label="Flight Image URL*"
+                    required={true}
+                    autoComplete='off'
+                    defaultValue={destinationCopy.details.flightImageURL}
+                    onChange={(e) => destinationCopy.details.flightImageURL = e.target.value} />
                 {/* For some reason, setDepartureDate will revert any changes made to destinationCopy,
                 so forcing destinationCopy to save as the current destination will make sure the changes
                 don't dissapear */}
                 <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setDepartureDate(e)}} value={departureDate} label='Departure Date/Time*'/>
                 <TextField
                     label="Link*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.departingFlight.link}
                     onChange={(e) => destinationCopy.departingFlight.link = e.target.value} />
             </div>
@@ -118,30 +163,44 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 <h2>Return Flight</h2>
                 <TextField
                     label="Airline*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.airline}
                     onChange={(e) => destinationCopy.returnFlight.airline = e.target.value} />
                 <TextField
                     label="Departure*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.departure}
                     onChange={(e) => destinationCopy.returnFlight.departure = e.target.value} />
                 <TextField
                     label="Departure Abbreviation*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.departureAbbrev}
                     onChange={(e) => destinationCopy.returnFlight.departureAbbrev = e.target.value} />
                 <TextField
                     label="Arrival*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.arrival}
                     onChange={(e) => destinationCopy.returnFlight.arrival = e.target.value} />
                 <TextField
                     label="Arrival Abbreviation*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.arrivalAbbrev}
                     onChange={(e) => destinationCopy.returnFlight.arrivalAbbrev = e.target.value} />
                 <TextField
                     label="Class*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.class}
                     onChange={(e) => destinationCopy.returnFlight.class = e.target.value} />
                 <TextField
                     label="Cost (USD)*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.cost}
                     onChange={(e) => destinationCopy.returnFlight.cost = e.target.value} />
                 {/* For some reason, setReturnDate will revert any changes made to destinationCopy,
@@ -150,6 +209,8 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 <DateTime onChange={(e) => {setCurrentDestination(destinationCopy); setReturnDate(e)}} value={returnDate} label='Return Date/Time*'/>
                 <TextField
                     label="Link*"
+                    required={true}
+                    autoComplete='off'
                     defaultValue={destinationCopy.returnFlight.link}
                     onChange={(e) => destinationCopy.returnFlight.link = e.target.value} />
             </div>
@@ -166,35 +227,51 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Hotel Name*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.name}
                             onChange={(e) => item.name = e.target.value} />
                         <TextField
                             label="Daily Cost (USD)*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.dailyCost}
                             onChange={(e) => item.dailyCost = e.target.value} />
                         <TextField
                             label="Description*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.description}
                             onChange={(e) => item.description = e.target.value} />
                         <TextField
                             label="Number of Days*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.numDays}
                             onChange={(e) => item.numDays = e.target.value} />
                         <TextField
                             label="Booking Link*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
                         <TextField
                             label="Hotel Rating*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.rating}
                             onChange={(e) => item.rating = e.target.value} />
                         <TextField
                             label="Room Type*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.roomType}
                             onChange={(e) => item.roomType = e.target.value} />
                         <TextField
                             label="Hotel Image*"
                             defaultValue={item.stayImgURL}
+                            required={true}
+                            autoComplete='off'
                             onChange={(e) => item.stayImgURL = e.target.value} />
                         <Button className="secondary" onClick={() => removeItem(destinationCopy.stay, item)}>Remove</Button>
                     </ExpanderItem>
@@ -214,18 +291,26 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                     <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
                             label="Name*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.name}
                             onChange={(e) => item.name = e.target.value} />
                         <TextField
                             label="Daily Cost (USD)*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.dailyCost}
                             onChange={(e) => item.dailyCost = e.target.value} />
                         <TextField
                             label="Number of Days*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.numDays}
                             onChange={(e) => item.numDays = e.target.value} />
                         <TextField
                             label="Link*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
                         <Button className="secondary" onClick={() => removeItem(destinationCopy.workspaces, item)}>Remove</Button>
@@ -245,20 +330,28 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 {destinationCopy.experiences.map((item, index) => (
                     <ExpanderItem title={item.name} value={item.name} key={index}>
                         <TextField
-                            label="Name*"
-                            defaultValue={item.name}
-                            onChange={(e) => item.name = e.target.value} />
+                        label="Name*"
+                        required={true}
+                        autoComplete='off'
+                        defaultValue={item.name}
+                        onChange={(e) => item.name = e.target.value} />
                         <TextField
                             label="Cost (USD)*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.cost}
                             onChange={(e) => item.cost = e.target.value} />
                         <TextField
                             label="Link*"
+                            required={true}
+                            autoComplete='off'
                             defaultValue={item.link}
                             onChange={(e) => item.link = e.target.value} />
                         <TextField
                             label="Experience Image*"
                             defaultValue={item.imageURL}
+                            required={true}
+                            autoComplete='off'
                             onChange={(e) => item.imageURL = e.target.value} />
                         <Button className="secondary" onClick={() => removeItem(destinationCopy.experiences, item)}>Remove</Button>
                     </ExpanderItem>
@@ -270,6 +363,8 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 {destinationCopy.itinerary.map((item, index) => (
                     <TextField
                         label={`Day ${index + 1}*`}
+                        required={true}
+                        autoComplete='off'
                         defaultValue={item.days.activities}
                         onChange={(e) => item.days.activities = e.target.value} 
                         key={index} />
@@ -277,7 +372,8 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
             </div>
 
             
-            <Button className="primary stage-button" onClick={() => saveAndContinue()} style={{marginBottom: '40px'}}>Continue</Button>
+            <Button type="submit" className="primary stage-button" style={{marginBottom: '40px'}}>Continue</Button>
+            </form>
         </ScrollView>
 
     )
