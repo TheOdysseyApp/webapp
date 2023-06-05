@@ -4,6 +4,7 @@ import React from 'react';
 
 
 export default function Review({ traveler, destination, forwardStage, backStage }) {
+    console.log(destination.activities)
     return (
         <div className="Review">
             <div className="container">
@@ -12,7 +13,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                 <p>Departing from: {destination.details.departure}</p>
                 <p>Month of trip: {destination.details.month}</p>
                 <p>Number of days: {destination.details.duration}</p>
-                <p>Desired activities: {}</p>
+                <p>Desired activities: {destination.activities}</p>
                 <p>Budget: ${}-${}</p>
             </div>
             <div className="container">

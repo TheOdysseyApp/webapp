@@ -28,10 +28,10 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                 <h1>{destinationCopy.details.destination}</h1>
                 <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.tripId}</p></div>
                 <p>Departing from: {destinationCopy.details.departure}</p>
-                <p>Month of trip: {destinationCopy.details.month}</p>
+                <p>Month of trip: {destinationCopy.month}</p>
                 <p>Number of days: {destinationCopy.details.duration}</p>
-                <p>Desired activities: {destination.details.activities}</p>
-                <p>Budget: ${}-${}</p>
+                <p>Desired activities: {destinationCopy.activities}</p>
+                <p>Budget: ${destinationCopy.minim_budget}-${destinationCopy.details.maximum_budget}</p>
             </div>
             <div className='container'>
                 <h2>Departing Flight</h2>
