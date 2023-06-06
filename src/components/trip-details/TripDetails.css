@@ -18,3 +18,50 @@
 .tripdetails .heading-container {
     gap: 10px;
 }
+
+.container .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container Button {
+    float: right;
+}
+
+.amplify-expander {
+    /* --amplify-components-expander-background-color: var(--color-light-gray); */
+    --amplify-components-expander-box-shadow: 0 0 2px;
+}
+
+.tripdetails .amplify-expander__content__text, .tripdetails form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tripdetails .amplify-expander__content__text .secondary {
+    width: fit-content;
+}
+
+.tripdetails .amplify-expander__item .open:focus-within {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.tripdetails .amplify-expander__item {
+    transition: .2s;
+}
+
+.tripdetails .amplify-expander__header {
+    cursor: pointer;
+}
+
+.tripdetails .amplify-expander__trigger {
+    transition: .2s;
+}
+
+.tripdetails form {
+    width: 100%;
+}
