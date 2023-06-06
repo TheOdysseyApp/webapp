@@ -6,7 +6,6 @@ import {
 import './ItinerariesCard.css'
 
 function ItinerariesCard({ item, onClick, isSelected }) {
-    console.log(item)
     return (
         <Card className={isSelected ? "ItinerariesCard selected" : "ItinerariesCard notSelected"} onClick={onClick}>
             <div className={isSelected ? "card-content selected" : "card-content"}>

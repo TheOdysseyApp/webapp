@@ -3,7 +3,8 @@ import CompareDestination from "../compare-destination/CompareDestination"
 import './TravelerInfo.css'
 
 function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
-  	return (
+  console.log(trip)
+	return (
 		<Card
 		columnStart="2"
 		columnEnd="-1"
@@ -15,16 +16,16 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, co
 				<img alt='loading' src='/images/loading.gif' className="loading-traveler fade"/>
 				<div className="header">
 					<h1>{traveler.first_name + " " + traveler.last_name}</h1>
-					<p>{`# ${traveler.tripId}`}</p>
+					<p>{`# ${traveler.id}`}</p>
 					{/* We need to move this information into the traveler object as well
 						which we need to contact backend team about */}
 					<div>
-					<p>{`Departing from: `}</p>
-					<p>{`Month of trip: `}</p>
-					<p>{`Number of Days: `}</p>
+					<p>Departing from: {traveler.departingFrom}</p>
+					<p>Month of trip: {traveler.month ? traveler.month : "Not provided"}</p>
+					<p>Number of Days: {traveler.duration ? traveler.duration : "Not provided"}</p>
 					</div>
-					<p>{`Desired activities: ${"Activity1, Activity2, Activity3"}`}</p>
-					<p>{`Budget: `}</p>
+					<p>Desired activities: {traveler.activities.join(' ,')}</p>
+					<p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
 			
 				</div>
 				<Grid
