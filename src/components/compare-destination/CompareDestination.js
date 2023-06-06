@@ -42,10 +42,10 @@ function CompareDestination({ destination, column, setCurrentDestination, tripPl
                             ))}
                         </div>
                         <div>
-                            {destination.itinerary.map((item, index) => (
+                            {destination.itinerary.days.map((item, index) => (
                                 <div key={index}>
                                     <p><b>Day {index + 1}:</b></p>
-                                    <p>{item.days.activities}</p>
+                                    <p>{item.activities} (${item.cost})</p>
                                 </div>
                             ))}
                         </div>

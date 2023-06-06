@@ -61,6 +61,12 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
         imgURL: "",
     } 
 
+    const newItineraryDay = {
+        activities: "New activity",
+        cost: "",
+        day: "",
+    }
+
     // Adding a new item with the same name (i.e. "New option") makes
     // the expanders open and close together, not a huge bug but something
     // to fix later
@@ -87,8 +93,8 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 <h1>{destinationCopy.details.destination}</h1>
                 <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.id}</p></div>
                 <p>Departing from: {destinationCopy.details.departure ? destinationCopy.details.departure : "Not provided"}</p>
-                <p>Month of trip: {destinationCopy.month ? destinationCopy.month : "Not provided"}</p>
-                <p>Number of days: {destinationCopy.duration ? destinationCopy.duration : "Not provided"}</p>
+                <p>Month of trip: {traveler.month ? traveler.month : "Not provided"}</p>
+                <p>Number of days: {traveler.duration ? traveler.duration : "Not provided"}</p>
                 <p>Desired activities: {traveler.activities ? traveler.activities.join(', ') : "Not provided"}</p>
                 <p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
             </div>
@@ -354,16 +360,44 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
                 </Expander>
             </div>
             <div className='container'>
-                <h2>Itinerary</h2>
-                {destinationCopy.itinerary.map((item, index) => (
-                    <TextField
-                        label={`Day ${index + 1}*`}
-                        required={true}
-                        autoComplete='off'
-                        defaultValue={item.days.activities}
-                        onChange={(e) => item.days.activities = e.target.value} 
-                        key={index} />
+                <div className='header'>
+                    <h2>Itinerary</h2>
+                    <Button className="primary add" onClick={() => addNewItem(destinationCopy.itinerary.days, newItineraryDay)}>+ New Option</Button>
+                </div>
+                <TextField
+                    label="Itinerary Image*"
+                    defaultValue={destinationCopy.itinerary.itineraryImgURL}
+                    required={true}
+                    autoComplete='off'
+                    onChange={(e) => destinationCopy.itinerary.itineraryImgURL = e.target.value} />
+                {/* onValueChange is an event listener that triggers on items expanding/collapsing
+                We're saving destinationCopy into currentDestination when this happens so that 
+                the when someone re-expands, it will show the changes they made */}
+                <Expander type="multiple" onValueChange={() => setCurrentDestination(destinationCopy)}>
+                {destinationCopy.itinerary.days.map((item, index) => (
+                    <ExpanderItem title={`Day ${item.day}: ${item.activities}`} value={`Day ${item.day}: ${item.activities}`} key={index}>
+                        <TextField
+                            label="Day*"
+                            required={true}
+                            autoComplete='off'
+                            defaultValue={item.day}
+                            onChange={(e) => item.day = e.target.value} />
+                        <TextField
+                            label="Activity*"
+                            required={true}
+                            autoComplete='off'
+                            defaultValue={item.activities}
+                            onChange={(e) => item.activities = e.target.value} />
+                        <TextField
+                            label="Cost (USD)*"
+                            required={true}
+                            autoComplete='off'
+                            defaultValue={item.cost}
+                            onChange={(e) => item.cost = e.target.value} />
+                        <Button className="secondary" onClick={() => removeItem(destinationCopy.itinerary.days, item)}>Remove</Button>
+                    </ExpanderItem>
                 ))}
+                </Expander>
             </div>
 
             

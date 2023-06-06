@@ -6,8 +6,9 @@ import React from 'react';
 
 export default function Review({ traveler, destination, forwardStage, backStage }) {
     function confirmTripData() {
-        destination.id = traveler.tripId;
-        createItinerary(destination);
+        const destinationWithId = structuredClone(destination)
+        destinationWithId.id = traveler.tripId;
+        createItinerary(destinationWithId);
         forwardStage();
     }
     return (
@@ -91,10 +92,12 @@ export default function Review({ traveler, destination, forwardStage, backStage 
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>
-                {destination.itinerary.map((item, index) => (
+                <p><b>Image Url: </b>{destination.itinerary.itineraryImgURL}</p>
+                {destination.itinerary.days.map((item, index) => (
                     <div key={index}>
-                        <p><b>Day {index + 1}</b></p>
-                        <p>{item.days.activities}</p>
+                        <p><b>Day {item.day}</b></p>
+                        <p>{item.activities}</p>
+                        <p>Cost (USD): {item.cost}</p>
                     </div>
                 ))}
             </div>
