@@ -64,8 +64,12 @@ function Homepage({ signOut }) {
         if (currentTripId != null) {
             setCurrentTrip("loading");
             fetchItineraries(currentTripId).then((r) => {
-                const { first_name, last_name, id: tripId, userID: userId } = r
-                const traveler = { first_name, last_name,  tripId, userId }
+                const { A, B, C, ...traveler } = r
+
+                // unmarshalling activites manually because unmarshall in api.js doesn't
+                // unmarshall this for some reason.
+                traveler.activities = traveler.activities?.map(item => item.S) ?? [];
+
                 setCurrentTraveler(traveler)
 
                 // TEMPORARY FIX FOR STAYS/HOTELS/EXPERIENCES BEING SINGLE OBJECTS AND NOT LISTS
