@@ -10,18 +10,17 @@ export default function Review({ traveler, destination, forwardStage, backStage 
         createItinerary(destination);
         forwardStage();
     }
-
     return (
         <ScrollView className="review">
             <div className='container heading-container'>
                 <h1>Review</h1>
-                <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.tripId}</p></div>
-                <p>Departing from: {destination.details.departure}</p>
-                <p>Going to: {destination.details.destination}</p>
-                <p>Month of trip: {destination.details.month}</p>
-                <p>Number of days: {destination.details.duration}</p>
-                <p>Desired activities: {}</p>
-                <p>Budget: ${}-${}</p>
+                <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.id}</p></div>
+                <p>Departing from: {traveler.departingFrom ? traveler.departingFrom : "Not provided"}</p>
+                <p>Going to: {destination.details.destination ? destination.details.destination : "Not provided"}</p>
+                <p>Month of trip: {traveler.month ? traveler.month : "Not provided"}</p>
+                <p>Number of days: {traveler.duration ? traveler.duration : "Not provided"}</p>
+                <p>Desired activities: {traveler.activities ? traveler.activities.join(', ') : "Not provided"}</p>
+                <p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
             </div>
             <div className='container'>
                 <h2>Departing Flight</h2>

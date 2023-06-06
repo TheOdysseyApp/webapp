@@ -10,8 +10,6 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     //     // TODO: handle invalid args
     //     target = parseInt(value)
     // }
-    console.log(destination)
-    console.log(destinationCopy.details.flightImageURL)
 
     function saveAndContinue(event) {
         event.preventDefault();
@@ -30,8 +28,6 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     function noMissingValues(obj) {
         for (let key in obj) {
             if (!obj[key] || obj[key] === '') {
-                console.log(obj)
-                console.log(key)
                 return false
             } else if (typeof obj[key] === 'object' && obj !== 'itinerary') {
                 if (!noMissingValues(obj[key])) return false
@@ -84,18 +80,17 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
     const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.datetime);
 
-
     return (
         <ScrollView className='tripdetails'>
             <Button className="secondary stage-button" onClick={backStage}>&lt; Back</Button>
             <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
-                <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.tripId}</p></div>
-                <p>Departing from: {destinationCopy.details.departure}</p>
-                <p>Month of trip: {destinationCopy.details.month}</p>
-                <p>Number of days: {destinationCopy.details.duration}</p>
-                <p>Desired activities: {}</p>
-                <p>Budget: ${}-${}</p>
+                <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.id}</p></div>
+                <p>Departing from: {destinationCopy.details.departure ? destinationCopy.details.departure : "Not provided"}</p>
+                <p>Month of trip: {destinationCopy.month ? destinationCopy.month : "Not provided"}</p>
+                <p>Number of days: {destinationCopy.duration ? destinationCopy.duration : "Not provided"}</p>
+                <p>Desired activities: {traveler.activities ? traveler.activities.join(', ') : "Not provided"}</p>
+                <p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
             </div>
             <form onSubmit={saveAndContinue}>
             <div className='container'>
