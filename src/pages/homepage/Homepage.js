@@ -68,7 +68,7 @@ function Homepage({ signOut }) {
 
                 // unmarshalling activites manually because unmarshall in api.js doesn't
                 // unmarshall this for some reason.
-                traveler.activities = traveler.activities?.map(item => item.S) ?? [];
+                traveler.activities = traveler.activities?.map(item => item.S) ?? ["Not provided"];
 
                 setCurrentTraveler(traveler)
 

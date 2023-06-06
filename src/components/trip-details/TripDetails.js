@@ -80,17 +80,16 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
     const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.datetime);
 
-    console.log(traveler)
     return (
         <ScrollView className='tripdetails'>
             <Button className="secondary stage-button" onClick={backStage}>&lt; Back</Button>
             <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
                 <div className='traveler-heading'><p><b>{traveler.first_name} {traveler.last_name},</b> {traveler.id}</p></div>
-                <p>Departing from: {destinationCopy.details.departure}</p>
+                <p>Departing from: {destinationCopy.details.departure ? destinationCopy.details.departure : "Not provided"}</p>
                 <p>Month of trip: {destinationCopy.month ? destinationCopy.month : "Not provided"}</p>
                 <p>Number of days: {destinationCopy.duration ? destinationCopy.duration : "Not provided"}</p>
-                <p>Desired activities: {traveler.activities.join(", ")}</p>
+                <p>Desired activities: {traveler.activities ? traveler.activities.join(', ') : "Not provided"}</p>
                 <p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
             </div>
             <form onSubmit={saveAndContinue}>

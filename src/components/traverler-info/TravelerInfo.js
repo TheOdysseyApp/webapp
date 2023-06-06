@@ -3,7 +3,6 @@ import CompareDestination from "../compare-destination/CompareDestination"
 import './TravelerInfo.css'
 
 function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
-  console.log(trip)
 	return (
 		<Card
 		columnStart="2"
@@ -20,11 +19,11 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, co
 					{/* We need to move this information into the traveler object as well
 						which we need to contact backend team about */}
 					<div>
-					<p>Departing from: {traveler.departingFrom}</p>
+					<p>Departing from: {traveler.departingFrom ? traveler.departingFrom : "Not provided"}</p>
 					<p>Month of trip: {traveler.month ? traveler.month : "Not provided"}</p>
 					<p>Number of Days: {traveler.duration ? traveler.duration : "Not provided"}</p>
 					</div>
-					<p>Desired activities: {traveler.activities.join(' ,')}</p>
+					<p>Desired activities: {traveler.activities ? traveler.activities.join(', ') : "Not provided"}</p>
 					<p>Budget: ${traveler.minBudget}-${traveler.maxBudget}</p>
 			
 				</div>
