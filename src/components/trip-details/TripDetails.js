@@ -12,7 +12,7 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
     // }
 
     function saveAndContinue() {
-        console.log(destinationCopy)
+       // console.log(destinationCopy)
         setCurrentTrip(destinationCopy)
         forwardStage()
     }
@@ -30,8 +30,8 @@ function TripDetails({ traveler, destination, setCurrentTrip, forwardStage, back
                 <p>Departing from: {destinationCopy.details.departure}</p>
                 <p>Month of trip: {destinationCopy.month}</p>
                 <p>Number of days: {destinationCopy.details.duration}</p>
-                <p>Desired activities: {destinationCopy.activities}</p>
-                <p>Budget: ${destinationCopy.minim_budget}-${destinationCopy.details.maximum_budget}</p>
+                <p>Desired activities: {traveler.activties.join(', ')}</p>
+                <p>Budget: ${}</p>
             </div>
             <div className='container'>
                 <h2>Departing Flight</h2>
