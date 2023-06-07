@@ -43,11 +43,11 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                     <p><b>Arrival: </b>{destination.returnFlight.arrival}</p>
                     <p><b>Arrival Abbreviation: </b>{destination.returnFlight.arrivalAbbrev}</p>
                     <p><b>Class: </b>{destination.returnFlight.class}</p>
-                    <p><b>Cost: </b>{destination.returnFlight.cost}</p>
+                    <p><b>Cost (USD): </b>{destination.returnFlight.cost}</p>
                     <p><b>Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()}</p>
                     <p><b>Link: </b><a href={destination.returnFlight.link} target="_blank" rel="noreferrer">{destination.returnFlight.link}</a></p>
             </div>
-            <div className='container'>
+            <div className='container option'>
                 <h2>Hotel information</h2>
                 {destination.stay.map((item, index) => (
                     <div className="stay" key={index}>
@@ -64,7 +64,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                 ))}
                     
             </div>
-            <div className='container'>
+            <div className='container option'>
                 <h2>Workspaces</h2>
                 {destination.workspaces.map((item, index) => (
                     <div className="workspaces" key={index}>
@@ -77,7 +77,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                 ))}
                     
             </div>
-            <div className='container'>
+            <div className='container option'>
                 <h2>Experiences</h2>
                 {destination.experiences.map((item, index) => (
                     <div className='experiences' key={index} >
