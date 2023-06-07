@@ -6,8 +6,9 @@ import React from 'react';
 
 export default function Review({ traveler, destination, forwardStage, backStage }) {
     function confirmTripData() {
-        destination.id = traveler.tripId;
-        createItinerary(destination);
+        const destinationWithId = structuredClone(destination)
+        destinationWithId.id = traveler.tripId;
+        createItinerary(destinationWithId);
         forwardStage();
     }
     return (
@@ -32,7 +33,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                     <p><b>Class: </b>{destination.departingFlight.class}</p>
                     <p><b>Cost (USD): </b>{destination.departingFlight.cost}</p>
                     <p><b>Date: </b>{new Date(destination.departingFlight.datetime).toLocaleDateString()}</p>
-                    <p><b>Link: </b>{destination.departingFlight.link}</p>
+                    <p><b>Link: </b><a href={destination.departingFlight.link} target="_blank" rel="noreferrer">{destination.departingFlight.link}</a></p>
             </div>
             <div className='container'>
                 <h2>Return Flight</h2>
@@ -44,7 +45,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                     <p><b>Class: </b>{destination.returnFlight.class}</p>
                     <p><b>Cost: </b>{destination.returnFlight.cost}</p>
                     <p><b>Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()}</p>
-                    <p><b>Link: </b>{destination.returnFlight.link}</p>
+                    <p><b>Link: </b><a href={destination.returnFlight.link} target="_blank" rel="noreferrer">{destination.returnFlight.link}</a></p>
             </div>
             <div className='container'>
                 <h2>Hotel information</h2>
@@ -55,10 +56,10 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                         <p><b>Daily Cost (USD): </b>{item.dailyCost}</p>
                         <p><b>Description: </b>{item.description}</p>
                         <p><b>Number of Days: </b>{item.numDays}</p>
-                        <p><b>Booking Link: </b>{item.link}</p>
+                        <p><b>Booking Link: </b><a href={item.link} target="_blank" rel="noreferrer">{item.link}</a></p>
                         <p><b>Hotel Rating: </b>{item.rating}</p>
                         <p><b>Room Type: </b>{item.roomType}</p>
-                        <p><b>Hotel Image: </b>{item.stayImgURL}</p>
+                        <p><b>Hotel Image: </b><a href={item.stayImgURL} target="_blank" rel="noreferrer">{item.stayImgURL}</a></p>
                     </div>
                 ))}
                     
@@ -71,7 +72,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                         <p><b>Name: </b>{item.name}</p>
                         <p><b>Daily Cost (USD): </b>{item.dailyCost}</p>
                         <p><b>Number of Days: </b>{item.numDays}</p>
-                        <p><b>Link: </b>{item.link}</p>
+                        <p><b>Link: </b><a href={item.link} target="_blank" rel="noreferrer">{item.link}</a></p>
                     </div>
                 ))}
                     
@@ -83,18 +84,20 @@ export default function Review({ traveler, destination, forwardStage, backStage 
                         <h4>Option {index + 1}</h4>
                         <p><b>Name: </b>{item.name}</p>
                         <p><b>Cost (USD): </b>{item.cost}</p>
-                        <p><b>Link: </b>{item.link}</p>
-                        <p><b>Experience Image: </b>{item.imageURL}</p>
+                        <p><b>Link: </b><a href={item.link} target="_blank" rel="noreferrer">{item.link}</a></p>
+                        <p><b>Experience Image: </b><a href={item.imageURL} target="_blank" rel="noreferrer">{item.imageURL}</a></p>
                     </div>
                 ))}
                     
             </div>
             <div className='container'>
                 <h2>Itinerary</h2>
-                {destination.itinerary.map((item, index) => (
+                <p><b>Image Url: </b><a href={destination.itinerary.itineraryImgURL} target="_blank" rel="noreferrer">{destination.itinerary.itineraryImgURL}</a></p>
+                {destination.itinerary.days.map((item, index) => (
                     <div key={index}>
-                        <p><b>Day {index + 1}</b></p>
-                        <p>{item.days.activities}</p>
+                        <p><b>Day {item.day}</b></p>
+                        <p>{item.activities}</p>
+                        <p>Cost (USD): {item.cost}</p>
                     </div>
                 ))}
             </div>
