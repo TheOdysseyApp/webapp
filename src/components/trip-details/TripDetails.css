@@ -65,3 +65,7 @@
 .tripdetails form {
     width: 100%;
 }
+
+.tripdetails .primary.stage-button {
+    width: fit-content;
+}
