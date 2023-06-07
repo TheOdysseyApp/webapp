@@ -102,7 +102,8 @@ function Homepage({ signOut }) {
             setPreviews(newCompleted);
             setCompletedPreviews([...completedPreviews, previews.find(p => p.tripId === currentTripId)]);
         }
-    }, [plannerStage, previews, completedPreviews, currentTripId])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [plannerStage])
 
     return (
         <Grid
