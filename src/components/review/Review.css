@@ -27,3 +27,20 @@
 .review .heading-container {
     gap: 10px;
 }
+
+.review .container.option {
+    gap: 30px;
+}
+
+.review a {
+    color: var(--color-dark-gray);
+}
+
+.review p {
+    color: var(--color-dark-gray);
+    margin-top: 6px;
+}
+
+.review p b {
+    color: var(--color-black);
+}
