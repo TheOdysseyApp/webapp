@@ -7,7 +7,7 @@ import React from 'react';
 export default function Review({ traveler, destination, forwardStage, backStage }) {
     function confirmTripData() {
         const destinationWithId = structuredClone(destination)
-        destinationWithId.id = traveler.tripId;
+        destinationWithId.id = traveler.id;
         createItinerary(destinationWithId);
         forwardStage();
     }
