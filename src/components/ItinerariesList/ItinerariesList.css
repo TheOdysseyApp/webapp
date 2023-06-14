@@ -1,18 +1,13 @@
-.ItinerariesListDivider {
-    width: 90%;
-    align-self: center;
-}
-
-.ItinerariesList {
+.itineraries-list {
     background-color: var(--color-light-gray);
     border-right: 1px solid var(--color-gray);
 }
 
-.ItinerariesList .amplify-collection {
+.itineraries-list .amplify-collection {
     padding: 10px;
 }
 
-.ItinerariesList .load-list img {
+.itineraries-list .load-list img {
     position: absolute;
     width: 40%;
     top: 50%;
@@ -22,24 +17,24 @@
     transition: .15s;
 }
 
-.ItinerariesList .list-content {
+.itineraries-list .list-content {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.ItinerariesList .load-list .fade {
+.itineraries-list .load-list .fade {
     opacity: 0;
 }
 
-.ItinerariesList .btn-cont {
+.itineraries-list .btn-cont {
     width: 100%;
     border-bottom: solid 1px var(--color-gray);
     transition: .1s;
     cursor: pointer;
 }
 
-.ItinerariesList button.text-btn {
+.itineraries-list button.text-btn {
     width: 100%;
     margin: 10px 0px;
     padding: 20px 0px;
@@ -52,36 +47,36 @@
 
 }
 
-.ItinerariesList .btn-cont:hover button.text-btn {
+.itineraries-list .btn-cont:hover button.text-btn {
     background-color: var(--color-white);
     border: none;
     scale: 102%;
     color: var(--color-dark-blue);
 }
 
-.ItinerariesList .btn-cont:hover {
+.itineraries-list .btn-cont:hover {
     background-color: var(--color-white);
 }
 
-.ItinerariesList button.text-btn:active, .ItinerariesList button.text-btn:focus {
+.itineraries-list button.text-btn:active, .itineraries-list button.text-btn:focus {
     box-shadow: none;
 }
 
-.ItinerariesList .btn-cont:active button.text-btn {
+.itineraries-list .btn-cont:active button.text-btn {
     scale: 98%;
     background-color: var(--color-light-gray);
 }
 
-.ItinerariesList .btn-cont:active {
+.itineraries-list .btn-cont:active {
     background-color: var(--color-light-gray);
 }
 
-.ItinerariesList .completed h3 {
+.itineraries-list .completed h3 {
     margin: 22px 32px 8px 32px;
     padding: 12px 0px;
     border-bottom: solid 1px var(--color-gray);
 }
 
-.ItinerariesList .completed p, .ItinerariesList .completed h4 {
+.itineraries-list .completed p, .itineraries-list .completed h4 {
     color: #777;
 }

@@ -1,20 +1,20 @@
-.Navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-gray);
   }
   
-  .Navbar h1 {
+  .navbar h1 {
     text-align: left;
   }
   
-  .Navbar img {
+  .navbar img {
     position: absolute;
     left: 42%;
     width: 16%;
   }
   
-  .Navbar button {
+  .navbar button {
     text-align: right;
   }

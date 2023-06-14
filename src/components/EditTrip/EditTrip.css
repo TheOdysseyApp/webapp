@@ -1,4 +1,4 @@
-.tripdetails {
+.edit-trip {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -6,16 +6,16 @@
     gap: 20px;
 }
 
-.tripdetails Button.stage-button {
+.edit-trip Button.stage-button {
     margin: 30px 10% 0px;
 }
 
-.tripdetails .traveler-heading p {
+.edit-trip .traveler-heading p {
     font-size: 24px;
     line-height: 28px;
 }
 
-.tripdetails .heading-container {
+.edit-trip .heading-container {
     gap: 10px;
 }
 
@@ -35,37 +35,37 @@
     --amplify-components-expander-box-shadow: 0 0 2px;
 }
 
-.tripdetails .amplify-expander__content__text, .tripdetails form {
+.edit-trip .amplify-expander__content__text, .edit-trip form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.tripdetails .amplify-expander__content__text .secondary {
+.edit-trip .amplify-expander__content__text .secondary {
     width: fit-content;
 }
 
-.tripdetails .amplify-expander__item .open:focus-within {
+.edit-trip .amplify-expander__item .open:focus-within {
     box-shadow: none !important;
     border: none !important;
 }
 
-.tripdetails .amplify-expander__item {
+.edit-trip .amplify-expander__item {
     transition: .2s;
 }
 
-.tripdetails .amplify-expander__header {
+.edit-trip .amplify-expander__header {
     cursor: pointer;
 }
 
-.tripdetails .amplify-expander__trigger {
+.edit-trip .amplify-expander__trigger {
     transition: .2s;
 }
 
-.tripdetails form {
+.edit-trip form {
     width: 100%;
 }
 
-.tripdetails .primary.stage-button {
+.edit-trip .primary.stage-button {
     width: fit-content;
 }

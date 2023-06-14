@@ -1,5 +1,5 @@
 import { Card, Button } from "@aws-amplify/ui-react";
-import './CompareDestination.css'
+import './TripOption.css'
 
 function CompareDestination({ destination, column, setCurrentDestination, tripPlanned, forwardStage }) {
     function chooseDestination(d) {

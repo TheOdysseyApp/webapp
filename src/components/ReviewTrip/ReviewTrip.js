@@ -1,4 +1,4 @@
-import './Review.css'
+import './ReviewTrip.css'
 import { Button, ScrollView } from "@aws-amplify/ui-react";
 import { createItinerary } from '../../api';
 import React from 'react';
