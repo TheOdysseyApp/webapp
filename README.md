@@ -46,8 +46,21 @@ As a result, features should be developed on separate branches and then merged i
 Amplify allows us to change the branch it follows, so a ```prod``` branch in the future would be a good move.
 
 ## Code structure
-The app has two page, one defined in ```Homepage.js``` and the other defined in ```Dev.js```, which is for testing and debugging components. ```Homepage.js``` consists of three main sections, the top navbar defined in ```Navbar.js```, the sidebar defined in ```ItinerariesList.js```, and the main content of the page. 
 
-The main content of the page is split between four components that are meant to follow one after the other. The first stage is defined in ```CompareTrips.js```, which displays a specific travelers information and the three generated trips for that traveler. This traveler is chosen when the user clicks on one of the itinerary cards in ```ItinerariesList.js```. A button in  ```CompareTrips.js``` switches to the next section called ```EditTrips.js```, which is just editing the values stored in a selected itinerary. ```Review.js``` is next, which displays the information again. Finally, the user can submit the information from the review page which leads to the confirmation page defined at ```Confirmation.js```.
+- /public: images + favicons
+- /src/components: reused React components
+- /src/pages: any pages referenced in ```App.js``` (currently, this is only ```Homepage.js```)
+- /src/pages/Homepage/stages: 4 separate content sections, each displaying a stage in the planning workflow
+- /src/api.js: API calls and their relavant functions
+- /src/App.js: page routing and AWS Amplify authenticator
+- /src/index.css: site-wide styling
+
+The app's main content is located in ```Homepage.js``` and consists of three sections: the navbar component in ```Navbar.js```, the sidebar component in ```ItinerariesList.js```, and the main content. 
+
+The main content of the page is divided into four sections, each handling a different stage in the planning process. The stages are:
+1. ```CompareTrips```, which displays a traveler's information and their three AI-generated trips. The traveler is selected when the user clicks on one of the preview cards in ```ItinerariesList.js```
+2. ```EditTrip```, which allows the planner to edit values for the selected itinerary.
+3. ```Review```, which displays the finished itinerary before submission.
+4. ```Confirmation```, to signal that the itinerary was successfully submitted.
 
 
