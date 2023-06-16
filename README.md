@@ -41,19 +41,19 @@ amplify push
 
 
 ## Deployment
-AWS Amplify will automatically deploy changes from ```main```. So to deploy changes just commit and push to main.
-As a result, features should be developed on separate branches and then merged into main through pull requests to ensure bad code isn't pushed to our live site.
-Amplify allows us to change the branch it follows, so a ```prod``` branch in the future would be a good move.
+
+AWS Amplify will automatically deploy changes from ```main```. To ensure bad code isn't pushed to our live site, features should be developed on separate branches and then merged into main through pull requests.
 
 ## Code structure
 
-- /public: images + favicons
-- /src/components: reused React components
-- /src/pages: any pages referenced in ```App.js``` (currently, this is only ```Homepage.js```)
-- /src/pages/Homepage/stages: 4 separate content sections, each displaying a stage in the planning workflow
-- /src/api.js: API calls and their relavant functions
-- /src/App.js: page routing and AWS Amplify authenticator
-- /src/index.css: site-wide styling
+Important directories and files:
+- ```/public```: images + favicons
+- ```/src/components```: reused React components
+- ```/src/pages```: any pages referenced in ```App.js``` (currently, this is only ```Homepage.js```)
+- ```/src/pages/Homepage/stages```: 4 separate content sections, each displaying a stage in the planning workflow
+- ```/src/api.js```: API calls and their relevant functions
+- ```/src/App.js```: page routing and AWS Amplify authenticator
+- ```/src/index.css```: site-wide styling
 
 The app's main content is located in ```Homepage.js``` and consists of three sections: the navbar component in ```Navbar.js```, the sidebar component in ```ItinerariesList.js```, and the main content. 
 
