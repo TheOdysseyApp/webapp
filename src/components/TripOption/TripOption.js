@@ -1,7 +1,7 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './TripOption.css'
 
-function CompareDestination({ destination, column, setCurrentDestination, tripPlanned, forwardStage }) {
+function TripOption({ destination, column, setCurrentDestination, tripPlanned, forwardStage }) {
     function chooseDestination(d) {
         setCurrentDestination(d)
         forwardStage()
@@ -62,4 +62,4 @@ function CompareDestination({ destination, column, setCurrentDestination, tripPl
     )
 }
 
-export default CompareDestination;
+export default TripOption;
