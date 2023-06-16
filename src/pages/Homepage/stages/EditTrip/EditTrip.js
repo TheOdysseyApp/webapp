@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './EditTrip.css'
 import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-amplify/ui-react";
-import DateTime from '../DateTime/DateTime';
+import DateTime from '../../../../components/DateTime/DateTime';
 
 
 function EditTrip({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
