@@ -7,7 +7,7 @@ import 'react-clock/dist/Clock.css';
 function DateTime({onChange, value, label}) {
 
     return (
-        <div className='dateTime'>
+        <div className='date-time'>
             <p>{label}</p>
             <DateTimePicker onChange={onChange} value={value} disableClock={true} minDetail='year' clearIcon={null}/>
         </div>

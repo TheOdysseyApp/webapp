@@ -4,7 +4,7 @@
     100% { opacity: 1; }
 }
   
-  .ItinerariesCard {
+  .itineraries-card {
     border-radius: 8px;
     margin: -1px 10px 0px 10px;
     padding: 0px;
@@ -15,50 +15,50 @@
     cursor: pointer;
 }
 
-.ItinerariesCard.selected {
+.itineraries-card.selected {
     background-color: var(--color-light-blue);
     color: var(--color-white) !important;
 }
 
-.ItinerariesCard .card-content {
+.itineraries-card .card-content {
     margin: 16px 16px 0px 16px;
     border-bottom: 1px solid var(--color-gray);
     min-height: 94px;
     transition: .06s;
 }
 
-.ItinerariesCard .card-content.selected {
+.itineraries-card .card-content.selected {
     border-bottom: 1px solid rgba(0,0,0,0);
 }
 
-.ItinerariesCard .content {
+.itineraries-card .content {
     padding-bottom: 16px;
     flex-wrap: wrap;
     display: flex;
     transition: .08s;
 }
 
-.ItinerariesCard .content:active {
+.itineraries-card .content:active {
     scale: 97%;
 }
 
-.ItinerariesCardName {
+.itineraries-card-name {
     flex-basis: 65%;
     margin: 0px 0px 0px 0px;
 }
 
-.ItinerariesCardDate {
+.itineraries-card-date {
     flex-basis: 35%;
     margin: 0px 0px 0px 0px;
     text-align: right;
 }
 
-.ItinerariesCardId {
+.itineraries-card-id {
     flex-basis: 100%;
     margin: 0px 0px 0px 0px;
 }
 
-.ItinerariesCardActivities {
+.itineraries-card-activities {
     margin: 0px 0px 0px 0px;
     flex-basis: 100%;
 }
@@ -71,42 +71,42 @@
     border: none !important;
 }
 
-.ItinerariesCard p {
+.itineraries-card p {
     color: #222;
 }
 
-.ItinerariesCard .card-content.selected p {
+.itineraries-card .card-content.selected p {
     color: var(--color-white);
 }
 
-.ItinerariesCard h4 {
+.itineraries-card h4 {
     color: #111;
 }
 
-.ItinerariesCard .card-content.selected h4 {
+.itineraries-card .card-content.selected h4 {
     color: var(--color-white);
 }
 
-.ItinerariesCard:hover {
+.itineraries-card:hover {
     box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.2);
     scale: 102%;
     z-index: 2;
     background-color: var(--color-light-gray);
 }
 
-.ItinerariesCard.selected:hover {
+.itineraries-card.selected:hover {
     z-index: 2;
     background-color: var(--color-light-blue);
 }
 
-.ItinerariesCard:hover .card-content.selected {
+.itineraries-card:hover .card-content.selected {
     border-color: var(--color-light-blue);
 }
 
-.ItinerariesCard:hover .card-content {
+.itineraries-card:hover .card-content {
     border-color: var(--color-light-gray);
 }
 
-.ItinerariesCard:last-child .card-content {
+.itineraries-card:last-child .card-content {
     border-bottom: none !important;
 }

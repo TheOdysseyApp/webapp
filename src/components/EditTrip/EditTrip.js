@@ -1,39 +1,20 @@
 import React, { useState } from 'react';
-import './TripDetails.css'
+import './EditTrip.css'
 import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-amplify/ui-react";
-import DateTime from '../../components/datetime/DateTime';
+import DateTime from '../DateTime/DateTime';
 
 
-function TripDetails({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
+function EditTrip({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
     const destinationCopy = structuredClone(destination)
-    // function stringToInt(target, value) {
-    //     // TODO: handle invalid args
-    //     target = parseInt(value)
-    // }
 
+    // Updates destination info before moving onto the review page.
+    // At the moment, validation only checks whether a field is filled out
     function saveAndContinue(event) {
         event.preventDefault();
         destinationCopy.departingFlight.datetime = departureDate;
         destinationCopy.returnFlight.datetime = returnDate;
-        // swap out this if statement to validate all object fields
-        // if (noMissingValues(destinationCopy)) {
-        if (true) {
-            setCurrentDestination(destinationCopy);
-            forwardStage();
-        };
-    }
-
-    // checks destination object for missing fields. currently only checks for fields present on the
-    // form, but can be made to look through all object fields by switching out the if statement above
-    function noMissingValues(obj) {
-        for (let key in obj) {
-            if (!obj[key] || obj[key] === '') {
-                return false
-            } else if (typeof obj[key] === 'object' && obj !== 'itinerary') {
-                if (!noMissingValues(obj[key])) return false
-            }
-        }
-        return true
+        setCurrentDestination(destinationCopy);
+        forwardStage();
     }
 
     const newHotel = {
@@ -87,7 +68,7 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.datetime);
 
     return (
-        <ScrollView className='tripdetails'>
+        <ScrollView className='edit-trip'>
             <Button className="secondary stage-button" onClick={backStage}>&lt; Back</Button>
             <div className='container heading-container'>
                 <h1>{destinationCopy.details.destination}</h1>
@@ -408,4 +389,4 @@ function TripDetails({ traveler, destination, setCurrentDestination, forwardStag
     )
 }
 
-export default TripDetails;
+export default EditTrip;

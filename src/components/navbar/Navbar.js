@@ -1,13 +1,9 @@
-import {
-    Card,
-    Button,
-  } from "@aws-amplify/ui-react";
-
+import { Card, Button } from "@aws-amplify/ui-react";
 import './Navbar.css'
 
 function Navbar({ signOut }) {
     return (
-        <Card className="Navbar"
+        <Card className="navbar"
           rowStart="1"
           rowEnd="2"
           columnStart="1"

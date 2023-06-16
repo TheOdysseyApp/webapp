@@ -1,9 +1,9 @@
-.TravelerInfo {
+.compare-trips {
     padding: 0px;
     overflow-x: hidden;
 }
 
-.TravelerInfo .header {
+.compare-trips .header {
     display: flex;
     flex-direction: column;
     padding: 40px 48px;
@@ -11,24 +11,24 @@
     gap: 9px;
 }
 
-.TravelerInfoUnselected {
+.compare-trips .traveler-info-unselected {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
 }
 
-.TravelerInfoSelected {
+.compare-trips .traveler-info-selected {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.TravelerInfoSelected .header, .TravelerInfoSelected .options {
+.compare-trips .traveler-info-selected .header, .traveler-info-selected .options {
     animation: fadeIn 0.22s;
 }
 
-.TravelerInfoUnselected h3 {
+.compare-trips .traveler-info-unselected h3 {
     color: var(--color-gray);
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -36,7 +36,7 @@
 
 
 
-.TravelerInfo img.loading-traveler {
+.compare-trips img.loading-traveler {
     position: absolute;
     width: 160px;
     height: 160px;
@@ -47,7 +47,7 @@
     transition: .18s;
 }
 
-.TravelerInfo .loading-traveler.fade {
+.compare-trips .loading-traveler.fade {
     opacity: 0;
 }
 

@@ -1,17 +1,17 @@
 import { Card, View, Grid } from "@aws-amplify/ui-react";
-import CompareDestination from "../compare-destination/CompareDestination"
-import './TravelerInfo.css'
+import CompareDestination from "../TripOption/TripOption"
+import './CompareTrips.css'
 
-function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
+function CompareTrips({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
 	return (
 		<Card
 		columnStart="2"
 		columnEnd="-1"
-		className="TravelerInfo"
+		className="compare-trips"
 		>
 		{
 			(currentTripId && traveler && trip && trip !== "loading" && Object.keys(trip).length !== 0) ? 
-			<View className="TravelerInfoSelected">
+			<View className="traveler-info-selected">
 				<img alt='loading' src='/images/loading.gif' className="loading-traveler fade"/>
 				<div className="header">
 					<h1>{traveler.first_name + " " + traveler.last_name}</h1>
@@ -37,15 +37,15 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, co
 				</Grid>
 			</View>
 			: (trip && Object.keys(trip).length === 0) ? 
-			<View className="TravelerInfoUnselected">
+			<View className="traveler-info-unselected">
 				<h3 className="noTraveler">Server error</h3>
 			</View>
 			: (trip === "loading") ?
-			<View className="TravelerInfoSelected">
+			<View className="traveler-info-selected">
 				<img alt='loading' src='/images/loading.gif' className="loading-traveler"/>
 			</View>
 			:
-			<View className="TravelerInfoUnselected">
+			<View className="traveler-info-unselected">
 				<h3 className="noTraveler">Select a traveler to get started</h3>
 			</View>
 		}
@@ -53,4 +53,4 @@ function TravelerInfo({ currentTripId, traveler, trip, setCurrentDestination, co
 	)
 }
 
-export default TravelerInfo;
+export default CompareTrips;

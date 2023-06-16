@@ -1,9 +1,9 @@
-import Navbar from "../../components/navbar/Navbar";
-import ItinerariesList from "../../components/itineraries-list/ItinerariesList";
-import TravelerInfo from "../../components/traverler-info/TravelerInfo";
-import Confirmation from "../../components/confirmation/Confirmation";
-import TripDetails from "../../components/trip-details/TripDetails";
-import Review from "../../components/review/Review"
+import Navbar from "../../components/Navbar/Navbar";
+import ItinerariesList from "../../components/ItinerariesList/ItinerariesList";
+import CompareTrips from "../../components/CompareTrips/CompareTrips";
+import Confirmation from "../../components/Confirmation/Confirmation";
+import EditTrip from "../../components/EditTrip/EditTrip";
+import Review from "../../components/ReviewTrip/ReviewTrip"
 
 import { fetchItineraries, fetchTravelerPreviews } from "../../api";
 import React, { useEffect, useState } from 'react';
@@ -15,10 +15,10 @@ function Homepage({ signOut }) {
     const [previews, setPreviews] = useState(null);
     const [completedPreviews, setCompletedPreviews] = useState(null);
 
-    // Used in Navbar and TravelerInfo to render correct trip
+    // Used in CompareTrips to render correct trip
     const [currentTripId, setCurrentTripId] = useState(null);
 
-    // This state is set in TravelerInfo, and used in Trip details
+    // This state is set in CompareTrips, and used in Trip details
     // For clarification, Odyssey users can have multiple trips, each trip will
     // have multiple destinations generated (hence the different variables)
     const [currentTrip, setCurrentTrip] = useState(null);
@@ -116,7 +116,7 @@ function Homepage({ signOut }) {
         <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
         {
             {
-            0:  <TravelerInfo 
+            0:  <CompareTrips 
                     currentTripId={currentTripId}
                     traveler={currentTraveler}
                     trip={currentTrip} 
@@ -124,7 +124,7 @@ function Homepage({ signOut }) {
                     completed={isTripCompleted()} 
                     forwardStage={() => forwardStage()}
                 />,
-            1: <TripDetails 
+            1: <EditTrip 
                     traveler={currentTraveler} 
                     trip={currentTrip} 
                     destination={currentDestination}
