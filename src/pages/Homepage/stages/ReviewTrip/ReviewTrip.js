@@ -1,10 +1,10 @@
 import './ReviewTrip.css'
 import { Button, ScrollView } from "@aws-amplify/ui-react";
-import { createItinerary } from '../../api';
+import { createItinerary } from '../../../../api';
 import React from 'react';
 
 
-export default function Review({ traveler, destination, forwardStage, backStage }) {
+export default function ReviewTrip({ traveler, destination, forwardStage, backStage }) {
     function confirmTripData() {
         const destinationWithId = structuredClone(destination)
         destinationWithId.id = traveler.id;

@@ -1,9 +1,9 @@
 import Navbar from "../../components/Navbar/Navbar";
 import ItinerariesList from "../../components/ItinerariesList/ItinerariesList";
-import CompareTrips from "../../components/CompareTrips/CompareTrips";
-import Confirmation from "../../components/Confirmation/Confirmation";
-import EditTrip from "../../components/EditTrip/EditTrip";
-import Review from "../../components/ReviewTrip/ReviewTrip"
+import CompareTrips from "./stages/CompareTrips/CompareTrips";
+import Confirmation from "./stages/Confirmation/Confirmation";
+import EditTrip from "./stages/EditTrip/EditTrip";
+import ReviewTrip from "./stages/ReviewTrip/ReviewTrip"
 
 import { fetchItineraries, fetchTravelerPreviews } from "../../api";
 import React, { useEffect, useState } from 'react';
@@ -132,7 +132,7 @@ function Homepage({ signOut }) {
                     forwardStage={() => forwardStage()} 
                     backStage={() => backStage()}
                 />,
-            2: <Review 
+            2: <ReviewTrip 
                     traveler={currentTraveler}   
                     destination={currentDestination} 
                     forwardStage={() => forwardStage()} 
