@@ -40,6 +40,7 @@ amplify push
 ```
 
 
-## Todo:
-
-* Write down deployment steps
+## Deployment
+AWS Amplify will automatically deploy changes from ```main```. So to deploy changes just commit and push to main.
+As a result, features should be developed on separate branches and then merged into main through pull requests to ensure bad code isn't pushed to our live site.
+Amplify allows us to change the branch it follows, so a ```prod``` branch in the future would be a good move.
