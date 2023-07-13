@@ -1,4 +1,5 @@
-import Navbar from "../../components/Navbar/Navbar";
+// import Navbar from "../../components/Navbar/Navbar";
+import Navbar from '../../components/navbar/Navbar'
 import ItinerariesList from "../../components/ItinerariesList/ItinerariesList";
 import CompareTrips from "./stages/CompareTrips/CompareTrips";
 import Confirmation from "./stages/Confirmation/Confirmation";
@@ -25,7 +26,7 @@ function Homepage({ signOut }) {
     const [currentDestination, setCurrentDestination] = useState(null);
 
     const [currentTraveler, setCurrentTraveler] = useState(null);
-    
+
     // This state and the functions that follow control which component is rendered 
     // as the main content of the page. The component that is rendered is assigned
     // an integer that represents the order of the "flow" of the components.
@@ -50,7 +51,7 @@ function Homepage({ signOut }) {
             return true ? found !== undefined : false;
         }
     }
-    
+
     // Fetches previews on page mount
     useEffect(() => {
         fetchTravelerPreviews().then((r) => {
@@ -58,7 +59,7 @@ function Homepage({ signOut }) {
             setCompletedPreviews(r.filter((p) => p.completed));
         })
     }, []);
-    
+
     // Refetch itinerary data whenever currentTravelerId changes
     useEffect(() => {
         if (currentTripId != null) {
@@ -77,7 +78,6 @@ function Homepage({ signOut }) {
                 // once traveler api is updated to have these set as lists, then we can remove
                 // this
                 const trips = [r.A, r.B, r.C]
-
                 trips.forEach((item) => {
                     if (!Array.isArray(item.experiences)) {
                         item.experiences = [item.experiences]
@@ -102,49 +102,49 @@ function Homepage({ signOut }) {
             setPreviews(newCompleted);
             setCompletedPreviews([...completedPreviews, previews.find(p => p.tripId === currentTripId)]);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [plannerStage])
 
     return (
         <Grid
-        templateColumns="1.4fr 4fr"
-        templateRows="55px 6fr"
-        height="100vh"
-        width="100wh"
-        >
-        <Navbar signOut={signOut}/>
-        <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()}/>
-        {
+            templateColumns="1.4fr 4fr"
+            templateRows="55px 6fr"
+            height="100vh"
+            width="100wh"
+            >
+            <Navbar signOut={signOut} />
+            <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()} />
             {
-            0:  <CompareTrips 
-                    currentTripId={currentTripId}
-                    traveler={currentTraveler}
-                    trip={currentTrip} 
-                    setCurrentDestination={setCurrentDestination}
-                    completed={isTripCompleted()} 
-                    forwardStage={() => forwardStage()}
-                />,
-            1: <EditTrip 
-                    traveler={currentTraveler} 
-                    trip={currentTrip} 
-                    destination={currentDestination}
-                    setCurrentDestination={setCurrentDestination} 
-                    forwardStage={() => forwardStage()} 
-                    backStage={() => backStage()}
-                />,
-            2: <Review 
-                    traveler={currentTraveler}   
-                    destination={currentDestination} 
-                    forwardStage={() => forwardStage()} 
-                    backStage={() => backStage()}
-                />,
-            3: <Confirmation
-                    traveler={currentTraveler}
-                    destination={currentDestination}  
-                />
-            }[plannerStage]
-        }
-        </Grid> 
+                {
+                    0: <CompareTrips
+                        currentTripId={currentTripId}
+                        traveler={currentTraveler}
+                        trip={currentTrip}
+                        setCurrentDestination={setCurrentDestination}
+                        completed={isTripCompleted()}
+                        forwardStage={() => forwardStage()}
+                    />,
+                    1: <EditTrip
+                        traveler={currentTraveler}
+                        trip={currentTrip}
+                        destination={currentDestination}
+                        setCurrentDestination={setCurrentDestination}
+                        forwardStage={() => forwardStage()}
+                        backStage={() => backStage()}
+                    />,
+                    2: <Review
+                        traveler={currentTraveler}
+                        destination={currentDestination}
+                        forwardStage={() => forwardStage()}
+                        backStage={() => backStage()}
+                    />,
+                    3: <Confirmation
+                        traveler={currentTraveler}
+                        destination={currentDestination}
+                    />
+                }[plannerStage]
+            }
+        </Grid>
     )
 }
 

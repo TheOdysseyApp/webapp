@@ -8,6 +8,7 @@ export default function Review({ traveler, destination, forwardStage, backStage 
     function confirmTripData() {
         const destinationWithId = structuredClone(destination)
         destinationWithId.id = traveler.id;
+        destinationWithId.userID = traveler.userID;
         createItinerary(destinationWithId);
         forwardStage();
     }

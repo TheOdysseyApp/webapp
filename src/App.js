@@ -8,7 +8,15 @@ import {
   withAuthenticator,
   View,
 } from "@aws-amplify/ui-react";
-
+// // Impose a condition that the email must end with "@odyssey.com"
+// if (!email.endsWith("@odyssey.com")) {
+//   const error = new Error(": Please enter an email ending in @odyssey.com");
+//   // Return the error to Amazon Cognito
+//   callback(error, event);
+// } else {
+//   // Return the event object to Amazon Cognito
+//   callback(null, event);
+// }
 function App({ signOut }) {
 
   return (

@@ -4,9 +4,10 @@ export const fetchTravelerPreviews = async () => {
     try {
         const response = await fetch('https://jv5lg0evra.execute-api.us-west-2.amazonaws.com/test/traveler-preview');
         if (!response.ok) {
-        throw new Error();
+            throw new Error();
         }
         const json = await response.json();
+        if (!json) return []
         // Converting dates from strings into json date representation 
         const datedResponse = JSON.parse(json).map((preview) => {
             return {
@@ -15,6 +16,7 @@ export const fetchTravelerPreviews = async () => {
             }
         })
         const sortedItems = datedResponse.sort((a, b) => new Date(a.date) - new Date(b.date))
+        console.log("sortedItems",sortedItems)
         return sortedItems
     } catch (error) {
         throw new Error('Error fetching data:', error);
