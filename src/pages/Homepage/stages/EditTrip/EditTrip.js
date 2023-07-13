@@ -4,7 +4,7 @@ import { Button, TextField, ScrollView, Expander, ExpanderItem } from "@aws-ampl
 import DateTime from '../../../../components/datetime/DateTime';
 
 
-function EditTrip({ traveler, destination, setCurrentDestination, forwardStage, backStage }) {
+export const EditTrip = ({ traveler, destination, setCurrentDestination, forwardStage, backStage }) => {
     const destinationCopy = structuredClone(destination)
 
     // Updates destination info before moving onto the review page.
@@ -388,5 +388,3 @@ function EditTrip({ traveler, destination, setCurrentDestination, forwardStage, 
 
     )
 }
-
-export default EditTrip;

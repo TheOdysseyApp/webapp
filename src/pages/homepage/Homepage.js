@@ -2,10 +2,12 @@
 import Navbar from '../../components/navbar/Navbar'
 import { ItinerariesList } from '../../components';
 // import ItinerariesList from '../../components/itinerariesList/ItinerariesList';
-import CompareTrips from "./stages/compareTrips/CompareTrips";
-import Confirmation from "./stages/confirmation/Confirmation";
-import EditTrip from "./stages/editTrip/EditTrip";
-import Review from "./stages/reviewTrip/ReviewTrip"
+
+// import CompareTrips from "./stages/compareTrips/CompareTrips";
+// import Confirmation from "./stages/confirmation/Confirmation";
+// import EditTrip from "./stages/editTrip/EditTrip";
+// import Review from "./stages/reviewTrip/ReviewTrip"
+import { CompareTrips, Confirmation, EditTrip, Review } from './stages';
 
 import { fetchItineraries, fetchTravelerPreviews } from "../../api";
 import React, { useEffect, useState } from 'react';
@@ -112,7 +114,7 @@ export default function Homepage({ signOut }) {
             templateRows="55px 6fr"
             height="100vh"
             width="100wh"
-            >
+        >
             <Navbar signOut={signOut} />
             <ItinerariesList previews={previews} completedPreviews={completedPreviews} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} resetStage={() => resetStage()} />
             {

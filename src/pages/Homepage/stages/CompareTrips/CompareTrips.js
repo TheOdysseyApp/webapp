@@ -2,7 +2,7 @@ import { Card, View, Grid } from "@aws-amplify/ui-react";
 import TripOption from "../../../../components/TripOption/TripOption"
 import './CompareTrips.css'
 
-function CompareTrips({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) {
+export const CompareTrips = ({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) => {
 	return (
 		<Card
 		columnStart="2"
@@ -52,5 +52,3 @@ function CompareTrips({ currentTripId, traveler, trip, setCurrentDestination, co
 		</Card>
 	)
 }
-
-export default CompareTrips;
