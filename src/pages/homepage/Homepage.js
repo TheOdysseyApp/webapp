@@ -7,7 +7,7 @@ import { ItinerariesList } from '../../components';
 // import Confirmation from "./stages/confirmation/Confirmation";
 // import EditTrip from "./stages/editTrip/EditTrip";
 // import Review from "./stages/reviewTrip/ReviewTrip"
-import { CompareTrips, Confirmation, EditTrip, Review } from './stages';
+import { CompareTrips, Confirmation, EditTrip, Review } from '../homepage/stages';
 
 import { fetchItineraries, fetchTravelerPreviews } from "../../api";
 import React, { useEffect, useState } from 'react';
