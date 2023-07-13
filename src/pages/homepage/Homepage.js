@@ -1,16 +1,16 @@
 // import Navbar from "../../components/Navbar/Navbar";
 import Navbar from '../../components/navbar/Navbar'
-import ItinerariesList from "../../components/ItinerariesList/ItinerariesList";
-import CompareTrips from "./stages/CompareTrips/CompareTrips";
-import Confirmation from "./stages/Confirmation/Confirmation";
-import EditTrip from "./stages/EditTrip/EditTrip";
-import Review from "./stages/ReviewTrip/ReviewTrip"
+import ItinerariesList from "../../components/itinerariesList/ItinerariesList";
+import CompareTrips from "./stages/compareTrips/CompareTrips";
+import Confirmation from "./stages/confirmation/Confirmation";
+import EditTrip from "./stages/editTrip/EditTrip";
+import Review from "./stages/reviewTrip/ReviewTrip"
 
 import { fetchItineraries, fetchTravelerPreviews } from "../../api";
 import React, { useEffect, useState } from 'react';
 import { Grid } from "@aws-amplify/ui-react";
 
-function Homepage({ signOut }) {
+export default function Homepage({ signOut }) {
     // Previews are small blocks of information that are generated per trip stored
     // in the itinerary_staging dynamodb
     const [previews, setPreviews] = useState(null);
@@ -147,5 +147,3 @@ function Homepage({ signOut }) {
         </Grid>
     )
 }
-
-export default Homepage;
