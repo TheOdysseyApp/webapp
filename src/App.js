@@ -2,8 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "@aws-amplify/ui-react/styles.css";
 import './App.css';
-import Homepage from "../src/pages/Homepage/Homepage";
-
+import Homepage from "./pages/homepage/Homepage";
 import {
   withAuthenticator,
   View,
