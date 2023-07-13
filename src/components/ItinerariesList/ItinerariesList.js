@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import ItinerariesCard from "./ItinerariesCard";
 import './ItinerariesList.css'
-import React, { useState } from 'react';
 import { Collection, ScrollView, Button } from "@aws-amplify/ui-react";
 
-export default function ItinerariesList({ previews, completedPreviews, currentTripId, setCurrentTripId, resetStage }) {
+function ItinerariesList({ previews, completedPreviews, currentTripId, setCurrentTripId, resetStage }) {
     const [showCompleted, setShowCompleted] = useState(false);
 
     const handleItemClick = (preview) => {
@@ -81,3 +81,5 @@ export default function ItinerariesList({ previews, completedPreviews, currentTr
       </ScrollView>
     )
 }
+
+export default ItinerariesList;

@@ -1,6 +1,6 @@
 // import Navbar from "../../components/Navbar/Navbar";
 import Navbar from '../../components/navbar/Navbar'
-import ItinerariesList from "../../components/itinerariesList/ItinerariesList";
+import ItinerariesList from '../../components/itinerariesList/ItinerariesList';
 import CompareTrips from "./stages/compareTrips/CompareTrips";
 import Confirmation from "./stages/confirmation/Confirmation";
 import EditTrip from "./stages/editTrip/EditTrip";
