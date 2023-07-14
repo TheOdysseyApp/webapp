@@ -13,7 +13,7 @@ export const ItinerariesList = ({ previews, completedPreviews, currentTripId, se
 
     function toggleCompleted() {
         setShowCompleted(!showCompleted);
-    }
+    }\
 
     return (
         <ScrollView 
