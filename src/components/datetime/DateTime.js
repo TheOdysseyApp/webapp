@@ -4,8 +4,7 @@ import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 
-function DateTime({onChange, value, label}) {
-
+export const DateTime = ({onChange, value, label}) => {
     return (
         <div className='date-time'>
             <p>{label}</p>
@@ -13,4 +12,3 @@ function DateTime({onChange, value, label}) {
         </div>
     )
 }
-export default DateTime;
