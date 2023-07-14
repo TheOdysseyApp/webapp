@@ -1,7 +1,7 @@
 import { Card, Button } from "@aws-amplify/ui-react";
 import './Navbar.css'
 
-function Navbar({ signOut }) {
+export const Navbar = ({ signOut }) => {
     return (
         <Card className="navbar"
           rowStart="1"
@@ -17,5 +17,3 @@ function Navbar({ signOut }) {
         </Card>
     )
 }
-
-export default Navbar;

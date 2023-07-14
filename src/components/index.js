@@ -1,1 +1,1 @@
-export { ItinerariesList } from './ItinerariesList/ItinerariesList'
+export { ItinerariesList } from './itinerarieslist/ItinerariesList'

@@ -1,5 +1,5 @@
 import { Card, View, Grid } from "@aws-amplify/ui-react";
-import TripOption from "../../../../components/TripOption/TripOption"
+import TripOption from "../../../../components/tripoption/TripOption"
 import './CompareTrips.css'
 
 export const CompareTrips = ({ currentTripId, traveler, trip, setCurrentDestination, completed, forwardStage }) => {
