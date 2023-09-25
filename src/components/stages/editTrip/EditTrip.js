@@ -9,8 +9,10 @@ export const EditTrip = ({ traveler, destination, setCurrentDestination, forward
     // At the moment, validation only checks whether a field is filled out
     function saveAndContinue(event) {
         event.preventDefault();
-        destinationCopy.departingFlight.datetime = departureDate;
-        destinationCopy.returnFlight.datetime = returnDate;
+        destinationCopy.departingFlight.departureTimeFromOrigin = departureDate;
+        destinationCopy.departingFlight.ArrivalTimeToDestination = departureLandDate;
+        destinationCopy.returnFlight.departureTimeFromDestination = returnDate;
+        destinationCopy.returnFlight.ArrivalTimeToOrigin = returnLandDate;
         setCurrentDestination(destinationCopy);
         forwardStage();
     }
@@ -62,8 +64,10 @@ export const EditTrip = ({ traveler, destination, setCurrentDestination, forward
         }
     }
 
-    const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.datetime);
-    const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.datetime);
+    const [departureDate, setDepartureDate] = useState(destinationCopy.departingFlight.departureTimeFromOrigin);
+    const [departureLandDate, setDepartureLandDate] = useState(destinationCopy.departingFlight.ArrivalTimeToDestination);
+    const [returnDate, setReturnDate] = useState(destinationCopy.returnFlight.departureTimeFromDestination);
+    const [returnLandDate, setReturnLandDate] = useState(destinationCopy.returnFlight.ArrivalTimeToOrigin);
 
     return (
         <ScrollView className='edit-trip'>

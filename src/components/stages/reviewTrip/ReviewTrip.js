@@ -33,7 +33,7 @@ export const Review = ({ traveler, destination, forwardStage, backStage }) => {
                     <p><b>Arrival Abbreviation: </b>{destination.departingFlight.arrivalAbbrev}</p>
                     <p><b>Class: </b>{destination.departingFlight.class}</p>
                     <p><b>Cost (USD): </b>{destination.departingFlight.cost}</p>
-                    <p><b>Date: </b>{new Date(destination.departingFlight.datetime).toLocaleDateString()}</p>
+                    <p><b>Date: </b>{new Date(destination.departingFlight.departureTimeFromOrigin).toLocaleDateString()}</p>
                     <p><b>Link: </b><a href={destination.departingFlight.link} target="_blank" rel="noreferrer">{destination.departingFlight.link}</a></p>
             </div>
             <div className='container'>
@@ -45,7 +45,7 @@ export const Review = ({ traveler, destination, forwardStage, backStage }) => {
                     <p><b>Arrival Abbreviation: </b>{destination.returnFlight.arrivalAbbrev}</p>
                     <p><b>Class: </b>{destination.returnFlight.class}</p>
                     <p><b>Cost (USD): </b>{destination.returnFlight.cost}</p>
-                    <p><b>Date: </b>{new Date(destination.returnFlight.datetime).toLocaleDateString()}</p>
+                    <p><b>Date: </b>{new Date(destination.returnFlight.departureTimeFromDestination).toLocaleDateString()}</p>
                     <p><b>Link: </b><a href={destination.returnFlight.link} target="_blank" rel="noreferrer">{destination.returnFlight.link}</a></p>
             </div>
             <div className='container option'>
